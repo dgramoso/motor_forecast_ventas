@@ -10,16 +10,27 @@ from src.datos.cargar_datos import cargar_ventas, serie_por_sku
 from src.forecast.backtest import backtest_walk_forward
 from src.forecast.benchmark import pronosticar_seasonal_naive
 from src.forecast.modelo import pronosticar_modelo
+from src.forecast.modelo_prophet import pronosticar_prophet
+from src.forecast.modelo_random_forest import pronosticar_random_forest
+from src.forecast.modelo_sarima import pronosticar_sarima
+from src.forecast.modelo_xgboost import pronosticar_xgboost
 
 HORIZONTE = 3
 VENTANA_MINIMA = 24
 
 # Candidatos que compiten por el título de "mejor modelo" — el benchmark
 # participa en el mismo ranking, no es un caso especial (spec.md:19,
-# decisión del ticket 01).
+# decisión del ticket 01). "ets_tsb" es el router de modelo.py (ETS o TSB
+# según intermitencia, ver modelo.py); se llama así y no "modelo" para no
+# quedar ambiguo junto a los demás candidatos, que también son modelos
+# (ver issue 08).
 CANDIDATOS = {
     "benchmark": pronosticar_seasonal_naive,
-    "modelo": pronosticar_modelo,
+    "ets_tsb": pronosticar_modelo,
+    "sarima": pronosticar_sarima,
+    "xgboost": pronosticar_xgboost,
+    "prophet": pronosticar_prophet,
+    "random_forest": pronosticar_random_forest,
 }
 
 

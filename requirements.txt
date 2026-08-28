@@ -3,3 +3,6 @@ numpy>=2.0
 scipy>=1.14
 statsmodels>=0.15
 pyarrow>=18.0
+scikit-learn>=1.5
+xgboost>=2.0
+prophet>=1.1

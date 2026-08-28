@@ -24,6 +24,7 @@ persistencia versionada de pronósticos y corridas de modelo.
 - [Generación del pronóstico futuro](issues/05-pronostico-futuro.md): `src/forecast/pronosticar_futuro.py` — ajusta el candidato ganador sobre todo el histórico y pronostica el horizonte (3 meses) hacia adelante.
 - [Persistencia](issues/06-persistencia.md): `src/forecast/persistencia.py` — append-only sobre `data/runs/*.parquet` (gitignored, es output generado); `obtener_pronostico_vigente` deriva el vigente por timestamp.
 - [Integración end-to-end](issues/07-integracion-end-to-end.md): `src/forecast/pipeline.py` — `ejecutar_pipeline()` y `main()` (`python -m src.forecast.pipeline`) corren todo el flujo sobre los 5 SKUs sintéticos.
+- [Agregar modelos SARIMA, XGBoost, Prophet, Random Forest](issues/08-agregar-modelos-sarima-xgboost-prophet-rf.md): 4 candidatos independientes más en `comparar_modelos.CANDIDATOS`, mismo contrato defensivo que ETS; se renombra la clave `"modelo"` → `"ets_tsb"` para no quedar ambigua.
 
 ## Not yet specified
 
