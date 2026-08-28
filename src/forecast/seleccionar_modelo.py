@@ -11,7 +11,16 @@ DECIMALES_EMPATE = 3
 
 
 def seleccionar_mejor_modelo_sku(tabla_comparativa_sku: pd.DataFrame) -> dict:
-    """`tabla_comparativa_sku` es la salida de `comparar_modelos_sku` para un SKU."""
+    """`tabla_comparativa_sku` es la salida de `comparar_modelos_sku` para un SKU.
+
+    Si el `wape_medio` del ganador es `NaN`, el SKU no tuvo ninguna
+    ventana del backtest con demanda real distinta de cero — el WAPE
+    queda indefinido para los 6 candidatos por igual (ver
+    metricas.wape), así que no hubo comparación real entre ellos.
+    `sort_values` deja ganar al primero del diccionario `CANDIDATOS` en
+    ese caso (orden estable, todos empatados en NaN/NaN) — no es una
+    elección con fundamento, así que queda marcado explícitamente en
+    `sin_datos_suficientes` en vez de reportarse como un ganador más."""
     tabla = tabla_comparativa_sku.copy()
     tabla["wape_redondeado"] = tabla["wape_medio"].round(DECIMALES_EMPATE)
     tabla["bias_abs"] = tabla["bias_medio"].abs()
@@ -23,6 +32,8 @@ def seleccionar_mejor_modelo_sku(tabla_comparativa_sku: pd.DataFrame) -> dict:
         "wape_medio": ganador["wape_medio"],
         "bias_medio": ganador["bias_medio"],
         "mae_medio": ganador["mae_medio"],
+        "tasa_fallback_backtest": ganador["tasa_fallback_backtest"],
+        "sin_datos_suficientes": bool(pd.isna(ganador["wape_medio"])),
     }
 
 
@@ -34,5 +45,13 @@ def seleccionar_mejor_modelo(tabla_comparativa: pd.DataFrame) -> pd.DataFrame:
         seleccion["sku_id"] = sku_id
         filas.append(seleccion)
 
-    columnas = ["sku_id", "candidato", "wape_medio", "bias_medio", "mae_medio"]
+    columnas = [
+        "sku_id",
+        "candidato",
+        "wape_medio",
+        "bias_medio",
+        "mae_medio",
+        "tasa_fallback_backtest",
+        "sin_datos_suficientes",
+    ]
     return pd.DataFrame(filas)[columnas]

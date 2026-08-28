@@ -8,10 +8,8 @@ import pandas as pd
 from src.datos.cargar_datos import cargar_ventas, serie_por_sku
 from src.forecast.backtest import backtest_walk_forward
 from src.forecast.benchmark import pronosticar_seasonal_naive
+from src.forecast.comparar_modelos import HORIZONTE, VENTANA_MINIMA
 from src.forecast.modelo import pronosticar_modelo
-
-HORIZONTE = 3
-VENTANA_MINIMA = 24
 
 
 def main() -> None:

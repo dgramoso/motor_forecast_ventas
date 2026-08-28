@@ -20,7 +20,8 @@ import numpy as np
 import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
-from .benchmark import PERIODO_ESTACIONAL, pronosticar_seasonal_naive
+from ._ajuste_con_fallback import ajustar_con_fallback
+from .benchmark import PERIODO_ESTACIONAL
 
 _ORDENES_P_Q = (0, 1, 2)
 _ORDENES_D = (0, 1)
@@ -63,24 +64,24 @@ def _mejor_orden_por_aic(serie: pd.Series) -> tuple[tuple[int, int, int], tuple[
     return mejor_orden, mejor_orden_estacional
 
 
-def _ajustar_sarima(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool, Optional[str]]:
-    """Ajusta SARIMA y devuelve (forecast, fallback, motivo_fallback)."""
+def _ajustar_sarimax(serie: pd.Series, horizonte: int) -> np.ndarray:
     orden, orden_estacional = _mejor_orden_por_aic(serie)
 
-    try:
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            modelo = SARIMAX(
-                serie,
-                order=orden,
-                seasonal_order=orden_estacional,
-                enforce_stationarity=False,
-                enforce_invertibility=False,
-            ).fit(disp=False)
-        return modelo.forecast(horizonte).to_numpy(), False, None
-    except _EXCEPCIONES_AJUSTE_SARIMA as error:
-        motivo = f"{type(error).__name__}: {error}"
-        return pronosticar_seasonal_naive(serie, horizonte), True, motivo
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        modelo = SARIMAX(
+            serie,
+            order=orden,
+            seasonal_order=orden_estacional,
+            enforce_stationarity=False,
+            enforce_invertibility=False,
+        ).fit(disp=False)
+    return modelo.forecast(horizonte).to_numpy()
+
+
+def _ajustar_sarima(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool, Optional[str]]:
+    """Ajusta SARIMA y devuelve (forecast, fallback, motivo_fallback)."""
+    return ajustar_con_fallback(serie, horizonte, _ajustar_sarimax, _EXCEPCIONES_AJUSTE_SARIMA)
 
 
 def pronosticar_sarima(serie: pd.Series, horizonte: int) -> np.ndarray:

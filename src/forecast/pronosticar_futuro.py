@@ -7,18 +7,24 @@ el histórico disponible, no una ventana de entrenamiento parcial.
 import pandas as pd
 
 from src.datos.cargar_datos import cargar_ventas, serie_por_sku
-from src.forecast.comparar_modelos import CANDIDATOS, HORIZONTE
+from src.forecast.comparar_modelos import CANDIDATOS_CON_METADATA, HORIZONTE
 from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo_sku
 
 
 def pronosticar_futuro_sku(serie: pd.Series, candidato: str, horizonte: int = HORIZONTE) -> pd.DataFrame:
-    funcion_pronostico = CANDIDATOS[candidato]
-    valores = funcion_pronostico(serie, horizonte)
+    """El pronóstico servido, más si el candidato elegido cayó en
+    fallback al ajustar sobre todo el histórico (ver CONTEXT.md,
+    "Fallback") — para saber si lo que se sirve es realmente `candidato`
+    o el benchmark disfrazado de tal."""
+    ajustar_con_metadata = CANDIDATOS_CON_METADATA[candidato]
+    valores, fallback, _motivo = ajustar_con_metadata(serie, horizonte)
 
     fechas_futuras = pd.date_range(
         start=serie.index[-1] + pd.DateOffset(months=1), periods=horizonte, freq="MS"
     )
-    return pd.DataFrame({"fecha": fechas_futuras, "unidades_pronosticadas": valores})
+    return pd.DataFrame(
+        {"fecha": fechas_futuras, "unidades_pronosticadas": valores, "fallback": fallback}
+    )
 
 
 def pronosticar_futuro(

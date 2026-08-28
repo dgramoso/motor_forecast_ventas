@@ -4,16 +4,19 @@ modelo (ver .scratch/motor-forecast-pipeline/issues/04-*) y por la
 integración end-to-end.
 """
 
+from typing import Optional
+
+import numpy as np
 import pandas as pd
 
 from src.datos.cargar_datos import cargar_ventas, serie_por_sku
 from src.forecast.backtest import backtest_walk_forward
 from src.forecast.benchmark import pronosticar_seasonal_naive
-from src.forecast.modelo import pronosticar_modelo
-from src.forecast.modelo_prophet import pronosticar_prophet
-from src.forecast.modelo_random_forest import pronosticar_random_forest
-from src.forecast.modelo_sarima import pronosticar_sarima
-from src.forecast.modelo_xgboost import pronosticar_xgboost
+from src.forecast.modelo import pronosticar_modelo, pronosticar_modelo_con_metadata
+from src.forecast.modelo_prophet import _ajustar_prophet, pronosticar_prophet
+from src.forecast.modelo_random_forest import _ajustar_random_forest, pronosticar_random_forest
+from src.forecast.modelo_sarima import _ajustar_sarima, pronosticar_sarima
+from src.forecast.modelo_xgboost import _ajustar_xgboost, pronosticar_xgboost
 
 HORIZONTE = 3
 VENTANA_MINIMA = 24
@@ -34,12 +37,53 @@ CANDIDATOS = {
 }
 
 
+def _ajustar_benchmark(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool, Optional[str]]:
+    """El benchmark es el destino del fallback de los demás — nunca
+    cae en fallback él mismo."""
+    return pronosticar_seasonal_naive(serie, horizonte), False, None
+
+
+def _ajustar_ets_tsb(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool, Optional[str]]:
+    resultado = pronosticar_modelo_con_metadata(serie, horizonte)
+    return resultado.forecast, resultado.fallback, resultado.motivo_fallback
+
+
+# Igual que CANDIDATOS, pero cada función devuelve también si hubo
+# fallback y el motivo (ver CONTEXT.md, "Fallback" / "Motivo de
+# fallback") — lo consumen comparar_modelos_sku (para la tasa de
+# fallback del backtest) y pronosticar_futuro_sku (para saber si lo que
+# se sirve es el candidato real o el benchmark disfrazado). CANDIDATOS
+# se mantiene como el contrato público simple, sin metadata.
+CANDIDATOS_CON_METADATA = {
+    "benchmark": _ajustar_benchmark,
+    "ets_tsb": _ajustar_ets_tsb,
+    "sarima": _ajustar_sarima,
+    "xgboost": _ajustar_xgboost,
+    "prophet": _ajustar_prophet,
+    "random_forest": _ajustar_random_forest,
+}
+
+
 def comparar_modelos_sku(
-    serie: pd.Series, horizonte: int = HORIZONTE, ventana_minima: int = VENTANA_MINIMA
+    serie: pd.Series,
+    horizonte: int = HORIZONTE,
+    ventana_minima: int = VENTANA_MINIMA,
+    candidatos: dict = CANDIDATOS_CON_METADATA,
 ) -> pd.DataFrame:
-    """Una fila por candidato, con sus métricas agregadas del backtest."""
+    """Una fila por candidato, con sus métricas agregadas del backtest y
+    su tasa de fallback (ver CONTEXT.md, "Tasa de fallback"). `candidatos`
+    es un seam de inyección — el default es `CANDIDATOS_CON_METADATA`;
+    los tests pasan un dict propio con doubles rápidos en vez de correr
+    los 6 modelos reales (Prophet/SARIMA incluidos)."""
     filas = []
-    for nombre, funcion_pronostico in CANDIDATOS.items():
+    for nombre, ajustar_con_metadata in candidatos.items():
+        fallbacks = []
+
+        def funcion_pronostico(entrenamiento, h, _ajustar=ajustar_con_metadata, _fallbacks=fallbacks):
+            forecast, fallback, _motivo = _ajustar(entrenamiento, h)
+            _fallbacks.append(fallback)
+            return forecast
+
         resultados = backtest_walk_forward(serie, funcion_pronostico, horizonte, ventana_minima)
         filas.append(
             {
@@ -49,19 +93,23 @@ def comparar_modelos_sku(
                 "wape_medio": resultados["wape"].mean(),
                 "bias_medio": resultados["bias"].mean(),
                 "mae_medio": resultados["mae"].mean(),
+                "tasa_fallback_backtest": float(np.mean(fallbacks)) if fallbacks else 0.0,
             }
         )
     return pd.DataFrame(filas)
 
 
 def comparar_modelos(
-    ventas: pd.DataFrame, horizonte: int = HORIZONTE, ventana_minima: int = VENTANA_MINIMA
+    ventas: pd.DataFrame,
+    horizonte: int = HORIZONTE,
+    ventana_minima: int = VENTANA_MINIMA,
+    candidatos: dict = CANDIDATOS_CON_METADATA,
 ) -> pd.DataFrame:
     """Igual que `comparar_modelos_sku`, para todos los SKUs de `ventas`."""
     tablas = []
     for sku_id in ventas["sku_id"].unique():
         serie = serie_por_sku(ventas, sku_id)
-        tabla_sku = comparar_modelos_sku(serie, horizonte, ventana_minima)
+        tabla_sku = comparar_modelos_sku(serie, horizonte, ventana_minima, candidatos)
         tabla_sku.insert(0, "sku_id", sku_id)
         tablas.append(tabla_sku)
     return pd.concat(tablas, ignore_index=True)

@@ -28,8 +28,9 @@ def _agregar(ruta: Path, filas_nuevas: pd.DataFrame) -> None:
 
 
 def guardar_corrida(run_id: str, selecciones: pd.DataFrame) -> None:
-    """`selecciones` es la salida de `seleccionar_mejor_modelo`
-    (sku_id, candidato, wape_medio, bias_medio, mae_medio)."""
+    """`selecciones` es la salida de `seleccionar_mejor_modelo` (sku_id,
+    candidato, wape_medio, bias_medio, mae_medio, tasa_fallback_backtest,
+    sin_datos_suficientes — ver CONTEXT.md)."""
     filas = selecciones.copy()
     filas.insert(0, "run_id", run_id)
     filas.insert(1, "timestamp_utc", datetime.now(timezone.utc))
@@ -38,8 +39,8 @@ def guardar_corrida(run_id: str, selecciones: pd.DataFrame) -> None:
 
 def guardar_pronosticos(run_id: str, pronostico: pd.DataFrame) -> None:
     """`pronostico` es la salida de `pronosticar_futuro`
-    (sku_id, fecha, candidato, unidades_pronosticadas)."""
-    filas = pronostico[["sku_id", "fecha", "unidades_pronosticadas"]].copy()
+    (sku_id, fecha, candidato, unidades_pronosticadas, fallback)."""
+    filas = pronostico[["sku_id", "fecha", "unidades_pronosticadas", "fallback"]].copy()
     filas.insert(0, "run_id", run_id)
     _agregar(RUTA_PRONOSTICOS, filas)
 
