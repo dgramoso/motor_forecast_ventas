@@ -21,6 +21,28 @@ from src.forecast.modelo_xgboost import _ajustar_xgboost, pronosticar_xgboost
 HORIZONTE = 3
 VENTANA_MINIMA = 24
 
+
+def _sin_negativos(funcion):
+    """Las unidades vendidas/pronosticadas nunca son negativas — un
+    modelo puede extrapolar por debajo de cero (tendencia decreciente,
+    poca historia), pero eso no es una cantidad física válida. Se aplica
+    acá, una sola vez para los 6 candidatos, en vez de duplicarlo en cada
+    modelo_X.py."""
+
+    def envoltorio(serie, horizonte):
+        return np.maximum(funcion(serie, horizonte), 0.0)
+
+    return envoltorio
+
+
+def _sin_negativos_con_metadata(funcion):
+    def envoltorio(serie, horizonte):
+        forecast, fallback, motivo = funcion(serie, horizonte)
+        return np.maximum(forecast, 0.0), fallback, motivo
+
+    return envoltorio
+
+
 # Candidatos que compiten por el título de "mejor modelo" — el benchmark
 # participa en el mismo ranking, no es un caso especial (spec.md:19,
 # decisión del ticket 01). "ets_tsb" es el router de modelo.py (ETS o TSB
@@ -28,12 +50,15 @@ VENTANA_MINIMA = 24
 # quedar ambiguo junto a los demás candidatos, que también son modelos
 # (ver issue 08).
 CANDIDATOS = {
-    "benchmark": pronosticar_seasonal_naive,
-    "ets_tsb": pronosticar_modelo,
-    "sarima": pronosticar_sarima,
-    "xgboost": pronosticar_xgboost,
-    "prophet": pronosticar_prophet,
-    "random_forest": pronosticar_random_forest,
+    nombre: _sin_negativos(funcion)
+    for nombre, funcion in {
+        "benchmark": pronosticar_seasonal_naive,
+        "ets_tsb": pronosticar_modelo,
+        "sarima": pronosticar_sarima,
+        "xgboost": pronosticar_xgboost,
+        "prophet": pronosticar_prophet,
+        "random_forest": pronosticar_random_forest,
+    }.items()
 }
 
 
@@ -55,12 +80,15 @@ def _ajustar_ets_tsb(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool
 # se sirve es el candidato real o el benchmark disfrazado). CANDIDATOS
 # se mantiene como el contrato público simple, sin metadata.
 CANDIDATOS_CON_METADATA = {
-    "benchmark": _ajustar_benchmark,
-    "ets_tsb": _ajustar_ets_tsb,
-    "sarima": _ajustar_sarima,
-    "xgboost": _ajustar_xgboost,
-    "prophet": _ajustar_prophet,
-    "random_forest": _ajustar_random_forest,
+    nombre: _sin_negativos_con_metadata(funcion)
+    for nombre, funcion in {
+        "benchmark": _ajustar_benchmark,
+        "ets_tsb": _ajustar_ets_tsb,
+        "sarima": _ajustar_sarima,
+        "xgboost": _ajustar_xgboost,
+        "prophet": _ajustar_prophet,
+        "random_forest": _ajustar_random_forest,
+    }.items()
 }
 
 

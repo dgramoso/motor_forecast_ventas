@@ -8,7 +8,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from src.forecast.comparar_modelos import comparar_modelos_sku
+from src.forecast.comparar_modelos import CANDIDATOS, CANDIDATOS_CON_METADATA, _sin_negativos, _sin_negativos_con_metadata, comparar_modelos_sku
 
 
 def _serie(n: int = 30) -> pd.Series:
@@ -56,6 +56,43 @@ class TestTasaDeFallback(unittest.TestCase):
         )
 
         self.assertEqual(tabla.loc[0, "tasa_fallback_backtest"], 1.0)
+
+
+class TestSinNegativos(unittest.TestCase):
+    """Las unidades vendidas/pronosticadas nunca son negativas — hallazgo
+    real sobre datos de retail (SKU 21212, Online Retail II): ETS con poca
+    historia y alta volatilidad extrapoló por debajo de cero."""
+
+    def test_sin_negativos_clipea_array_directo(self):
+        funcion = _sin_negativos(lambda serie, h: np.array([-5.0, 3.0, -0.1]))
+
+        resultado = funcion(_serie(), horizonte=3)
+
+        np.testing.assert_array_equal(resultado, [0.0, 3.0, 0.0])
+
+    def test_sin_negativos_con_metadata_clipea_forecast_preserva_fallback(self):
+        funcion = _sin_negativos_con_metadata(lambda serie, h: (np.array([-5.0, 3.0]), True, "motivo"))
+
+        forecast, fallback, motivo = funcion(_serie(), horizonte=2)
+
+        np.testing.assert_array_equal(forecast, [0.0, 3.0])
+        self.assertTrue(fallback)
+        self.assertEqual(motivo, "motivo")
+
+    def test_benchmark_real_esta_envuelto(self):
+        # No hace falta mockear SARIMA/Prophet/ETS (caro) para confirmar
+        # que el diccionario público aplica el wrapper — benchmark es
+        # rápido y determinístico, y con drift decreciente fuerte puede
+        # extrapolar por debajo de cero si no estuviera clipeado.
+        serie_decreciente = pd.Series(
+            np.linspace(100, 1, 20), index=pd.date_range("2020-01-01", periods=20, freq="MS")
+        )
+
+        forecast = CANDIDATOS["benchmark"](serie_decreciente, horizonte=3)
+        self.assertTrue((forecast >= 0).all())
+
+        forecast_meta, _fallback, _motivo = CANDIDATOS_CON_METADATA["benchmark"](serie_decreciente, horizonte=3)
+        self.assertTrue((forecast_meta >= 0).all())
 
 
 if __name__ == "__main__":
