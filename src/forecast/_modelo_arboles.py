@@ -27,6 +27,7 @@ VENTANAS_MEDIA_MOVIL = (3, 12)
 # datos escasos, así que la precondición se chequea a mano.
 MIN_FILAS_ENTRENAMIENTO = 12
 
+
 def _construir_features(serie: pd.Series) -> pd.DataFrame:
     """Una fila por posición `i` de la serie, con lags/medias móviles
     calculados con datos hasta `i` inclusive, más el mes calendario de
