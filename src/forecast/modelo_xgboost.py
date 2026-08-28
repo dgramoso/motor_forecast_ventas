@@ -6,6 +6,7 @@ fijos, sin autotuning; `random_state` fijo para que el backtest sea
 reproducible.
 """
 
+from functools import partial
 from typing import Optional
 
 import numpy as np
@@ -20,14 +21,13 @@ N_ESTIMATORS = 200
 MAX_DEPTH = 3
 LEARNING_RATE = 0.1
 
-
-def _crear_estimador() -> XGBRegressor:
-    return XGBRegressor(
-        n_estimators=N_ESTIMATORS,
-        max_depth=MAX_DEPTH,
-        learning_rate=LEARNING_RATE,
-        random_state=SEMILLA_ALEATORIA,
-    )
+_crear_estimador = partial(
+    XGBRegressor,
+    n_estimators=N_ESTIMATORS,
+    max_depth=MAX_DEPTH,
+    learning_rate=LEARNING_RATE,
+    random_state=SEMILLA_ALEATORIA,
+)
 
 
 def _ajustar_xgboost(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool, Optional[str]]:

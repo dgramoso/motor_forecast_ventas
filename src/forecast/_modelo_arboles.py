@@ -27,26 +27,18 @@ VENTANAS_MEDIA_MOVIL = (3, 12)
 # datos escasos, así que la precondición se chequea a mano.
 MIN_FILAS_ENTRENAMIENTO = 12
 
-_LAG_MAXIMO = max(LAGS)
-
-
 def _construir_features(serie: pd.Series) -> pd.DataFrame:
     """Una fila por posición `i` de la serie, con lags/medias móviles
     calculados con datos hasta `i` inclusive, más el mes calendario de
-    `i` como dummy. Las primeras `_LAG_MAXIMO - 1` posiciones no tienen
-    lag completo y se descartan."""
-    valores = serie.to_numpy(dtype=float)
-    n = len(valores)
+    `i` como dummy. Las posiciones sin lag/media móvil completos (no hay
+    suficiente historia previa) se descartan."""
+    features = pd.DataFrame({f"lag_{lag}": serie.shift(lag - 1) for lag in LAGS})
+    for ventana in VENTANAS_MEDIA_MOVIL:
+        features[f"media_movil_{ventana}"] = serie.rolling(ventana).mean()
+    features["_posicion"] = np.arange(len(serie))
+    features = features.dropna()
+    features["_posicion"] = features["_posicion"].astype(int)
 
-    filas = []
-    for i in range(_LAG_MAXIMO - 1, n):
-        fila = {f"lag_{lag}": valores[i - lag + 1] for lag in LAGS}
-        for ventana in VENTANAS_MEDIA_MOVIL:
-            fila[f"media_movil_{ventana}"] = valores[i - ventana + 1 : i + 1].mean()
-        fila["_posicion"] = i
-        filas.append(fila)
-
-    features = pd.DataFrame(filas)
     meses = serie.index[features["_posicion"].to_numpy()].month
     dummies_mes = pd.get_dummies(meses, prefix="mes", drop_first=True, dtype=float)
     dummies_mes.index = features.index
