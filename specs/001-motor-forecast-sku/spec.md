@@ -43,7 +43,7 @@
 - Conexión de solo lectura a la base de datos/DWH para extraer histórico de ventas por SKU
 - Generación de forecast de demanda futura por SKU
 - Exposición del forecast como API/servicio (consumo por otros sistemas)
-- [NECESITA CLARIFICACIÓN: ¿el horizonte y la frecuencia de actualización del forecast? Ej: semanal a 4-13 semanas, o mensual a 3-12 meses]
+- Horizonte de forecast: 90 días (3 meses) con datos de frecuencia mensual [NECESITA CLARIFICACIÓN: frecuencia de actualización del forecast — diaria, semanal, mensual — sigue pendiente, ver Historia 2]
 
 ### Explícitamente EXCLUIDO
 - Forecast a nivel cliente/cuenta o agregado (fuera de alcance de v1, es SKU-level)
@@ -173,7 +173,7 @@ Para evitar múltiples llamadas individuales en procesos batch
 | # | Pregunta | Responsable | Fecha límite | Respuesta |
 |---|---------|-------------|-------------|-----------|
 | 1 | ¿Quién es el usuario/consumidor final del forecast (rol y sistema)? | Daniel Gramoso | Pendiente | PENDIENTE |
-| 2 | ¿Cuál es el horizonte y la frecuencia de actualización del forecast (ej. semanal a 4-13 semanas vs. mensual a 3-12 meses)? | Daniel Gramoso | Pendiente | PENDIENTE |
+| 2 | ¿Con qué frecuencia se actualiza el forecast (diaria/semanal/mensual)? Horizonte ya definido: 90 días, datos mensuales | Daniel Gramoso | Pendiente | PARCIAL — horizonte definido, falta frecuencia de actualización |
 | 3 | ¿Qué motor de base de datos/DWH y cómo se accede (credenciales, red)? | Daniel Gramoso | Pendiente | PENDIENTE |
 | 4 | ¿La API calcula on-demand o sirve forecasts pre-calculados en batch? | Daniel Gramoso | Pendiente | PENDIENTE |
 | 5 | ¿Cuántos SKUs debe soportar el motor en v1 (volumen)? | Daniel Gramoso | Pendiente | PENDIENTE |
