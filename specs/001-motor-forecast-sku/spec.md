@@ -31,7 +31,7 @@
 ### Métricas de éxito
 | Métrica | Valor actual | Objetivo | Plazo |
 |---------|-------------|---------|-------|
-| WAPE del modelo vs. benchmark Seasonal Naive (con o sin drift, según si la serie del SKU tiene tendencia) | WAPE del benchmark (a medir) | Superar consistentemente al benchmark en rolling backtesting: WAPE_modelo < WAPE_naive en [NECESITA CLARIFICACIÓN: ¿qué % de ventanas?] | [NECESITA CLARIFICACIÓN] |
+| WAPE del modelo vs. benchmark Seasonal Naive (con o sin drift, según si la serie del SKU tiene tendencia) | WAPE del benchmark (a medir) | Ganar el ranking del backtest walk-forward: WAPE medio del modelo menor al del benchmark (criterio decidido en `.scratch/motor-forecast-pipeline/issues/01-criterio-seleccion-mejor-modelo.md` — WAPE medio agregado, no % de ventanas ganadas; ese enfoque se evaluó y se descartó por ser más sensible a quiebres estructurales puntuales) | [NECESITA CLARIFICACIÓN] |
 | Bias del modelo (no debe empeorar sistemáticamente vs. benchmark) | [NECESITA CLARIFICACIÓN] | [NECESITA CLARIFICACIÓN] | [NECESITA CLARIFICACIÓN] |
 | Cobertura de SKUs con forecast automático | 0% | [NECESITA CLARIFICACIÓN] | [NECESITA CLARIFICACIÓN] |
 
@@ -199,3 +199,4 @@ Para evitar múltiples llamadas individuales en procesos batch
 | Versión | Fecha | Cambio | Autor |
 |---------|-------|--------|-------|
 | 0.1 | 2026-08-21 | Borrador inicial | Daniel Gramoso |
+| 0.2 | 2026-08-28 | Resuelto el `NECESITA CLARIFICACIÓN` de la fila de WAPE (línea 34): el criterio de éxito pasa a ser WAPE medio del backtest walk-forward, no % de ventanas ganadas — ya era el criterio real de selección (`seleccionar_modelo.py`); se elimina `src/forecast/analizar_tasa_de_exito.py`, que calculaba el % de ventanas sin usarlo para nada | Daniel Gramoso |
