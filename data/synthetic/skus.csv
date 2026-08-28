@@ -1,0 +1,6 @@
+sku_id,nombre,patron
+SKU-001,Producto con tendencia y estacionalidad,tendencia_estacional
+SKU-002,Producto estacional sin tendencia,estacional_puro
+SKU-003,Producto de bajo volumen / demanda intermitente,intermitente
+SKU-004,Producto con promociones y devoluciones,outliers_devoluciones
+SKU-005,Producto discontinuado a mitad de serie,quiebre_estructural
