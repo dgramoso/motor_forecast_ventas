@@ -8,14 +8,17 @@ horizonte, para que el error de un paso no contamine los siguientes.
 
 El lag=12 (mismo mes del año anterior) y su media móvil consumen 12
 observaciones de historia antes de dejar una sola fila utilizable — con
-poca historia (`len(serie) < 2*PERIODO_ESTACIONAL`) eso fuerza fallback
-casi siempre, aunque el modelo sí podría entrenar con lags más cortos.
-Mismo criterio que `modelo_ets.py` para prender/apagar estacionalidad
-según el largo de la serie: con suficiente historia se usa el set
-completo (lags 1,2,3,12 + medias móviles 3,12); si no, el set corto
-(lags 1,2,3 + media móvil 3) — más pobre, pero entrenable. En ambos casos
-se agrega el mes calendario del período a pronosticar como dummy (mismo
-patrón que `benchmark.estimar_tendencia`).
+poca historia eso fuerza fallback casi siempre, aunque el modelo sí
+podría entrenar con lags más cortos. Por eso el set de lags se elige
+según si el set completo (1,2,3,12 + medias móviles 3,12) alcanzaría a
+cumplir `MIN_FILAS_ENTRENAMIENTO` para el `horizonte` pedido — no según
+un largo de serie aproximado (`len(serie) >= 2*PERIODO_ESTACIONAL` deja
+un hueco real: con exactamente 24-25 observaciones "parece" suficiente
+historia, pero el lag=12 igual no deja margen para 12 filas de
+entrenamiento). Si no alcanzaría, se usa el set corto (lags 1,2,3 +
+media móvil 3) — más pobre, pero entrenable. En ambos casos se agrega el
+mes calendario del período a pronosticar como dummy (mismo patrón que
+`benchmark.estimar_tendencia`).
 """
 
 from typing import Callable
@@ -37,18 +40,24 @@ VENTANAS_MEDIA_MOVIL_CORTAS = (3,)
 MIN_FILAS_ENTRENAMIENTO = 12
 
 
-def _elegir_lags(serie: pd.Series) -> tuple[tuple[int, ...], tuple[int, ...]]:
-    if len(serie) >= 2 * PERIODO_ESTACIONAL:
+def _filas_utilizables(largo_serie: int, lag_maximo: int, horizonte: int) -> int:
+    """Cuántas filas de entrenamiento quedarían con ese lag máximo, para
+    el peor paso de horizonte (el más lejano consume más filas al final)."""
+    return largo_serie - (lag_maximo - 1) - horizonte
+
+
+def _elegir_lags(largo_serie: int, horizonte: int) -> tuple[tuple[int, ...], tuple[int, ...]]:
+    if _filas_utilizables(largo_serie, max(LAGS_COMPLETOS), horizonte) >= MIN_FILAS_ENTRENAMIENTO:
         return LAGS_COMPLETOS, VENTANAS_MEDIA_MOVIL_COMPLETAS
     return LAGS_CORTOS, VENTANAS_MEDIA_MOVIL_CORTAS
 
 
-def _construir_features(serie: pd.Series) -> pd.DataFrame:
+def _construir_features(serie: pd.Series, horizonte: int) -> pd.DataFrame:
     """Una fila por posición `i` de la serie, con lags/medias móviles
     calculados con datos hasta `i` inclusive, más el mes calendario de
     `i` como dummy. Las posiciones sin lag/media móvil completos (no hay
     suficiente historia previa) se descartan."""
-    lags, ventanas_media_movil = _elegir_lags(serie)
+    lags, ventanas_media_movil = _elegir_lags(len(serie), horizonte)
 
     features = pd.DataFrame({f"lag_{lag}": serie.shift(lag - 1) for lag in lags})
     for ventana in ventanas_media_movil:
@@ -73,7 +82,7 @@ def pronosticar_directo(
     construir las features (ver `MIN_FILAS_ENTRENAMIENTO`), para que quien
     llama pueda capturarla y hacer fallback."""
     valores = serie.to_numpy(dtype=float)
-    features = _construir_features(serie)
+    features = _construir_features(serie, horizonte)
 
     filas_utilizables_peor_caso = len(features) - horizonte
     if filas_utilizables_peor_caso < MIN_FILAS_ENTRENAMIENTO:

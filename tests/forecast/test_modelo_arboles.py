@@ -15,30 +15,45 @@ from src.forecast._modelo_arboles import (
 
 class TestConstruirFeatures(unittest.TestCase):
     def test_lags_y_media_movil_correctos_en_la_ultima_fila(self):
-        fechas = pd.date_range("2020-01-01", periods=24, freq="MS")
-        serie = pd.Series(np.arange(1, 25, dtype=float), index=fechas)
+        # Con horizonte=3, hacen falta >= 26 observaciones para que
+        # lag_12 + MIN_FILAS_ENTRENAMIENTO cierren (ver _filas_utilizables).
+        fechas = pd.date_range("2020-01-01", periods=26, freq="MS")
+        serie = pd.Series(np.arange(1, 27, dtype=float), index=fechas)
 
-        features = _construir_features(serie)
+        features = _construir_features(serie, horizonte=3)
         ultima = features.iloc[-1]
 
-        self.assertEqual(ultima["lag_1"], 24)
-        self.assertEqual(ultima["lag_2"], 23)
-        self.assertEqual(ultima["lag_3"], 22)
-        self.assertEqual(ultima["lag_12"], 13)
-        self.assertAlmostEqual(ultima["media_movil_3"], np.mean([22, 23, 24]))
-        self.assertAlmostEqual(ultima["media_movil_12"], np.mean(range(13, 25)))
+        self.assertEqual(ultima["lag_1"], 26)
+        self.assertEqual(ultima["lag_2"], 25)
+        self.assertEqual(ultima["lag_3"], 24)
+        self.assertEqual(ultima["lag_12"], 15)
+        self.assertAlmostEqual(ultima["media_movil_3"], np.mean([24, 25, 26]))
+        self.assertAlmostEqual(ultima["media_movil_12"], np.mean(range(15, 27)))
 
     def test_con_poca_historia_usa_lags_cortos_sin_lag_12(self):
-        # < 2*PERIODO_ESTACIONAL (24) -> lags cortos, mismo criterio que
-        # modelo_ets.py para prender/apagar estacionalidad.
+        # No alcanzaría MIN_FILAS_ENTRENAMIENTO con lag_12 -> lags cortos,
+        # mismo criterio (por aritmética real, no por largo aproximado)
+        # que modelo_ets.py usa para prender/apagar estacionalidad.
         fechas = pd.date_range("2020-01-01", periods=17, freq="MS")
         serie = pd.Series(np.arange(1, 18, dtype=float), index=fechas)
 
-        features = _construir_features(serie)
+        features = _construir_features(serie, horizonte=3)
 
         self.assertNotIn("lag_12", features.columns)
         self.assertNotIn("media_movil_12", features.columns)
         self.assertIn("lag_3", features.columns)
+
+    def test_25_observaciones_no_alcanza_para_lags_completos(self):
+        # El caso borde real (Online Retail II): 25 observaciones "parece"
+        # >= 2*PERIODO_ESTACIONAL (24), pero con lag_12 no deja margen —
+        # antes de la corrección esto forzaba fallback en el pronóstico
+        # futuro final.
+        fechas = pd.date_range("2020-01-01", periods=25, freq="MS")
+        serie = pd.Series(np.arange(1, 26, dtype=float), index=fechas)
+
+        features = _construir_features(serie, horizonte=3)
+
+        self.assertNotIn("lag_12", features.columns)
 
 
 class TestPrecondicionFilasMinimas(unittest.TestCase):
