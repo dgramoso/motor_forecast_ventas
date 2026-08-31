@@ -33,7 +33,7 @@
 |---------|-------------|---------|-------|
 | WAPE del modelo vs. benchmark Seasonal Naive (con o sin drift, según si la serie del SKU tiene tendencia) | WAPE del benchmark (a medir) | Ganar el ranking del backtest walk-forward: WAPE medio del modelo menor al del benchmark (criterio decidido en `.scratch/motor-forecast-pipeline/issues/01-criterio-seleccion-mejor-modelo.md` — WAPE medio agregado, no % de ventanas ganadas; ese enfoque se evaluó y se descartó por ser más sensible a quiebres estructurales puntuales) | [NECESITA CLARIFICACIÓN] |
 | Bias del modelo (no debe empeorar sistemáticamente vs. benchmark) | [NECESITA CLARIFICACIÓN] | [NECESITA CLARIFICACIÓN] | [NECESITA CLARIFICACIÓN] |
-| Cobertura de SKUs con forecast automático | 0% | [NECESITA CLARIFICACIÓN] | [NECESITA CLARIFICACIÓN] |
+| Cobertura de SKUs con forecast automático | 95,6% en la prueba de concepto sobre Online Retail II (1.782 de 1.852 SKUs elegibles obtuvieron forecast; 70 quedaron sin datos suficientes) — ver `analisis/online_retail_ii_prueba_de_concepto.md` | [NECESITA CLARIFICACIÓN] | [NECESITA CLARIFICACIÓN] |
 
 ---
 
@@ -137,7 +137,7 @@ Para evitar múltiples llamadas individuales en procesos batch
 | SKU discontinuado / sin ventas recientes | [NECESITA CLARIFICACIÓN: ¿se excluye del forecast o se marca con demanda cero?] |
 | Falla de conexión a la base de datos/DWH | El servicio degrada devolviendo el último forecast válido calculado, con indicador de "desactualizado" |
 | SKU inexistente solicitado vía API | La API responde error 404 / no encontrado |
-| Histórico con outliers o valores negativos (devoluciones) | [NECESITA CLARIFICACIÓN: ¿tratamiento esperado de outliers/devoluciones en el histórico?] |
+| Histórico con outliers o valores negativos (devoluciones) | El histórico de entrada no recibe tratamiento especial (una devolución neta puede dejar demanda mensual negativa); el *pronóstico de salida* nunca es negativo — se clipea a 0 (validado contra Online Retail II, ver `analisis/online_retail_ii_prueba_de_concepto.md`). [NECESITA CLARIFICACIÓN: ¿tratamiento esperado de outliers/devoluciones en el *histórico* de entrada — se mantiene así o se suaviza antes de modelar?] |
 
 ---
 
@@ -200,3 +200,4 @@ Para evitar múltiples llamadas individuales en procesos batch
 |---------|-------|--------|-------|
 | 0.1 | 2026-08-21 | Borrador inicial | Daniel Gramoso |
 | 0.2 | 2026-08-28 | Resuelto el `NECESITA CLARIFICACIÓN` de la fila de WAPE (línea 34): el criterio de éxito pasa a ser WAPE medio del backtest walk-forward, no % de ventanas ganadas — ya era el criterio real de selección (`seleccionar_modelo.py`); se elimina `src/forecast/analizar_tasa_de_exito.py`, que calculaba el % de ventanas sin usarlo para nada | Daniel Gramoso |
+| 0.3 | 2026-08-31 | Prueba de concepto contra datos reales (Online Retail II, 1.852 SKUs): expuso y corrigió 3 bugs (pronósticos negativos, fallback constante de XGBoost/Random Forest con poca historia, umbral de escalada de lags mal aproximado). Actualizada la sección 6 (histórico con negativos/outliers) con el comportamiento validado. Ver `analisis/online_retail_ii_prueba_de_concepto.md` para el detalle y la distribución de candidato ganador por SKU | Daniel Gramoso |
