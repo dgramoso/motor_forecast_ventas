@@ -4,11 +4,17 @@ candidato seleccionado (ver seleccionar_modelo.py) ajustado sobre todo
 el histórico disponible, no una ventana de entrenamiento parcial.
 """
 
+from typing import Iterable
+
 import pandas as pd
 
 from src.datos.cargar_datos import cargar_ventas, serie_por_sku
+from src.forecast.benchmark import pronosticar_seasonal_naive
 from src.forecast.comparar_modelos import CANDIDATOS_CON_METADATA, HORIZONTE
+from src.forecast.comparar_modelos_global import NOMBRE_CANDIDATO as NOMBRE_CANDIDATO_LIGHTGBM_GLOBAL
 from src.forecast.diagnostico_demanda import adi, clasificar_demanda, cv2, tasa_de_ceros
+from src.forecast.features_lightgbm import LAGS, VENTANAS_ROLLING, construir_dataset_supervisado
+from src.forecast.modelo_lightgbm_global import entrenar_lightgbm_global, pronosticar_lightgbm_global
 from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo_sku
 
 
@@ -41,21 +47,93 @@ def pronosticar_futuro_sku(serie: pd.Series, candidato: str, horizonte: int = HO
     )
 
 
+def pronosticar_futuro_lightgbm_global(
+    ventas: pd.DataFrame,
+    skus: Iterable[str],
+    horizonte: int = HORIZONTE,
+    lags: tuple[int, ...] = LAGS,
+    ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
+) -> pd.DataFrame:
+    """Sirve el pronóstico de LightGBM global para las SKUs de `skus` que
+    lo ganaron en la selección (ver seleccionar_modelo.py) — entrena UNA
+    sola vez con el histórico completo de TODAS las SKUs de `ventas` (no
+    solo las de `skus`, para que el modelo siga siendo global) y filtra
+    el resultado, en vez de reentrenar por SKU.
+
+    Si el ajuste global falla (o alguna SKU de `skus` queda afuera del
+    último origen, p.ej. por falta de historia), cae a Seasonal Naive
+    para esa SKU — mismo criterio de fallback que el resto de los
+    candidatos (ver CONTEXT.md, "Fallback"): `candidato` sigue diciendo
+    "lightgbm_global" pero `fallback=True` avisa que en realidad se sirvió
+    el benchmark."""
+    skus = set(skus)
+    try:
+        dataset = construir_dataset_supervisado(ventas, horizonte, lags, ventanas_rolling)
+        modelos = entrenar_lightgbm_global(dataset, horizonte)
+        pronostico_lgbm = {
+            sku_id: grupo.sort_values("paso_horizonte")["unidades_pronosticadas"].to_numpy()
+            for sku_id, grupo in pronosticar_lightgbm_global(modelos, dataset).groupby("sku_id")
+        }
+    except (ValueError, LookupError):
+        pronostico_lgbm = {}
+
+    filas = []
+    for sku_id in skus:
+        serie = serie_por_sku(ventas, sku_id)
+        if sku_id in pronostico_lgbm:
+            valores, fallback = pronostico_lgbm[sku_id], False
+        else:
+            valores, fallback = pronosticar_seasonal_naive(serie, horizonte), True
+
+        fechas_futuras = pd.date_range(
+            start=serie.index[-1] + pd.DateOffset(months=1), periods=horizonte, freq="MS"
+        )
+        filas.append(
+            pd.DataFrame(
+                {
+                    "sku_id": sku_id,
+                    "fecha": fechas_futuras,
+                    "candidato": NOMBRE_CANDIDATO_LIGHTGBM_GLOBAL,
+                    "unidades_pronosticadas": valores,
+                    "fallback": fallback,
+                    "tasa_de_ceros": tasa_de_ceros(serie),
+                    "adi": adi(serie),
+                    "cv2": cv2(serie),
+                    "clase_demanda": clasificar_demanda(serie),
+                    "observaciones_entrenamiento": len(serie),
+                    "observaciones_demanda_positiva": int((serie > 0).sum()),
+                }
+            )
+        )
+
+    return pd.concat(filas, ignore_index=True)
+
+
 def pronosticar_futuro(
     ventas: pd.DataFrame, tabla_comparativa: pd.DataFrame, horizonte: int = HORIZONTE
 ) -> pd.DataFrame:
     """Selecciona el mejor candidato por SKU (ver seleccionar_modelo.py) y
     genera su pronóstico futuro. `tabla_comparativa` es la salida de
-    `comparar_modelos` sobre el mismo `ventas`.
-    """
+    `comparar_modelos` (o `comparar_modelos_con_lightgbm_global`) sobre el
+    mismo `ventas`. El candidato "lightgbm_global" se sirve aparte
+    (`pronosticar_futuro_lightgbm_global`): un solo entrenamiento para
+    todas las SKUs que lo ganaron, no uno por SKU."""
     tablas = []
+    skus_lightgbm_global = []
+
     for sku_id, tabla_sku in tabla_comparativa.groupby("sku_id"):
         seleccion = seleccionar_mejor_modelo_sku(tabla_sku)
-        serie = serie_por_sku(ventas, sku_id)
+        if seleccion["candidato"] == NOMBRE_CANDIDATO_LIGHTGBM_GLOBAL:
+            skus_lightgbm_global.append(sku_id)
+            continue
 
+        serie = serie_por_sku(ventas, sku_id)
         pronostico = pronosticar_futuro_sku(serie, seleccion["candidato"], horizonte)
         pronostico.insert(0, "sku_id", sku_id)
         pronostico.insert(2, "candidato", seleccion["candidato"])
         tablas.append(pronostico)
+
+    if skus_lightgbm_global:
+        tablas.append(pronosticar_futuro_lightgbm_global(ventas, skus_lightgbm_global, horizonte))
 
     return pd.concat(tablas, ignore_index=True)

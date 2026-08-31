@@ -7,7 +7,8 @@ de cada paso.
 """
 
 from src.datos.cargar_datos import cargar_ventas
-from src.forecast.comparar_modelos import HORIZONTE, VENTANA_MINIMA, comparar_modelos
+from src.forecast.comparar_modelos import HORIZONTE, VENTANA_MINIMA
+from src.forecast.comparar_modelos_global import comparar_modelos_con_lightgbm_global
 from src.forecast.persistencia import RUTA_CORRIDAS, RUTA_PRONOSTICOS, guardar_corrida, guardar_pronosticos, nuevo_run_id
 from src.forecast.pronosticar_futuro import pronosticar_futuro
 from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo
@@ -15,7 +16,7 @@ from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo
 
 def ejecutar_pipeline(horizonte: int = HORIZONTE, ventana_minima: int = VENTANA_MINIMA) -> dict:
     ventas = cargar_ventas()
-    tabla_comparativa = comparar_modelos(ventas, horizonte, ventana_minima)
+    tabla_comparativa = comparar_modelos_con_lightgbm_global(ventas, horizonte, ventana_minima)
     selecciones = seleccionar_mejor_modelo(tabla_comparativa)
     pronostico = pronosticar_futuro(ventas, tabla_comparativa, horizonte)
 
