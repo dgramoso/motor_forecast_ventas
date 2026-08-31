@@ -5,7 +5,7 @@ Motor que genera pronósticos de demanda por SKU, comparando varios métodos de 
 ## Language
 
 **Candidato**:
-Un método de pronóstico que compite en el ranking de `comparar_modelos` para un SKU dado (`benchmark`, `ets_tsb`, `sarima`, `xgboost`, `prophet`, `random_forest`). Todos compiten en pie de igualdad — el benchmark no es un caso especial, gana por default si nadie le gana.
+Un método de pronóstico que compite en el ranking de `comparar_modelos` para un SKU dado (`benchmark`, `ets_tsb`, `xgboost`, `prophet`, `random_forest`). Todos compiten en pie de igualdad — el benchmark no es un caso especial, gana por default si nadie le gana. SARIMA no es candidato — ver `docs/adr/0001-no-sarima.md`.
 _Avoid_: modelo (ambiguo — "modelo" también nombra al concepto general de método estadístico; usar "candidato" cuando el contexto es la competencia por SKU).
 
 **Fallback**:

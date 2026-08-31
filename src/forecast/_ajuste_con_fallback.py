@@ -1,5 +1,5 @@
-"""Wrapper compartido de fallback — usado por modelo_ets.py, modelo_sarima.py
-y modelo_prophet.py: los tres repetían exactamente la misma forma
+"""Wrapper compartido de fallback — usado por modelo_ets.py y
+modelo_prophet.py: los dos repetían exactamente la misma forma
 (ajustar, si falla con una excepción conocida caer al benchmark Seasonal
 Naive y registrar el motivo). XGBoost y Random Forest no lo usan: ya
 tienen su propio seam en `_modelo_arboles.py` (su único modo de fallo

@@ -1,7 +1,7 @@
 """Tests de comparar_modelos.py: el parámetro `candidatos` es un seam de
 inyección — permite testear la maquinaria de comparación (incluida la
-tasa de fallback) con doubles rápidos en vez de correr los 6 modelos
-reales (Prophet/SARIMA incluidos)."""
+tasa de fallback) con doubles rápidos en vez de correr los 5 modelos
+reales (Prophet incluido)."""
 
 import unittest
 
@@ -80,7 +80,7 @@ class TestSinNegativos(unittest.TestCase):
         self.assertEqual(motivo, "motivo")
 
     def test_benchmark_real_esta_envuelto(self):
-        # No hace falta mockear SARIMA/Prophet/ETS (caro) para confirmar
+        # No hace falta mockear Prophet/ETS (caro) para confirmar
         # que el diccionario público aplica el wrapper — benchmark es
         # rápido y determinístico, y con drift decreciente fuerte puede
         # extrapolar por debajo de cero si no estuviera clipeado.

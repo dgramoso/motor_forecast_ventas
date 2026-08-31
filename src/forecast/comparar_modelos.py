@@ -15,7 +15,6 @@ from src.forecast.benchmark import pronosticar_seasonal_naive
 from src.forecast.modelo import pronosticar_modelo, pronosticar_modelo_con_metadata
 from src.forecast.modelo_prophet import _ajustar_prophet, pronosticar_prophet
 from src.forecast.modelo_random_forest import _ajustar_random_forest, pronosticar_random_forest
-from src.forecast.modelo_sarima import _ajustar_sarima, pronosticar_sarima
 from src.forecast.modelo_xgboost import _ajustar_xgboost, pronosticar_xgboost
 
 HORIZONTE = 3
@@ -48,13 +47,12 @@ def _sin_negativos_con_metadata(funcion):
 # decisión del ticket 01). "ets_tsb" es el router de modelo.py (ETS o TSB
 # según intermitencia, ver modelo.py); se llama así y no "modelo" para no
 # quedar ambiguo junto a los demás candidatos, que también son modelos
-# (ver issue 08).
+# (ver issue 08). SARIMA no compite (ver docs/adr/0001-no-sarima.md).
 CANDIDATOS = {
     nombre: _sin_negativos(funcion)
     for nombre, funcion in {
         "benchmark": pronosticar_seasonal_naive,
         "ets_tsb": pronosticar_modelo,
-        "sarima": pronosticar_sarima,
         "xgboost": pronosticar_xgboost,
         "prophet": pronosticar_prophet,
         "random_forest": pronosticar_random_forest,
@@ -84,7 +82,6 @@ CANDIDATOS_CON_METADATA = {
     for nombre, funcion in {
         "benchmark": _ajustar_benchmark,
         "ets_tsb": _ajustar_ets_tsb,
-        "sarima": _ajustar_sarima,
         "xgboost": _ajustar_xgboost,
         "prophet": _ajustar_prophet,
         "random_forest": _ajustar_random_forest,
@@ -102,7 +99,7 @@ def comparar_modelos_sku(
     su tasa de fallback (ver CONTEXT.md, "Tasa de fallback"). `candidatos`
     es un seam de inyección — el default es `CANDIDATOS_CON_METADATA`;
     los tests pasan un dict propio con doubles rápidos en vez de correr
-    los 6 modelos reales (Prophet/SARIMA incluidos)."""
+    los 5 modelos reales (Prophet incluido)."""
     filas = []
     for nombre, ajustar_con_metadata in candidatos.items():
         fallbacks = []

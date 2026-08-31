@@ -6,8 +6,8 @@ solo estacionalidad anual, sin semanal/diaria; `growth="linear"` sin cap
 coherente con que `modelo_ets.py` tampoco usa variantes multiplicativas en
 el MVP.
 
-Igual que `modelo_ets.py` / `modelo_sarima.py`, si el ajuste falla cae al
-benchmark Seasonal Naive.
+Igual que `modelo_ets.py`, si el ajuste falla cae al benchmark Seasonal
+Naive.
 """
 
 import logging
