@@ -132,6 +132,48 @@ def generar_dataset() -> pd.DataFrame:
     return pd.DataFrame(filas)
 
 
+def generar_dataset_escala(
+    n_skus: int,
+    n_meses: int = N_MESES,
+    fecha_inicio: str = FECHA_INICIO,
+    semilla: int = SEMILLA,
+) -> pd.DataFrame:
+    """Dataset sintético con `n_skus` SKUs, para probar escala (memoria,
+    tiempo de entrenamiento/predicción) — no para agregar patrones nuevos.
+    Reusa los mismos 5 `GENERADORES` de forma cíclica en vez de duplicar
+    lógica de simulación; cada SKU tiene una semilla derivada de `semilla`
+    para que sean reproducibles pero no idénticos entre sí.
+
+    A diferencia de `generar_dataset` (un dict por fila, pensado para 5
+    SKUs), arma un DataFrame por SKU con arrays de numpy y concatena al
+    final — con decenas de miles de SKUs, un dict por fila sería
+    sensiblemente más lento."""
+    fechas = pd.date_range(fecha_inicio, periods=n_meses, freq="MS")
+    t = np.arange(n_meses)
+    mes = fechas.month.to_numpy() - 1
+    patrones = list(GENERADORES.keys())
+
+    tablas = []
+    for i in range(n_skus):
+        patron = patrones[i % len(patrones)]
+        rng = np.random.default_rng(semilla + i)
+        serie = GENERADORES[patron](t, mes, rng)
+        if patron != "outliers_devoluciones":
+            serie = np.clip(serie, 0, None)
+
+        tablas.append(
+            pd.DataFrame(
+                {
+                    "sku_id": f"SKU-{i:06d}",
+                    "fecha": fechas,
+                    "unidades_vendidas": np.round(serie).astype(int),
+                }
+            )
+        )
+
+    return pd.concat(tablas, ignore_index=True)
+
+
 def main() -> None:
     dataset = generar_dataset()
     dataset.to_csv("data/synthetic/ventas_historicas.csv", index=False)

@@ -38,9 +38,11 @@ def guardar_corrida(run_id: str, selecciones: pd.DataFrame) -> None:
 
 
 def guardar_pronosticos(run_id: str, pronostico: pd.DataFrame) -> None:
-    """`pronostico` es la salida de `pronosticar_futuro`
-    (sku_id, fecha, candidato, unidades_pronosticadas, fallback)."""
-    filas = pronostico[["sku_id", "fecha", "unidades_pronosticadas", "fallback"]].copy()
+    """`pronostico` es la salida de `pronosticar_futuro` (sku_id, fecha,
+    candidato, unidades_pronosticadas, fallback, más el diagnóstico de
+    demanda de diagnostico_demanda.py — se persiste tal cual, sin
+    whitelist de columnas, para no perder trazabilidad)."""
+    filas = pronostico.copy()
     filas.insert(0, "run_id", run_id)
     _agregar(RUTA_PRONOSTICOS, filas)
 

@@ -32,6 +32,7 @@ def seleccionar_mejor_modelo_sku(tabla_comparativa_sku: pd.DataFrame) -> dict:
         "wape_medio": ganador["wape_medio"],
         "bias_medio": ganador["bias_medio"],
         "mae_medio": ganador["mae_medio"],
+        "mase_medio": ganador["mase_medio"],
         "tasa_fallback_backtest": ganador["tasa_fallback_backtest"],
         "sin_datos_suficientes": bool(pd.isna(ganador["wape_medio"])),
     }
@@ -51,6 +52,7 @@ def seleccionar_mejor_modelo(tabla_comparativa: pd.DataFrame) -> pd.DataFrame:
         "wape_medio",
         "bias_medio",
         "mae_medio",
+        "mase_medio",
         "tasa_fallback_backtest",
         "sin_datos_suficientes",
     ]

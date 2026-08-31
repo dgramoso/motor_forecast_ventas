@@ -20,8 +20,8 @@ class TestCriterioDeSeleccion(unittest.TestCase):
     def test_gana_el_candidato_con_menor_wape_medio(self):
         tabla = _tabla(
             [
-                {"candidato": "benchmark", "wape_medio": 0.5, "bias_medio": 0.1, "mae_medio": 10.0, "tasa_fallback_backtest": 0.0},
-                {"candidato": "ets_tsb", "wape_medio": 0.3, "bias_medio": -0.2, "mae_medio": 8.0, "tasa_fallback_backtest": 0.0},
+                {"candidato": "benchmark", "wape_medio": 0.5, "bias_medio": 0.1, "mae_medio": 10.0, "mase_medio": 1.2, "tasa_fallback_backtest": 0.0},
+                {"candidato": "ets_tsb", "wape_medio": 0.3, "bias_medio": -0.2, "mae_medio": 8.0, "mase_medio": 0.9, "tasa_fallback_backtest": 0.0},
             ]
         )
 
@@ -33,8 +33,8 @@ class TestCriterioDeSeleccion(unittest.TestCase):
     def test_desempata_por_menor_bias_absoluto(self):
         tabla = _tabla(
             [
-                {"candidato": "benchmark", "wape_medio": 0.300, "bias_medio": 0.05, "mae_medio": 10.0, "tasa_fallback_backtest": 0.0},
-                {"candidato": "ets_tsb", "wape_medio": 0.3001, "bias_medio": -0.20, "mae_medio": 8.0, "tasa_fallback_backtest": 0.0},
+                {"candidato": "benchmark", "wape_medio": 0.300, "bias_medio": 0.05, "mae_medio": 10.0, "mase_medio": 1.0, "tasa_fallback_backtest": 0.0},
+                {"candidato": "ets_tsb", "wape_medio": 0.3001, "bias_medio": -0.20, "mae_medio": 8.0, "mase_medio": 0.95, "tasa_fallback_backtest": 0.0},
             ]
         )
 
@@ -47,8 +47,8 @@ class TestSinDatosSuficientes(unittest.TestCase):
     def test_todos_nan_marca_sin_datos_suficientes(self):
         tabla = _tabla(
             [
-                {"candidato": "benchmark", "wape_medio": np.nan, "bias_medio": np.nan, "mae_medio": 0.0, "tasa_fallback_backtest": 0.0},
-                {"candidato": "ets_tsb", "wape_medio": np.nan, "bias_medio": np.nan, "mae_medio": 0.0, "tasa_fallback_backtest": 0.0},
+                {"candidato": "benchmark", "wape_medio": np.nan, "bias_medio": np.nan, "mae_medio": 0.0, "mase_medio": np.nan, "tasa_fallback_backtest": 0.0},
+                {"candidato": "ets_tsb", "wape_medio": np.nan, "bias_medio": np.nan, "mae_medio": 0.0, "mase_medio": np.nan, "tasa_fallback_backtest": 0.0},
             ]
         )
 
@@ -62,8 +62,8 @@ class TestSinDatosSuficientes(unittest.TestCase):
     def test_un_solo_candidato_definido_no_marca_sin_datos_suficientes(self):
         tabla = _tabla(
             [
-                {"candidato": "benchmark", "wape_medio": np.nan, "bias_medio": np.nan, "mae_medio": 0.0, "tasa_fallback_backtest": 0.0},
-                {"candidato": "ets_tsb", "wape_medio": 0.4, "bias_medio": 0.1, "mae_medio": 5.0, "tasa_fallback_backtest": 0.0},
+                {"candidato": "benchmark", "wape_medio": np.nan, "bias_medio": np.nan, "mae_medio": 0.0, "mase_medio": np.nan, "tasa_fallback_backtest": 0.0},
+                {"candidato": "ets_tsb", "wape_medio": 0.4, "bias_medio": 0.1, "mae_medio": 5.0, "mase_medio": 1.1, "tasa_fallback_backtest": 0.0},
             ]
         )
 

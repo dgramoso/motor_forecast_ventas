@@ -117,6 +117,7 @@ def comparar_modelos_sku(
                 "wape_medio": resultados["wape"].mean(),
                 "bias_medio": resultados["bias"].mean(),
                 "mae_medio": resultados["mae"].mean(),
+                "mase_medio": resultados["mase"].mean(),
                 "tasa_fallback_backtest": float(np.mean(fallbacks)) if fallbacks else 0.0,
             }
         )

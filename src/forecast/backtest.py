@@ -12,7 +12,8 @@ from typing import Callable
 import numpy as np
 import pandas as pd
 
-from .metricas import bias, mae, wape
+from .benchmark import PERIODO_ESTACIONAL
+from .metricas import bias, mae, mase, wape
 
 FuncionPronostico = Callable[[pd.Series, int], np.ndarray]
 
@@ -36,6 +37,7 @@ def backtest_walk_forward(
                 "wape": wape(real, pronostico),
                 "bias": bias(real, pronostico),
                 "mae": mae(real, pronostico),
+                "mase": mase(real, pronostico, entrenamiento.to_numpy(), PERIODO_ESTACIONAL),
             }
         )
 
