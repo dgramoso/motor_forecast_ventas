@@ -5,18 +5,21 @@ demanda cero (ver comparación benchmark vs. ETS).
 A diferencia de Croston clásico, TSB actualiza la probabilidad de
 ocurrencia en cada período (no solo cuando hay demanda), lo que evita
 que el pronóstico quede "viejo" tras una racha larga de ceros.
+
+TSB es un candidato independiente en `comparar_modelos.CANDIDATOS`, igual
+que ETS — cuál conviene para cada SKU lo decide el backtest walk-forward,
+no una regla fija de intermitencia (ver `diagnostico_demanda.py`, que
+clasifica el patrón de demanda como diagnóstico, sin forzar el modelo
+ganador).
 """
+
+from typing import Optional
 
 import numpy as np
 import pandas as pd
 
-UMBRAL_PROPORCION_CERO = 0.3
 ALPHA = 0.1  # suavizado del tamaño de la demanda
 BETA = 0.1  # suavizado de la probabilidad de ocurrencia
-
-
-def es_intermitente(serie: pd.Series, umbral: float = UMBRAL_PROPORCION_CERO) -> bool:
-    return (serie == 0).mean() >= umbral
 
 
 def pronosticar_tsb(
@@ -36,3 +39,12 @@ def pronosticar_tsb(
 
     nivel = z_hat * p_hat
     return np.full(horizonte, nivel)
+
+
+def _ajustar_tsb(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool, Optional[str]]:
+    """Mismo contrato que `_ajustar_ets` (forecast, fallback, motivo) para
+    que `comparar_modelos.CANDIDATOS_CON_METADATA` trate a TSB igual que a
+    los demás candidatos. TSB nunca cae en fallback: no ajusta ninguna
+    librería externa que pueda fallar por datos degenerados, solo
+    suavizado exponencial simple sobre la serie recibida."""
+    return pronosticar_tsb(serie, horizonte), False, None

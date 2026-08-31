@@ -5,7 +5,7 @@ Motor que genera pronósticos de demanda por SKU, comparando varios métodos de 
 ## Language
 
 **Candidato**:
-Un método de pronóstico que compite en el ranking de `comparar_modelos` para un SKU dado (`benchmark`, `ets_tsb`, `xgboost`, `prophet`, `random_forest`). Todos compiten en pie de igualdad — el benchmark no es un caso especial, gana por default si nadie le gana. SARIMA no es candidato — ver `docs/adr/0001-no-sarima.md`.
+Un método de pronóstico que compite en el ranking de `comparar_modelos` para un SKU dado (`benchmark`, `ets`, `tsb`, `xgboost`, `prophet`, `random_forest`). Todos compiten en pie de igualdad — el benchmark no es un caso especial, gana por default si nadie le gana. SARIMA no es candidato — ver `docs/adr/0001-no-sarima.md`. ETS y TSB compiten como candidatos independientes, no por una regla fija de intermitencia — ver `docs/adr/0002-ets-tsb-por-backtest.md`.
 _Avoid_: modelo (ambiguo — "modelo" también nombra al concepto general de método estadístico; usar "candidato" cuando el contexto es la competencia por SKU).
 
 **Fallback**:
@@ -20,3 +20,13 @@ El string que identifica por qué un candidato cayó en fallback — tipo de exc
 
 **SKU sin datos suficientes para comparar**:
 Un SKU donde todas las ventanas del backtest walk-forward tuvieron demanda real total cero — el WAPE queda indefinido (`NaN`) para los 6 candidatos por igual, así que no hay una comparación real entre ellos. Distinto de "SKU con histórico insuficiente" (eso lo excluye del backtest desde antes; esto ocurre con histórico suficiente pero demanda real vacía en cada ventana).
+
+**ADI** (Average Demand Interval):
+Cantidad de períodos por cada período con demanda positiva, sobre la serie recibida (`len(serie) / períodos_con_demanda_positiva`). `inf` si la serie no tuvo ningún período con demanda positiva. Ver `diagnostico_demanda.py`.
+
+**CV²**:
+Coeficiente de variación al cuadrado de la demanda, calculado solo sobre los períodos con demanda positiva. `0.0` (no indefinido) cuando hay menos de 2 observaciones positivas. Ver `diagnostico_demanda.py`.
+
+**Clase de demanda**:
+Clasificación del patrón de demanda de un SKU según ADI y CV² (criterio SBC — Syntetos, Boylan y Croston): `sin_demanda`, `regular`, `intermitente`, `erratica` o `lumpy`. Es diagnóstico y trazabilidad, no determina el candidato ganador — eso lo decide el backtest (ver `docs/adr/0002-ets-tsb-por-backtest.md`).
+_Avoid_: usar la clase de demanda como si fuera el criterio de selección del modelo — es información auditable, el ganador siempre sale del WAPE del backtest.

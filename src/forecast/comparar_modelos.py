@@ -12,7 +12,8 @@ import pandas as pd
 from src.datos.cargar_datos import cargar_ventas, serie_por_sku
 from src.forecast.backtest import backtest_walk_forward
 from src.forecast.benchmark import pronosticar_seasonal_naive
-from src.forecast.modelo import pronosticar_modelo, pronosticar_modelo_con_metadata
+from src.forecast.modelo_ets import _ajustar_ets, pronosticar_ets
+from src.forecast.modelo_intermitente import _ajustar_tsb, pronosticar_tsb
 from src.forecast.modelo_prophet import _ajustar_prophet, pronosticar_prophet
 from src.forecast.modelo_random_forest import _ajustar_random_forest, pronosticar_random_forest
 from src.forecast.modelo_xgboost import _ajustar_xgboost, pronosticar_xgboost
@@ -44,15 +45,17 @@ def _sin_negativos_con_metadata(funcion):
 
 # Candidatos que compiten por el título de "mejor modelo" — el benchmark
 # participa en el mismo ranking, no es un caso especial (spec.md:19,
-# decisión del ticket 01). "ets_tsb" es el router de modelo.py (ETS o TSB
-# según intermitencia, ver modelo.py); se llama así y no "modelo" para no
-# quedar ambiguo junto a los demás candidatos, que también son modelos
-# (ver issue 08). SARIMA no compite (ver docs/adr/0001-no-sarima.md).
+# decisión del ticket 01). ETS y TSB compiten como candidatos
+# independientes: cuál conviene para cada SKU lo decide el backtest, no
+# una regla fija de intermitencia (ver docs/adr/0002-ets-tsb-por-backtest.md
+# y diagnostico_demanda.py, que clasifica el patrón de demanda solo como
+# diagnóstico). SARIMA no compite (ver docs/adr/0001-no-sarima.md).
 CANDIDATOS = {
     nombre: _sin_negativos(funcion)
     for nombre, funcion in {
         "benchmark": pronosticar_seasonal_naive,
-        "ets_tsb": pronosticar_modelo,
+        "ets": pronosticar_ets,
+        "tsb": pronosticar_tsb,
         "xgboost": pronosticar_xgboost,
         "prophet": pronosticar_prophet,
         "random_forest": pronosticar_random_forest,
@@ -66,11 +69,6 @@ def _ajustar_benchmark(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bo
     return pronosticar_seasonal_naive(serie, horizonte), False, None
 
 
-def _ajustar_ets_tsb(serie: pd.Series, horizonte: int) -> tuple[np.ndarray, bool, Optional[str]]:
-    resultado = pronosticar_modelo_con_metadata(serie, horizonte)
-    return resultado.forecast, resultado.fallback, resultado.motivo_fallback
-
-
 # Igual que CANDIDATOS, pero cada función devuelve también si hubo
 # fallback y el motivo (ver CONTEXT.md, "Fallback" / "Motivo de
 # fallback") — lo consumen comparar_modelos_sku (para la tasa de
@@ -81,7 +79,8 @@ CANDIDATOS_CON_METADATA = {
     nombre: _sin_negativos_con_metadata(funcion)
     for nombre, funcion in {
         "benchmark": _ajustar_benchmark,
-        "ets_tsb": _ajustar_ets_tsb,
+        "ets": _ajustar_ets,
+        "tsb": _ajustar_tsb,
         "xgboost": _ajustar_xgboost,
         "prophet": _ajustar_prophet,
         "random_forest": _ajustar_random_forest,
@@ -99,7 +98,7 @@ def comparar_modelos_sku(
     su tasa de fallback (ver CONTEXT.md, "Tasa de fallback"). `candidatos`
     es un seam de inyección — el default es `CANDIDATOS_CON_METADATA`;
     los tests pasan un dict propio con doubles rápidos en vez de correr
-    los 5 modelos reales (Prophet incluido)."""
+    los 6 modelos reales (Prophet incluido)."""
     filas = []
     for nombre, ajustar_con_metadata in candidatos.items():
         fallbacks = []
