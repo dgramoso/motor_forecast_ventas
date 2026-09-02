@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 
 from .benchmark import PERIODO_ESTACIONAL, pronosticar_seasonal_naive
-from .comparar_modelos import HORIZONTE, VENTANA_MINIMA, comparar_modelos
+from .comparar_modelos import CANDIDATOS_CON_METADATA, HORIZONTE, VENTANA_MINIMA, comparar_modelos
 from .features_lightgbm import LAGS, VENTANAS_ROLLING, construir_dataset_supervisado
 from .metricas import bias, mae, mase, wape
 from .modelo_lightgbm_global import entrenar_lightgbm_global, pronosticar_lightgbm_global
@@ -182,11 +182,14 @@ def comparar_modelos_con_lightgbm_global(
     horizonte: int = HORIZONTE,
     ventana_minima: int = VENTANA_MINIMA,
     incluir_sku_id: bool = False,
+    candidatos: dict = CANDIDATOS_CON_METADATA,
 ) -> pd.DataFrame:
     """`comparar_modelos(ventas)` (candidatos por-SKU: benchmark, ETS,
     TSB, XGBoost, Prophet, Random Forest) más el candidato LightGBM
     global, en una sola tabla — lista para `seleccionar_modelo.py` sin
-    cambiarlo."""
-    tabla_por_sku = comparar_modelos(ventas, horizonte, ventana_minima)
+    cambiarlo. `candidatos` es el mismo seam de inyección que
+    `comparar_modelos_sku` (default `CANDIDATOS_CON_METADATA`) — los
+    tests lo usan para no correr los 6 modelos reales (Prophet incluido)."""
+    tabla_por_sku = comparar_modelos(ventas, horizonte, ventana_minima, candidatos)
     tabla_global = backtest_lightgbm_global(ventas, horizonte, ventana_minima, incluir_sku_id)
     return pd.concat([tabla_por_sku, tabla_global], ignore_index=True)

@@ -5,7 +5,7 @@ Motor que genera pronósticos de demanda por SKU, comparando varios métodos de 
 ## Language
 
 **Candidato**:
-Un método de pronóstico que compite en el ranking de `comparar_modelos` para un SKU dado (`benchmark`, `ets`, `tsb`, `xgboost`, `prophet`, `random_forest`). Todos compiten en pie de igualdad — el benchmark no es un caso especial, gana por default si nadie le gana. SARIMA no es candidato — ver `docs/adr/0001-no-sarima.md`. ETS y TSB compiten como candidatos independientes, no por una regla fija de intermitencia — ver `docs/adr/0002-ets-tsb-por-backtest.md`.
+Un método de pronóstico que compite en el ranking de `comparar_modelos_con_ensemble` para un SKU dado (`benchmark`, `ets`, `tsb`, `xgboost`, `prophet`, `random_forest`, `lightgbm_global`, `ensemble`). Todos compiten en pie de igualdad — el benchmark no es un caso especial, gana por default si nadie le gana. SARIMA no es candidato — ver `docs/adr/0001-no-sarima.md`. ETS y TSB compiten como candidatos independientes, no por una regla fija de intermitencia — ver `docs/adr/0002-ets-tsb-por-backtest.md`. `lightgbm_global` entrena un solo modelo con el histórico de todas las SKUs, no uno por SKU (ver `modelo_lightgbm_global.py`). `ensemble` combina ETS + TSB + LightGBM global por pesos ajustados con walk-forward anidado, para poder competir por WAPE sin ventaja injusta (ver `ensemble_backtest.py`).
 _Avoid_: modelo (ambiguo — "modelo" también nombra al concepto general de método estadístico; usar "candidato" cuando el contexto es la competencia por SKU).
 
 **Fallback**:

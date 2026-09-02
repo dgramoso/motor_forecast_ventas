@@ -8,8 +8,16 @@ import unittest
 import numpy as np
 import pandas as pd
 
+from src.forecast.comparar_modelos import _ajustar_benchmark
 from src.forecast.comparar_modelos_global import NOMBRE_CANDIDATO
-from src.forecast.pronosticar_futuro import pronosticar_futuro, pronosticar_futuro_lightgbm_global
+from src.forecast.ensemble_backtest import NOMBRE_ENSEMBLE, comparar_modelos_con_ensemble
+from src.forecast.modelo_ets import _ajustar_ets
+from src.forecast.modelo_intermitente import _ajustar_tsb
+from src.forecast.pronosticar_futuro import pronosticar_futuro, pronosticar_futuro_ensemble, pronosticar_futuro_lightgbm_global
+
+# Candidatos livianos (sin Prophet/XGBoost/Random Forest) para que los
+# tests de comparar_modelos_con_ensemble sean rápidos.
+_CANDIDATOS_LIVIANOS = {"benchmark": _ajustar_benchmark, "ets": _ajustar_ets, "tsb": _ajustar_tsb}
 
 
 def _ventas_multi_sku(n_skus: int, n_meses: int, semilla: int = 0) -> pd.DataFrame:
@@ -105,6 +113,42 @@ class TestPronosticarFuturoIntegrado(unittest.TestCase):
         candidato_sku1 = pronostico.loc[pronostico["sku_id"] == "SKU-1", "candidato"].unique()
         self.assertEqual(list(candidato_sku0), ["benchmark"])
         self.assertEqual(list(candidato_sku1), [NOMBRE_CANDIDATO])
+
+
+class TestPronosticarFuturoEnsemble(unittest.TestCase):
+    def test_sirve_ensemble_cuando_gana_la_seleccion(self):
+        ventas = _ventas_multi_sku(2, 40, semilla=6)
+        tabla_comparativa = comparar_modelos_con_ensemble(
+            ventas, horizonte=2, ventana_minima=20, candidatos=_CANDIDATOS_LIVIANOS
+        )
+
+        # Fuerza a "ensemble" a ganar en SKU-0 sin depender del backtest real.
+        tabla_comparativa.loc[
+            (tabla_comparativa["sku_id"] == "SKU-0") & (tabla_comparativa["candidato"] != NOMBRE_ENSEMBLE),
+            "wape_medio",
+        ] = 999.0
+        tabla_comparativa.loc[
+            (tabla_comparativa["sku_id"] == "SKU-0") & (tabla_comparativa["candidato"] == NOMBRE_ENSEMBLE),
+            "wape_medio",
+        ] = 0.001
+
+        pronostico = pronosticar_futuro(ventas, tabla_comparativa, horizonte=2)
+
+        candidato_sku0 = pronostico.loc[pronostico["sku_id"] == "SKU-0", "candidato"].unique()
+        self.assertEqual(list(candidato_sku0), [NOMBRE_ENSEMBLE])
+        self.assertTrue((pronostico.loc[pronostico["sku_id"] == "SKU-0", "unidades_pronosticadas"] >= 0).all())
+
+    def test_combina_los_tres_modelos_con_los_pesos_de_produccion(self):
+        ventas = _ventas_multi_sku(1, 40, semilla=7)
+        tabla_comparativa = comparar_modelos_con_ensemble(
+            ventas, horizonte=2, ventana_minima=20, candidatos=_CANDIDATOS_LIVIANOS
+        )
+
+        pronostico = pronosticar_futuro_ensemble(ventas, ["SKU-0"], tabla_comparativa, horizonte=2)
+
+        self.assertEqual(len(pronostico), 2)
+        self.assertTrue((pronostico["candidato"] == NOMBRE_ENSEMBLE).all())
+        self.assertFalse(pronostico["fallback"].any())
 
 
 if __name__ == "__main__":
