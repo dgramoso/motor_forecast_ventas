@@ -38,6 +38,13 @@ def backtest_walk_forward(
                 "bias": bias(real, pronostico),
                 "mae": mae(real, pronostico),
                 "mase": mase(real, pronostico, entrenamiento.to_numpy(), PERIODO_ESTACIONAL),
+                # Arrays crudos (no solo la métrica agregada) — los usa
+                # ensemble.py para ajustar pesos con las mismas
+                # predicciones out-of-sample del backtest, sin correrlo de
+                # nuevo. El resto de los consumidores (comparar_modelos.py,
+                # tests) sigue usando solo wape/bias/mae/mase.
+                "real": real,
+                "pronostico": pronostico,
             }
         )
 

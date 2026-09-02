@@ -62,24 +62,22 @@ def _pronosticar_origen(
         return pronostico, True, motivo
 
 
-def backtest_lightgbm_global(
+def _iterar_predicciones_por_sku(
     ventas: pd.DataFrame,
-    horizonte: int = HORIZONTE,
-    ventana_minima: int = VENTANA_MINIMA,
-    incluir_sku_id: bool = False,
-    lags: tuple[int, ...] = LAGS,
-    ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
-) -> pd.DataFrame:
-    """Una fila por SKU, con las mismas columnas que produce
-    `comparar_modelos_sku` para cada candidato — para poder concatenar
-    con `comparar_modelos(ventas)` antes de seleccionar el mejor
-    candidato (ver `comparar_modelos_con_lightgbm_global`).
-    `candidato` queda fijo en `"lightgbm_global"`."""
+    horizonte: int,
+    ventana_minima: int,
+    incluir_sku_id: bool,
+    lags: tuple[int, ...],
+    ventanas_rolling: tuple[int, ...],
+):
+    """Un origen del walk-forward por vez: reentrena el modelo global una
+    sola vez (no por SKU) y va cediendo `(sku_id, real, pronostico,
+    fallback)` para cada SKU con historia en ese origen. Generador
+    compartido por `backtest_lightgbm_global` (agrega a métricas) y
+    `recolectar_predicciones_lightgbm_global` (conserva los arrays crudos
+    para `ensemble.py`) — evita correr el walk-forward dos veces."""
     fechas = sorted(ventas["fecha"].unique())
     ultimo_origen = len(fechas) - horizonte
-
-    metricas_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
-    fallbacks_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
 
     for origen_idx in range(ventana_minima, ultimo_origen + 1):
         fecha_origen = fechas[origen_idx - 1]
@@ -99,19 +97,40 @@ def backtest_lightgbm_global(
                 .to_numpy()
             )
             pron = pronostico.loc[sku_id, range(1, horizonte + 1)].to_numpy(dtype=float)
-            entrenamiento_sku = (
-                historico[historico["sku_id"] == sku_id].sort_values("fecha")["unidades_vendidas"].to_numpy()
-            )
+            yield sku_id, real, pron, fallback, historico
 
-            metricas_por_sku[sku_id].append(
-                {
-                    "wape": wape(real, pron),
-                    "bias": bias(real, pron),
-                    "mae": mae(real, pron),
-                    "mase": mase(real, pron, entrenamiento_sku, PERIODO_ESTACIONAL),
-                }
-            )
-            fallbacks_por_sku[sku_id].append(fallback)
+
+def backtest_lightgbm_global(
+    ventas: pd.DataFrame,
+    horizonte: int = HORIZONTE,
+    ventana_minima: int = VENTANA_MINIMA,
+    incluir_sku_id: bool = False,
+    lags: tuple[int, ...] = LAGS,
+    ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
+) -> pd.DataFrame:
+    """Una fila por SKU, con las mismas columnas que produce
+    `comparar_modelos_sku` para cada candidato — para poder concatenar
+    con `comparar_modelos(ventas)` antes de seleccionar el mejor
+    candidato (ver `comparar_modelos_con_lightgbm_global`).
+    `candidato` queda fijo en `"lightgbm_global"`."""
+    metricas_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
+    fallbacks_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
+
+    for sku_id, real, pron, fallback, historico in _iterar_predicciones_por_sku(
+        ventas, horizonte, ventana_minima, incluir_sku_id, lags, ventanas_rolling
+    ):
+        entrenamiento_sku = (
+            historico[historico["sku_id"] == sku_id].sort_values("fecha")["unidades_vendidas"].to_numpy()
+        )
+        metricas_por_sku[sku_id].append(
+            {
+                "wape": wape(real, pron),
+                "bias": bias(real, pron),
+                "mae": mae(real, pron),
+                "mase": mase(real, pron, entrenamiento_sku, PERIODO_ESTACIONAL),
+            }
+        )
+        fallbacks_por_sku[sku_id].append(fallback)
 
     filas = []
     for sku_id, resultados in metricas_por_sku.items():
@@ -132,6 +151,30 @@ def backtest_lightgbm_global(
         )
 
     return pd.DataFrame(filas)
+
+
+def recolectar_predicciones_lightgbm_global(
+    ventas: pd.DataFrame,
+    horizonte: int = HORIZONTE,
+    ventana_minima: int = VENTANA_MINIMA,
+    incluir_sku_id: bool = False,
+    lags: tuple[int, ...] = LAGS,
+    ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
+) -> dict[str, tuple[list[np.ndarray], list[np.ndarray]]]:
+    """Predicciones out-of-sample crudas del walk-forward, por SKU:
+    `{sku_id: (reales, pronosticos)}` — las usa `ensemble.py` para ajustar
+    pesos con las mismas ventanas que ya evaluó el backtest, sin
+    reentrenar de nuevo."""
+    reales_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
+    pronosticos_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
+
+    for sku_id, real, pron, _fallback, _historico in _iterar_predicciones_por_sku(
+        ventas, horizonte, ventana_minima, incluir_sku_id, lags, ventanas_rolling
+    ):
+        reales_por_sku[sku_id].append(real)
+        pronosticos_por_sku[sku_id].append(pron)
+
+    return {sku_id: (reales_por_sku[sku_id], pronosticos_por_sku[sku_id]) for sku_id in ventas["sku_id"].unique()}
 
 
 def comparar_modelos_con_lightgbm_global(
