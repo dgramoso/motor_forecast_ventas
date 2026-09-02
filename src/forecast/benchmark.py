@@ -51,7 +51,6 @@ class ResultadoTendencia(NamedTuple):
 
     pendiente: float
     p_valor: float
-    intercepto: float
     tiene_tendencia: bool
 
 
@@ -77,26 +76,22 @@ def estimar_tendencia(serie: pd.Series) -> ResultadoTendencia:
     y = y_completo[validos]
 
     if len(y) < 2:
-        intercepto = float(y[0]) if len(y) else 0.0
-        return ResultadoTendencia(pendiente=0.0, p_valor=1.0, intercepto=intercepto, tiene_tendencia=False)
+        return ResultadoTendencia(pendiente=0.0, p_valor=1.0, tiene_tendencia=False)
 
     tiene_meses = isinstance(serie.index, pd.DatetimeIndex)
     if len(y) < MIN_OBSERVACIONES_TENDENCIA_ESTACIONAL or not tiene_meses:
         resultado = linregress(t, y)
-        pendiente, p_valor, intercepto = float(resultado.slope), float(resultado.pvalue), float(resultado.intercept)
+        pendiente, p_valor = float(resultado.slope), float(resultado.pvalue)
     else:
         meses = serie.index.month.to_numpy()[validos]
         dummies = pd.get_dummies(meses, prefix="mes", drop_first=True, dtype=float).to_numpy()
         x = np.column_stack([np.ones_like(t, dtype=float), t, dummies])
 
         modelo = sm.OLS(y, x).fit()
-        pendiente, p_valor, intercepto = float(modelo.params[1]), float(modelo.pvalues[1]), float(modelo.params[0])
+        pendiente, p_valor = float(modelo.params[1]), float(modelo.pvalues[1])
 
     return ResultadoTendencia(
-        pendiente=pendiente,
-        p_valor=p_valor,
-        intercepto=intercepto,
-        tiene_tendencia=p_valor < UMBRAL_P_VALOR_TENDENCIA,
+        pendiente=pendiente, p_valor=p_valor, tiene_tendencia=p_valor < UMBRAL_P_VALOR_TENDENCIA
     )
 
 

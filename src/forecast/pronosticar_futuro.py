@@ -167,8 +167,8 @@ def pronosticar_futuro(
 ) -> pd.DataFrame:
     """Selecciona el mejor candidato por SKU (ver seleccionar_modelo.py) y
     genera su pronóstico futuro. `tabla_comparativa` es la salida de
-    `comparar_modelos` (o `comparar_modelos_con_lightgbm_global` /
-    `comparar_modelos_con_ensemble`) sobre el mismo `ventas`. Los
+    `comparar_modelos` (o `comparar_modelos_con_ensemble`) sobre el
+    mismo `ventas`. Los
     candidatos "lightgbm_global" y "ensemble" se sirven aparte (un solo
     entrenamiento global para todas las SKUs que los ganaron, no uno por
     SKU)."""

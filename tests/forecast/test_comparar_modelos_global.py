@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 from src.forecast.comparar_modelos import _ajustar_benchmark, comparar_modelos_sku
-from src.forecast.comparar_modelos_global import backtest_lightgbm_global
+from src.forecast.comparar_modelos_global import backtest_y_predicciones_lightgbm_global
 from src.forecast.modelo_ets import _ajustar_ets
 from src.forecast.modelo_intermitente import _ajustar_tsb
 from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo_sku
@@ -30,14 +30,14 @@ def _ventas_multi_sku(n_skus: int, n_meses: int, semilla: int = 0) -> pd.DataFra
 class TestBacktestLightgbmGlobal(unittest.TestCase):
     def test_una_fila_por_sku_con_candidato_lightgbm_global(self):
         ventas = _ventas_multi_sku(3, 30)
-        tabla = backtest_lightgbm_global(ventas, horizonte=2, ventana_minima=15)
+        tabla = backtest_y_predicciones_lightgbm_global(ventas, horizonte=2, ventana_minima=15)[0]
 
         self.assertEqual(set(tabla["sku_id"]), {"SKU-0", "SKU-1", "SKU-2"})
         self.assertTrue((tabla["candidato"] == "lightgbm_global").all())
 
     def test_produce_metricas_definidas_con_datos_normales(self):
         ventas = _ventas_multi_sku(3, 30, semilla=1)
-        tabla = backtest_lightgbm_global(ventas, horizonte=2, ventana_minima=15)
+        tabla = backtest_y_predicciones_lightgbm_global(ventas, horizonte=2, ventana_minima=15)[0]
 
         self.assertTrue((tabla["n_ventanas"] > 0).all())
         self.assertFalse(tabla["wape_medio"].isna().any())
@@ -49,14 +49,14 @@ class TestBacktestLightgbmGlobal(unittest.TestCase):
         # Seasonal Naive (que sí alcanza con 15 >= 12 meses), no reventar
         # el backtest.
         ventas = _ventas_multi_sku(2, 25, semilla=2)
-        tabla = backtest_lightgbm_global(ventas, horizonte=2, ventana_minima=15, lags=(1, 2, 3, 20))
+        tabla = backtest_y_predicciones_lightgbm_global(ventas, horizonte=2, ventana_minima=15, lags=(1, 2, 3, 20))[0]
 
         self.assertTrue((tabla["tasa_fallback_backtest"] > 0.0).any())
         self.assertFalse(tabla["wape_medio"].isna().any())
 
     def test_incluir_sku_id_no_rompe_el_backtest(self):
         ventas = _ventas_multi_sku(3, 30, semilla=3)
-        tabla = backtest_lightgbm_global(ventas, horizonte=2, ventana_minima=15, incluir_sku_id=True)
+        tabla = backtest_y_predicciones_lightgbm_global(ventas, horizonte=2, ventana_minima=15, incluir_sku_id=True)[0]
 
         self.assertEqual(len(tabla), 3)
         self.assertFalse(tabla["wape_medio"].isna().any())
@@ -78,7 +78,7 @@ class TestComparacionCombinada(unittest.TestCase):
             tabla_sku.insert(0, "sku_id", sku_id)
             tablas_por_sku.append(tabla_sku)
 
-        tabla_global = backtest_lightgbm_global(ventas, horizonte=2, ventana_minima=15)
+        tabla_global = backtest_y_predicciones_lightgbm_global(ventas, horizonte=2, ventana_minima=15)[0]
         tabla_combinada = pd.concat(tablas_por_sku + [tabla_global], ignore_index=True)
 
         for sku_id, tabla_sku in tabla_combinada.groupby("sku_id"):

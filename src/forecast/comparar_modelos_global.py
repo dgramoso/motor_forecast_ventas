@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 
 from .benchmark import PERIODO_ESTACIONAL, pronosticar_seasonal_naive
-from .comparar_modelos import CANDIDATOS_CON_METADATA, HORIZONTE, VENTANA_MINIMA, comparar_modelos
+from .comparar_modelos import HORIZONTE, VENTANA_MINIMA
 from .features_lightgbm import LAGS, VENTANAS_ROLLING, construir_dataset_supervisado
 from .metricas import bias, mae, mase, wape
 from .modelo_lightgbm_global import entrenar_lightgbm_global, pronosticar_lightgbm_global
@@ -72,10 +72,9 @@ def _iterar_predicciones_por_sku(
 ):
     """Un origen del walk-forward por vez: reentrena el modelo global una
     sola vez (no por SKU) y va cediendo `(sku_id, real, pronostico,
-    fallback)` para cada SKU con historia en ese origen. Generador
-    compartido por `backtest_lightgbm_global` (agrega a métricas) y
-    `recolectar_predicciones_lightgbm_global` (conserva los arrays crudos
-    para `ensemble.py`) — evita correr el walk-forward dos veces."""
+    fallback)` para cada SKU con historia en ese origen. Lo consume
+    `backtest_y_predicciones_lightgbm_global`, que agrega a métricas y
+    conserva los arrays crudos en una sola pasada."""
     fechas = sorted(ventas["fecha"].unique())
     ultimo_origen = len(fechas) - horizonte
 
@@ -112,12 +111,10 @@ def backtest_y_predicciones_lightgbm_global(
     la tabla agregada (candidato `"lightgbm_global"`, mismo esquema que
     `comparar_modelos_sku`) como las predicciones crudas por SKU
     (`{sku_id: (reales, pronosticos)}`, las usa `ensemble_backtest.py`
-    para ajustar pesos). Reentrenar LightGBM por origen es lo más caro
-    del pipeline (un modelo con el histórico de TODAS las SKUs, no uno
-    por SKU) — `backtest_lightgbm_global` y
-    `recolectar_predicciones_lightgbm_global` son wrappers de esta
-    función para no pagar ese reentrenamiento dos veces cuando hace falta
-    ambas salidas (ver `comparar_modelos_con_ensemble`)."""
+    para ajustar pesos). Devuelve las dos salidas juntas porque
+    reentrenar LightGBM por origen es lo más caro del pipeline (un
+    modelo con el histórico de TODAS las SKUs, no uno por SKU): pedirlas
+    por separado lo pagaría dos veces (ver `comparar_modelos_con_ensemble`)."""
     metricas_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
     fallbacks_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
     reales_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
@@ -164,25 +161,6 @@ def backtest_y_predicciones_lightgbm_global(
     return tabla_agregada, predicciones
 
 
-def backtest_lightgbm_global(
-    ventas: pd.DataFrame,
-    horizonte: int = HORIZONTE,
-    ventana_minima: int = VENTANA_MINIMA,
-    incluir_sku_id: bool = False,
-    lags: tuple[int, ...] = LAGS,
-    ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
-) -> pd.DataFrame:
-    """Una fila por SKU, con las mismas columnas que produce
-    `comparar_modelos_sku` para cada candidato — para poder concatenar
-    con `comparar_modelos(ventas)` antes de seleccionar el mejor
-    candidato (ver `comparar_modelos_con_lightgbm_global`).
-    `candidato` queda fijo en `"lightgbm_global"`."""
-    tabla, _predicciones = backtest_y_predicciones_lightgbm_global(
-        ventas, horizonte, ventana_minima, incluir_sku_id, lags, ventanas_rolling
-    )
-    return tabla
-
-
 def recolectar_predicciones_lightgbm_global(
     ventas: pd.DataFrame,
     horizonte: int = HORIZONTE,
@@ -199,21 +177,3 @@ def recolectar_predicciones_lightgbm_global(
         ventas, horizonte, ventana_minima, incluir_sku_id, lags, ventanas_rolling
     )
     return predicciones
-
-
-def comparar_modelos_con_lightgbm_global(
-    ventas: pd.DataFrame,
-    horizonte: int = HORIZONTE,
-    ventana_minima: int = VENTANA_MINIMA,
-    incluir_sku_id: bool = False,
-    candidatos: dict = CANDIDATOS_CON_METADATA,
-) -> pd.DataFrame:
-    """`comparar_modelos(ventas)` (candidatos por-SKU: benchmark, ETS,
-    TSB, XGBoost, Prophet, Random Forest) más el candidato LightGBM
-    global, en una sola tabla — lista para `seleccionar_modelo.py` sin
-    cambiarlo. `candidatos` es el mismo seam de inyección que
-    `comparar_modelos_sku` (default `CANDIDATOS_CON_METADATA`) — los
-    tests lo usan para no correr los 6 modelos reales (Prophet incluido)."""
-    tabla_por_sku = comparar_modelos(ventas, horizonte, ventana_minima, candidatos)
-    tabla_global = backtest_lightgbm_global(ventas, horizonte, ventana_minima, incluir_sku_id)
-    return pd.concat([tabla_por_sku, tabla_global], ignore_index=True)

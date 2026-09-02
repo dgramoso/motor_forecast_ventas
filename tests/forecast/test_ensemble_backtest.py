@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 
 from src.forecast.comparar_modelos import _ajustar_benchmark
+from src.forecast.comparar_modelos_global import recolectar_predicciones_lightgbm_global
 from src.forecast.ensemble_backtest import (
     MIN_VENTANAS_AJUSTE_PESOS,
     MODELOS_ENSEMBLE,
@@ -107,7 +108,8 @@ class TestEvaluarEnsemblePorSku(unittest.TestCase):
 class TestEvaluarEnsemble(unittest.TestCase):
     def test_una_fila_por_sku_mismo_esquema_que_comparar_modelos(self):
         ventas = _ventas_multi_sku(3, 40, semilla=4)
-        evaluacion = evaluar_ensemble(ventas, horizonte=2, ventana_minima=20)
+        predicciones = recolectar_predicciones_lightgbm_global(ventas, horizonte=2, ventana_minima=20)
+        evaluacion = evaluar_ensemble(ventas, predicciones, horizonte=2, ventana_minima=20)
 
         self.assertEqual(set(evaluacion["sku_id"]), {"SKU-0", "SKU-1", "SKU-2"})
         self.assertTrue((evaluacion["candidato"] == NOMBRE_ENSEMBLE).all())

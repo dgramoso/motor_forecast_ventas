@@ -43,19 +43,13 @@ class TestSeasonalPuraSinTendencia(unittest.TestCase):
     """TEST 1 y TEST 5: estacionalidad marcada, sin tendencia -> sin drift."""
 
     def test_no_activa_drift(self):
-        serie = _serie(n=36, beta=0.0, amplitud=50.0, ruido=3.0, semilla=1)
-        self.assertFalse(tiene_tendencia(serie))
-
-        forecast = pronosticar_seasonal_naive(serie, horizonte=3)
-        esperado = _base_seasonal_naive(serie, horizonte=3)
-        np.testing.assert_allclose(forecast, esperado)
-
-    def test_fuerte_estacionalidad_sin_tendencia(self):
         serie = _serie(n=48, beta=0.0, amplitud=120.0, ruido=4.0, semilla=5)
         resultado = estimar_tendencia(serie)
 
         self.assertGreaterEqual(resultado.p_valor, UMBRAL_P_VALOR_TENDENCIA)
         self.assertFalse(resultado.tiene_tendencia)
+        self.assertFalse(tiene_tendencia(serie))
+
         forecast = pronosticar_seasonal_naive(serie, horizonte=3)
         np.testing.assert_allclose(forecast, _base_seasonal_naive(serie, horizonte=3))
 

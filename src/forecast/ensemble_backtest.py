@@ -32,7 +32,7 @@ from src.datos.cargar_datos import serie_por_sku
 
 from .backtest import backtest_walk_forward
 from .comparar_modelos import CANDIDATOS, CANDIDATOS_CON_METADATA, HORIZONTE, VENTANA_MINIMA, comparar_modelos
-from .comparar_modelos_global import backtest_y_predicciones_lightgbm_global, recolectar_predicciones_lightgbm_global
+from .comparar_modelos_global import backtest_y_predicciones_lightgbm_global
 from .ensemble import combinar_pronosticos, optimizar_pesos
 from .metricas import bias, mae, wape
 
@@ -99,9 +99,9 @@ def evaluar_ensemble_por_sku(
 
 def evaluar_ensemble(
     ventas: pd.DataFrame,
+    predicciones_lgbm: dict[str, tuple[list, list]],
     horizonte: int = HORIZONTE,
     ventana_minima: int = VENTANA_MINIMA,
-    predicciones_lgbm: dict[str, tuple[list, list]] | None = None,
 ) -> pd.DataFrame:
     """Una fila por SKU con el candidato "ensemble", mismo esquema que
     `comparar_modelos_sku` (para poder concatenar, ver
@@ -110,15 +110,11 @@ def evaluar_ensemble(
     ventanas suficientes para los tres modelos — mismo criterio de "sin
     datos suficientes" que el resto de los candidatos.
 
-    `predicciones_lgbm` es la salida de `recolectar_predicciones_lightgbm_global`
-    (o de `backtest_y_predicciones_lightgbm_global`) — si ya se calculó
-    (p.ej. en `comparar_modelos_con_ensemble`, que también necesita el
-    candidato "lightgbm_global" por separado), se pasa acá para no
-    reentrenar LightGBM de nuevo; si se omite, se calcula internamente
-    para poder usar esta función de forma standalone."""
-    if predicciones_lgbm is None:
-        predicciones_lgbm = recolectar_predicciones_lightgbm_global(ventas, horizonte, ventana_minima)
-
+    `predicciones_lgbm` (salida de `backtest_y_predicciones_lightgbm_global`
+    o de `recolectar_predicciones_lightgbm_global`) se recibe ya
+    calculado a propósito: quien llama normalmente también necesita la
+    tabla del candidato "lightgbm_global", y reentrenarlo acá pagaría
+    dos veces el paso más caro del backtest."""
     filas = []
     for sku_id in ventas["sku_id"].unique():
         reales_lgbm, pronosticos_lgbm = predicciones_lgbm[sku_id]
@@ -148,20 +144,19 @@ def comparar_modelos_con_ensemble(
     ventana_minima: int = VENTANA_MINIMA,
     candidatos: dict = CANDIDATOS_CON_METADATA,
 ) -> pd.DataFrame:
-    """Igual que `comparar_modelos_con_lightgbm_global(ventas)` más el
-    candidato "ensemble" (ver `evaluar_ensemble`), listo para
+    """La tabla comparativa completa: los candidatos por SKU
+    (`comparar_modelos`), el candidato LightGBM global y el candidato
+    "ensemble" (ver `evaluar_ensemble`), lista para
     `seleccionar_modelo.py` sin cambiarlo — las columnas `peso_*` sólo
     tienen valor en las filas de "ensemble"; `NaN` en el resto tras el
     `concat`. `candidatos` es el mismo seam de inyección que
     `comparar_modelos_sku` (default `CANDIDATOS_CON_METADATA`).
 
-    Calcula el backtest de LightGBM global UNA sola vez
-    (`backtest_y_predicciones_lightgbm_global`) y reusa esas predicciones
-    tanto para la fila `"lightgbm_global"` como para `evaluar_ensemble` —
-    llamar a `comparar_modelos_con_lightgbm_global` y a `evaluar_ensemble`
-    por separado reentrenaría LightGBM dos veces, el paso más caro del
+    El backtest de LightGBM global corre UNA sola vez y sus predicciones
+    alimentan tanto la fila `"lightgbm_global"` como `evaluar_ensemble`:
+    calcularlo dos veces sería pagar dos veces el paso más caro del
     backtest."""
     tabla_por_sku = comparar_modelos(ventas, horizonte, ventana_minima, candidatos)
     tabla_lightgbm, predicciones_lgbm = backtest_y_predicciones_lightgbm_global(ventas, horizonte, ventana_minima)
-    tabla_ensemble = evaluar_ensemble(ventas, horizonte, ventana_minima, predicciones_lgbm=predicciones_lgbm)
+    tabla_ensemble = evaluar_ensemble(ventas, predicciones_lgbm, horizonte, ventana_minima)
     return pd.concat([tabla_por_sku, tabla_lightgbm, tabla_ensemble], ignore_index=True)
