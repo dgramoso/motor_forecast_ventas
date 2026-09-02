@@ -9,7 +9,16 @@ de cada paso.
 from src.datos.cargar_datos import cargar_ventas
 from src.forecast.comparar_modelos import HORIZONTE, VENTANA_MINIMA
 from src.forecast.comparar_modelos_global import comparar_modelos_con_lightgbm_global
-from src.forecast.persistencia import RUTA_CORRIDAS, RUTA_PRONOSTICOS, guardar_corrida, guardar_pronosticos, nuevo_run_id
+from src.forecast.ensemble_informativo import evaluar_ensemble_informativo, pronosticar_futuro_ensemble
+from src.forecast.persistencia import (
+    RUTA_CORRIDAS,
+    RUTA_PRONOSTICOS,
+    guardar_corrida,
+    guardar_evaluacion_ensemble,
+    guardar_pronosticos,
+    guardar_pronosticos_ensemble,
+    nuevo_run_id,
+)
 from src.forecast.pronosticar_futuro import pronosticar_futuro
 from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo
 
@@ -20,15 +29,25 @@ def ejecutar_pipeline(horizonte: int = HORIZONTE, ventana_minima: int = VENTANA_
     selecciones = seleccionar_mejor_modelo(tabla_comparativa)
     pronostico = pronosticar_futuro(ventas, tabla_comparativa, horizonte)
 
+    # Vista comparativa del ensemble ETS+TSB+LightGBM global — no compite
+    # en `selecciones` (ver ensemble_informativo.py sobre por qué no).
+    evaluacion_ensemble = evaluar_ensemble_informativo(ventas, horizonte, ventana_minima)
+    pronostico_ensemble = pronosticar_futuro_ensemble(ventas, evaluacion_ensemble, horizonte)
+
     run_id = nuevo_run_id()
     guardar_corrida(run_id, selecciones)
     guardar_pronosticos(run_id, pronostico)
+    guardar_evaluacion_ensemble(run_id, evaluacion_ensemble)
+    if not pronostico_ensemble.empty:
+        guardar_pronosticos_ensemble(run_id, pronostico_ensemble)
 
     return {
         "run_id": run_id,
         "tabla_comparativa": tabla_comparativa,
         "selecciones": selecciones,
         "pronostico": pronostico,
+        "evaluacion_ensemble": evaluacion_ensemble,
+        "pronostico_ensemble": pronostico_ensemble,
     }
 
 
@@ -43,6 +62,9 @@ def main() -> None:
     )
     print("\nPronóstico futuro:")
     print(pronostico.to_string(index=False))
+
+    print("\nEnsemble ETS+TSB+LightGBM global (informativo, no compite en la selección):")
+    print(resultado["evaluacion_ensemble"].round(3).to_string(index=False))
     print(f"\nPersistido en {RUTA_CORRIDAS} y {RUTA_PRONOSTICOS}")
 
 

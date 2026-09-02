@@ -14,6 +14,8 @@ import pandas as pd
 
 RUTA_CORRIDAS = Path("data/runs/corridas.parquet")
 RUTA_PRONOSTICOS = Path("data/runs/pronosticos.parquet")
+RUTA_EVALUACION_ENSEMBLE = Path("data/runs/evaluacion_ensemble.parquet")
+RUTA_PRONOSTICOS_ENSEMBLE = Path("data/runs/pronosticos_ensemble.parquet")
 
 
 def nuevo_run_id() -> str:
@@ -45,6 +47,26 @@ def guardar_pronosticos(run_id: str, pronostico: pd.DataFrame) -> None:
     filas = pronostico.copy()
     filas.insert(0, "run_id", run_id)
     _agregar(RUTA_PRONOSTICOS, filas)
+
+
+def guardar_evaluacion_ensemble(run_id: str, evaluacion_ensemble: pd.DataFrame) -> None:
+    """`evaluacion_ensemble` es la salida de `evaluar_ensemble_informativo`
+    (ver ensemble_informativo.py) — vista comparativa, no compite en
+    `seleccionar_modelo.py`; se persiste aparte de `corridas.parquet`
+    para no confundirla con el candidato realmente seleccionado por SKU."""
+    filas = evaluacion_ensemble.copy()
+    filas.insert(0, "run_id", run_id)
+    filas.insert(1, "timestamp_utc", datetime.now(timezone.utc))
+    _agregar(RUTA_EVALUACION_ENSEMBLE, filas)
+
+
+def guardar_pronosticos_ensemble(run_id: str, pronostico_ensemble: pd.DataFrame) -> None:
+    """`pronostico_ensemble` es la salida de `pronosticar_futuro_ensemble`
+    — aparte de `pronosticos.parquet` por el mismo motivo que
+    `guardar_evaluacion_ensemble`."""
+    filas = pronostico_ensemble.copy()
+    filas.insert(0, "run_id", run_id)
+    _agregar(RUTA_PRONOSTICOS_ENSEMBLE, filas)
 
 
 def obtener_pronostico_vigente(sku_id: str | None = None) -> pd.DataFrame:
