@@ -19,7 +19,7 @@ El string que identifica por qué un candidato cayó en fallback — tipo de exc
 % de ventanas del backtest walk-forward donde un candidato cayó en fallback, para un SKU dado. Una tasa alta indica que el candidato "ganó" el ranking de WAPE en gran parte gracias al benchmark que lo respalda, no a su propio ajuste.
 
 **SKU sin datos suficientes para comparar**:
-Un SKU donde todas las ventanas del backtest walk-forward tuvieron demanda real total cero — el WAPE queda indefinido (`NaN`) para los 6 candidatos por igual, así que no hay una comparación real entre ellos. Distinto de "SKU con histórico insuficiente" (eso lo excluye del backtest desde antes; esto ocurre con histórico suficiente pero demanda real vacía en cada ventana).
+Un SKU donde todas las ventanas del backtest walk-forward tuvieron demanda real total cero — el WAPE queda indefinido (`NaN`) para todos los candidatos por igual, así que no hay una comparación real entre ellos. Distinto de "SKU con histórico insuficiente" (eso lo excluye del backtest desde antes; esto ocurre con histórico suficiente pero demanda real vacía en cada ventana).
 
 **ADI** (Average Demand Interval):
 Cantidad de períodos por cada período con demanda positiva, sobre la serie recibida (`len(serie) / períodos_con_demanda_positiva`). `inf` si la serie no tuvo ningún período con demanda positiva. Ver `diagnostico_demanda.py`.

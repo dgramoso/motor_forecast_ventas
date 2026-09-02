@@ -1,3 +1,9 @@
+> **Estado: cerrado.** Los 8 tickets de este mapa están implementados. El
+> trabajo posterior (LightGBM global, ensemble — "Fases 4 a 8") NO salió
+> de este mapa y no está reflejado acá: vino de un pedido aparte y quedó
+> registrado en los commits, en `docs/adr/` y en `analisis/`. Este archivo
+> es historia del pipeline inicial, no el estado actual del motor.
+
 ## Destination
 
 Pipeline end-to-end del motor de forecast funcionando sobre los 5 SKUs
