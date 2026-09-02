@@ -100,21 +100,28 @@ def _iterar_predicciones_por_sku(
             yield sku_id, real, pron, fallback, historico
 
 
-def backtest_lightgbm_global(
+def backtest_y_predicciones_lightgbm_global(
     ventas: pd.DataFrame,
     horizonte: int = HORIZONTE,
     ventana_minima: int = VENTANA_MINIMA,
     incluir_sku_id: bool = False,
     lags: tuple[int, ...] = LAGS,
     ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
-) -> pd.DataFrame:
-    """Una fila por SKU, con las mismas columnas que produce
-    `comparar_modelos_sku` para cada candidato — para poder concatenar
-    con `comparar_modelos(ventas)` antes de seleccionar el mejor
-    candidato (ver `comparar_modelos_con_lightgbm_global`).
-    `candidato` queda fijo en `"lightgbm_global"`."""
+) -> tuple[pd.DataFrame, dict[str, tuple[list[np.ndarray], list[np.ndarray]]]]:
+    """Corre `_iterar_predicciones_por_sku` UNA sola vez y devuelve tanto
+    la tabla agregada (candidato `"lightgbm_global"`, mismo esquema que
+    `comparar_modelos_sku`) como las predicciones crudas por SKU
+    (`{sku_id: (reales, pronosticos)}`, las usa `ensemble_backtest.py`
+    para ajustar pesos). Reentrenar LightGBM por origen es lo más caro
+    del pipeline (un modelo con el histórico de TODAS las SKUs, no uno
+    por SKU) — `backtest_lightgbm_global` y
+    `recolectar_predicciones_lightgbm_global` son wrappers de esta
+    función para no pagar ese reentrenamiento dos veces cuando hace falta
+    ambas salidas (ver `comparar_modelos_con_ensemble`)."""
     metricas_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
     fallbacks_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
+    reales_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
+    pronosticos_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
 
     for sku_id, real, pron, fallback, historico in _iterar_predicciones_por_sku(
         ventas, horizonte, ventana_minima, incluir_sku_id, lags, ventanas_rolling
@@ -131,6 +138,8 @@ def backtest_lightgbm_global(
             }
         )
         fallbacks_por_sku[sku_id].append(fallback)
+        reales_por_sku[sku_id].append(real)
+        pronosticos_por_sku[sku_id].append(pron)
 
     filas = []
     for sku_id, resultados in metricas_por_sku.items():
@@ -150,7 +159,28 @@ def backtest_lightgbm_global(
             }
         )
 
-    return pd.DataFrame(filas)
+    tabla_agregada = pd.DataFrame(filas)
+    predicciones = {sku_id: (reales_por_sku[sku_id], pronosticos_por_sku[sku_id]) for sku_id in ventas["sku_id"].unique()}
+    return tabla_agregada, predicciones
+
+
+def backtest_lightgbm_global(
+    ventas: pd.DataFrame,
+    horizonte: int = HORIZONTE,
+    ventana_minima: int = VENTANA_MINIMA,
+    incluir_sku_id: bool = False,
+    lags: tuple[int, ...] = LAGS,
+    ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
+) -> pd.DataFrame:
+    """Una fila por SKU, con las mismas columnas que produce
+    `comparar_modelos_sku` para cada candidato — para poder concatenar
+    con `comparar_modelos(ventas)` antes de seleccionar el mejor
+    candidato (ver `comparar_modelos_con_lightgbm_global`).
+    `candidato` queda fijo en `"lightgbm_global"`."""
+    tabla, _predicciones = backtest_y_predicciones_lightgbm_global(
+        ventas, horizonte, ventana_minima, incluir_sku_id, lags, ventanas_rolling
+    )
+    return tabla
 
 
 def recolectar_predicciones_lightgbm_global(
@@ -162,19 +192,13 @@ def recolectar_predicciones_lightgbm_global(
     ventanas_rolling: tuple[int, ...] = VENTANAS_ROLLING,
 ) -> dict[str, tuple[list[np.ndarray], list[np.ndarray]]]:
     """Predicciones out-of-sample crudas del walk-forward, por SKU:
-    `{sku_id: (reales, pronosticos)}` — las usa `ensemble.py` para ajustar
-    pesos con las mismas ventanas que ya evaluó el backtest, sin
-    reentrenar de nuevo."""
-    reales_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
-    pronosticos_por_sku: dict = {sku_id: [] for sku_id in ventas["sku_id"].unique()}
-
-    for sku_id, real, pron, _fallback, _historico in _iterar_predicciones_por_sku(
+    `{sku_id: (reales, pronosticos)}` — las usa `ensemble_backtest.py`
+    para ajustar pesos con las mismas ventanas que ya evaluó el backtest,
+    sin reentrenar de nuevo."""
+    _tabla, predicciones = backtest_y_predicciones_lightgbm_global(
         ventas, horizonte, ventana_minima, incluir_sku_id, lags, ventanas_rolling
-    ):
-        reales_por_sku[sku_id].append(real)
-        pronosticos_por_sku[sku_id].append(pron)
-
-    return {sku_id: (reales_por_sku[sku_id], pronosticos_por_sku[sku_id]) for sku_id in ventas["sku_id"].unique()}
+    )
+    return predicciones
 
 
 def comparar_modelos_con_lightgbm_global(
