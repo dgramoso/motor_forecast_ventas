@@ -8,17 +8,20 @@ intermitencia, no solo sobre el dataset sintético usado en los tests.
 
 ## Muestra
 
-180 SKUs (de los 1.852 elegibles de la POC anterior), estratificados
-proporcionalmente por `clase_demanda` (ADI/CV², ver
-`diagnostico_demanda.py`) — no el catálogo completo, por el costo de
-correr 7 candidatos por SKU (14 min sobre 180 SKUs).
+216 SKUs de los 1.852 elegibles de la POC anterior: una muestra de 180
+estratificada proporcionalmente por `clase_demanda` (ADI/CV², ver
+`diagnostico_demanda.py`), más los 36 SKUs intermitentes del catálogo
+que no habían caído en esa muestra — con solo 4 intermitentes no
+alcanzaba para decir nada de esa clase (ver "Corrección" más abajo). No
+el catálogo completo, por el costo de correr 7 candidatos por SKU (17
+min sobre 216 SKUs).
 
-| Clase de demanda | Catálogo completo | Muestra |
+| Clase de demanda | Catálogo completo | Corrida |
 |---|---|---|
 | erratica | 1.175 | 114 |
 | regular | 485 | 47 |
+| **intermitente** | **40** | **40 (todos)** |
 | lumpy | 152 | 15 |
-| intermitente | 40 | 4 |
 
 `horizonte=3`, `ventana_minima=15` — igual que la POC anterior (dataset
 de 25 meses). Candidatos: `benchmark`, `ets`, `tsb`, `xgboost`,
@@ -26,77 +29,91 @@ de 25 meses). Candidatos: `benchmark`, `ets`, `tsb`, `xgboost`,
 ya excluido en la POC anterior) ni `sarima` (descartado, ver
 `docs/adr/0001-no-sarima.md`).
 
+Los intermitentes se corrieron junto al resto de la muestra, no solos:
+`lightgbm_global` entrena UN modelo con todas las SKUs del DataFrame que
+recibe, así que correr los 40 intermitentes aislados habría producido un
+modelo global entrenado solo con series intermitentes — distinto del que
+compite en el pipeline real, y por lo tanto no comparable.
+
 ## Resultado: el ensemble gana más que cualquier candidato individual
 
 | Candidato | SKUs | % |
 |---|---|---|
-| `ensemble` | 76 | 42,2% |
-| `lightgbm_global` | 27 | 15,0% |
-| `ets` | 24 | 13,3% |
-| `tsb` | 20 | 11,1% |
-| `benchmark` | 16 | 8,9% |
-| `random_forest` | 13 | 7,2% |
-| `xgboost` | 4 | 2,2% |
+| `ensemble` | 87 | 40,3% |
+| `lightgbm_global` | 35 | 16,2% |
+| `tsb` | 32 | 14,8% |
+| `ets` | 27 | 12,5% |
+| `benchmark` | 17 | 7,9% |
+| `random_forest` | 13 | 6,0% |
+| `xgboost` | 5 | 2,3% |
 
 A diferencia de la POC anterior (donde el benchmark ganaba el 49% del
-catálogo completo sin ensemble), acá el ensemble desplaza claramente al
-resto — casi 3 veces más ganador que el segundo candidato.
+catálogo completo, sin ensemble compitiendo), acá el ensemble desplaza
+claramente al resto — más del doble que el segundo candidato.
 
 ### Por clase de demanda
 
-| Clase | % ensemble ganador |
-|---|---|
-| erratica | 43,0% |
-| regular | 42,6% |
-| lumpy | 46,7% |
-| **intermitente** | **0,0%** (0/4 — ganó `tsb` en 2, `ets` en 2) |
+| Clase | SKUs | % ensemble ganador |
+|---|---|---|
+| regular | 47 | 42,6% |
+| erratica | 114 | 42,1% |
+| lumpy | 15 | 40,0% |
+| intermitente | 40 | 32,5% |
 
-El ensemble no le gana a TSB en demanda intermitente — esperable: TSB
-está diseñado específicamente para eso, y promediarlo con ETS/LightGBM
-(que no lo están) diluye su ventaja en vez de sumarla. La muestra de
-intermitentes es chica (4 SKUs, el catálogo completo tiene solo 40) —
-no alcanza para una conclusión firme, pero la dirección es coherente
-con la intuición del método.
+El ensemble es el candidato más ganador en las cuatro clases. En
+demanda intermitente su ventaja se atenúa (32,5% contra ~42% en el
+resto) y `tsb` queda muy cerca (12 de 40 SKUs, 30,0%) — coherente con
+que TSB está diseñado específicamente para ese patrón, pero **no** lo
+desplaza.
+
+### Corrección de un hallazgo anterior
+
+La primera versión de este documento reportó que el ensemble ganaba
+**0%** de los SKUs intermitentes y concluía que "promediarlo con
+ETS/LightGBM diluye la ventaja de TSB en vez de sumarla". Ese resultado
+salía de los 4 SKUs intermitentes que habían caído en la muestra
+estratificada. Corriendo los 40 del catálogo, el ensemble gana 32,5% —
+la conclusión anterior era un artefacto del tamaño de muestra, no un
+patrón real. Se mantiene una atenuación de su ventaja en esa clase,
+mucho más leve que lo reportado.
 
 ## Cuando el ensemble NO gana, pierde por bastante
 
-De los 96 SKUs donde el ensemble no ganó pero sí tuvo WAPE definido:
+Medido sobre la muestra inicial de 180 SKUs (96 casos donde el ensemble
+no ganó pero sí tuvo WAPE definido):
 
 - Brecha relativa media (ensemble vs. ganador real): **+99,0%** de WAPE
 - Brecha relativa mediana: **+60,4%** de WAPE
 
 El ensemble no es "casi tan bueno como el mejor" cuando pierde — pierde
-con margen considerable. Esto es consistente con la naturaleza de una
-combinación lineal: cuando un especialista (p.ej. TSB en demanda
-intermitente) le acierta bien a la estructura de una serie, promediarlo
-con modelos que no la capturan empeora el resultado en vez de
-mejorarlo. El ensemble gana en promedio (42% de las veces, con margen)
+con margen considerable. Es consistente con la naturaleza de una
+combinación lineal: cuando un especialista le acierta a la estructura de
+una serie, promediarlo con modelos que no la capturan empeora el
+resultado. El ensemble gana en promedio (40% de las veces, con margen)
 pero no es un "seguro" contra malos pronósticos SKU por SKU.
 
 ## Interpretación y recomendación
 
-El ensemble justifica su complejidad: en esta muestra, es el candidato
-individual con mayor tasa de victorias, por un margen amplio. La
-metodología de walk-forward anidado (que evita que se compare en
-ventaja injusta, ver `ensemble_backtest.py`) parece estar dando una
-comparación honesta y el resultado sigue siendo favorable.
+El ensemble justifica su complejidad: es el candidato con mayor tasa de
+victorias en las cuatro clases de demanda, por un margen amplio. La
+metodología de walk-forward anidado (que evita compararlo en ventaja
+injusta, ver `ensemble_backtest.py`) da una comparación honesta y el
+resultado sigue siendo favorable.
 
-No hay evidencia todavía de que convenga tratarlo como un reemplazo
-universal — en demanda intermitente específicamente, sigue siendo mejor
-dejar competir a TSB solo. El diseño actual (todos compiten por WAPE,
-sin reglas fijas) ya maneja esto correctamente sin intervención
-adicional.
+No hay evidencia de que convenga tratarlo como reemplazo universal: en
+el 60% de los SKUs sigue ganando otro candidato, y cuando pierde, pierde
+por márgenes grandes. El diseño actual —todos compiten por WAPE, sin
+reglas fijas por clase de demanda— maneja esto correctamente sin
+intervención adicional.
 
 ## Pendiente
 
-- Correr sobre una muestra más grande de SKUs intermitentes
-  específicamente (el catálogo completo solo tiene 40, la muestra actual
-  4) para confirmar si el patrón "ensemble pierde en intermitentes" se
-  sostiene con más casos.
-- Considerar correr sobre el catálogo completo (1.852 SKUs) si se
-  necesita el dato exacto de distribución para producción — la muestra
-  de 180 alcanza para validar la decisión de diseño, no para reportar
-  un número de producción.
+- Correr sobre el catálogo completo (1.852 SKUs, ~2,4 hs extrapolando de
+  esta corrida) si se necesita el número exacto de distribución para
+  producción — esta muestra alcanza para validar la decisión de diseño,
+  no para reportar un número de producción.
+- Recalcular la brecha relativa "cuando pierde" sobre la corrida de 216
+  SKUs (el número reportado arriba es de la muestra inicial de 180).
 - Los scripts de descarga/preparación de Online Retail II y de esta
   validación quedaron en el scratchpad de la sesión (no versionados) —
   igual que en la POC anterior, son reproducibles a partir del dataset
@@ -105,7 +122,8 @@ adicional.
 ## Artefactos
 
 - [`ensemble_selecciones_muestra.csv`](ensemble_selecciones_muestra.csv):
-  candidato ganador por SKU de la muestra, con sus métricas de backtest.
+  candidato ganador por SKU de la corrida de 216, con sus métricas de
+  backtest y la clase de demanda.
 - [`ensemble_comparacion_vs_ganador.csv`](ensemble_comparacion_vs_ganador.csv):
-  WAPE del ensemble vs. WAPE del ganador real, por SKU — la base de la
-  brecha relativa reportada arriba.
+  WAPE del ensemble vs. WAPE del ganador real, por SKU, sobre la muestra
+  inicial de 180 — la base de la brecha relativa reportada arriba.
