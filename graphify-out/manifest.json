@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "src/forecast/benchmark.py": {
-    "mtime": 1787929702.403622,
-    "ast_hash": "a6efae31b646d9f6813d688b9db145f9",
+    "mtime": 1788377386.8767142,
+    "ast_hash": "d3a2f3278414c76564d1e904db10204d",
     "semantic_hash": ""
   },
   "src/forecast/comparar_modelos.py": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "src/forecast/comparar_modelos_global.py": {
-    "mtime": 1788373373.3499188,
-    "ast_hash": "136015ea660f6b71275d971c88af5157",
+    "mtime": 1788377431.9940336,
+    "ast_hash": "30e7eae7f8e841d82578a69c4f85b290",
     "semantic_hash": ""
   },
   "src/forecast/diagnostico_demanda.py": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "src/forecast/ensemble_backtest.py": {
-    "mtime": 1788373404.2536726,
-    "ast_hash": "89f5c643817a584addd7462d7b4a0391",
+    "mtime": 1788377471.3763351,
+    "ast_hash": "1fe79e11ec34e3d2991c66d5d112a308",
     "semantic_hash": ""
   },
   "src/forecast/features_lightgbm.py": {
@@ -125,8 +125,8 @@
     "semantic_hash": ""
   },
   "src/forecast/pronosticar_futuro.py": {
-    "mtime": 1788372051.7073965,
-    "ast_hash": "433d8580a75ac3160cd602276d78d203",
+    "mtime": 1788377489.1533246,
+    "ast_hash": "74accc64f5d493053ce706e25d1f4587",
     "semantic_hash": ""
   },
   "src/forecast/seleccionar_modelo.py": {
@@ -145,8 +145,8 @@
     "semantic_hash": ""
   },
   "tests/forecast/test_benchmark.py": {
-    "mtime": 1787929929.3596034,
-    "ast_hash": "695314fb6ee7c325ec76359952fcea5f",
+    "mtime": 1788377499.1169975,
+    "ast_hash": "888c1c3f8fe7d21f1ddde5bdf9a7f547",
     "semantic_hash": ""
   },
   "tests/forecast/test_comparar_modelos.py": {
@@ -155,8 +155,8 @@
     "semantic_hash": ""
   },
   "tests/forecast/test_comparar_modelos_global.py": {
-    "mtime": 1788204917.101757,
-    "ast_hash": "99541a9ea7fb4daf4e2b45576b30fb65",
+    "mtime": 1788377440.9349298,
+    "ast_hash": "e4aa58dc0061d6a258ade6833b73a987",
     "semantic_hash": ""
   },
   "tests/forecast/test_diagnostico_demanda.py": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "tests/forecast/test_ensemble_backtest.py": {
-    "mtime": 1788372667.4985785,
-    "ast_hash": "7b72b5c0ee12fbbc2957cdfb03e2221b",
+    "mtime": 1788377484.260676,
+    "ast_hash": "fb9b2134ce176bb431deff594d4aeb69",
     "semantic_hash": ""
   },
   "tests/forecast/test_features_lightgbm.py": {
