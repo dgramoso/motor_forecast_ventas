@@ -1,0 +1,357 @@
+{
+  "src/__init__.py": {
+    "mtime": 1787925361.463662,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/datos/__init__.py": {
+    "mtime": 1787925364.1501937,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/datos/cargar_datos.py": {
+    "mtime": 1787925313.963751,
+    "ast_hash": "365c6acf051f81503a6f3dfd562c8a2d",
+    "semantic_hash": ""
+  },
+  "src/datos/generar_datos_sinteticos.py": {
+    "mtime": 1788204217.9653587,
+    "ast_hash": "301ea4b2cccf6da0fc8178df168ed9b4",
+    "semantic_hash": ""
+  },
+  "src/forecast/__init__.py": {
+    "mtime": 1787925366.8083262,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/forecast/_ajuste_con_fallback.py": {
+    "mtime": 1788202346.3323736,
+    "ast_hash": "c011c92d5f3806ff2537dbb5086d0703",
+    "semantic_hash": ""
+  },
+  "src/forecast/_modelo_arboles.py": {
+    "mtime": 1787943912.7948067,
+    "ast_hash": "1dec5a73e76af6716fe0e41d77a17dbf",
+    "semantic_hash": ""
+  },
+  "src/forecast/backtest.py": {
+    "mtime": 1788364243.8353317,
+    "ast_hash": "4df04aaa2097b156b8f280dbbdd53de8",
+    "semantic_hash": ""
+  },
+  "src/forecast/benchmark.py": {
+    "mtime": 1787929702.403622,
+    "ast_hash": "a6efae31b646d9f6813d688b9db145f9",
+    "semantic_hash": ""
+  },
+  "src/forecast/comparar_modelos.py": {
+    "mtime": 1788204106.0482059,
+    "ast_hash": "ec50485ff0c17af4a46d822ea22a3e19",
+    "semantic_hash": ""
+  },
+  "src/forecast/comparar_modelos_global.py": {
+    "mtime": 1788373373.3499188,
+    "ast_hash": "136015ea660f6b71275d971c88af5157",
+    "semantic_hash": ""
+  },
+  "src/forecast/diagnostico_demanda.py": {
+    "mtime": 1788203054.3615212,
+    "ast_hash": "96f4f4a90da3c79d56bbdfb2c04979ec",
+    "semantic_hash": ""
+  },
+  "src/forecast/ejecutar_backtest_benchmark.py": {
+    "mtime": 1787926866.5323117,
+    "ast_hash": "dec75f21a6b1169ae9b07cd0f0611e75",
+    "semantic_hash": ""
+  },
+  "src/forecast/ensemble.py": {
+    "mtime": 1788364323.3581102,
+    "ast_hash": "448bdb486a18ae1c5c9fde128f0b64f1",
+    "semantic_hash": ""
+  },
+  "src/forecast/ensemble_backtest.py": {
+    "mtime": 1788373404.2536726,
+    "ast_hash": "89f5c643817a584addd7462d7b4a0391",
+    "semantic_hash": ""
+  },
+  "src/forecast/features_lightgbm.py": {
+    "mtime": 1788204365.939355,
+    "ast_hash": "62e3f61b93ac94f20cc424282e11da3d",
+    "semantic_hash": ""
+  },
+  "src/forecast/metricas.py": {
+    "mtime": 1788204089.121829,
+    "ast_hash": "b774e014d91ae0f3647e1a2e52d51023",
+    "semantic_hash": ""
+  },
+  "src/forecast/modelo_ets.py": {
+    "mtime": 1787937659.1537886,
+    "ast_hash": "63f8700575a6329700a3e8a2030741a5",
+    "semantic_hash": ""
+  },
+  "src/forecast/modelo_intermitente.py": {
+    "mtime": 1788203079.1127913,
+    "ast_hash": "553d50b6a5621dc197dc1977d9c07892",
+    "semantic_hash": ""
+  },
+  "src/forecast/modelo_lightgbm_global.py": {
+    "mtime": 1788204383.3950505,
+    "ast_hash": "01d3f2ea1a48da24c39e5163b28d308d",
+    "semantic_hash": ""
+  },
+  "src/forecast/modelo_prophet.py": {
+    "mtime": 1788202351.1053941,
+    "ast_hash": "407352389c05e806bc3526cd3ea29636",
+    "semantic_hash": ""
+  },
+  "src/forecast/modelo_random_forest.py": {
+    "mtime": 1787934214.5755453,
+    "ast_hash": "f55455c4b775a3a8c16ab3aab89445dd",
+    "semantic_hash": ""
+  },
+  "src/forecast/modelo_xgboost.py": {
+    "mtime": 1787934208.7100182,
+    "ast_hash": "a8b6d6eddf05cb2325eb7ac0f79f6155",
+    "semantic_hash": ""
+  },
+  "src/forecast/persistencia.py": {
+    "mtime": 1788372081.9903758,
+    "ast_hash": "0948a75cfbfe04e9f48bbf7a9ac266a4",
+    "semantic_hash": ""
+  },
+  "src/forecast/pipeline.py": {
+    "mtime": 1788372068.9865685,
+    "ast_hash": "69a40ff57f9dea69b4ced4ffbc2f6048",
+    "semantic_hash": ""
+  },
+  "src/forecast/pronosticar_futuro.py": {
+    "mtime": 1788372051.7073965,
+    "ast_hash": "433d8580a75ac3160cd602276d78d203",
+    "semantic_hash": ""
+  },
+  "src/forecast/seleccionar_modelo.py": {
+    "mtime": 1788204122.5904522,
+    "ast_hash": "e319e85dd15ed65892a720e6f907260f",
+    "semantic_hash": ""
+  },
+  "tests/__init__.py": {
+    "mtime": 1787929007.4789038,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "tests/forecast/__init__.py": {
+    "mtime": 1787929008.5153072,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_benchmark.py": {
+    "mtime": 1787929929.3596034,
+    "ast_hash": "695314fb6ee7c325ec76359952fcea5f",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_comparar_modelos.py": {
+    "mtime": 1788202367.5262587,
+    "ast_hash": "8dd76c263370fc50166db2a37c12b3bc",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_comparar_modelos_global.py": {
+    "mtime": 1788204917.101757,
+    "ast_hash": "99541a9ea7fb4daf4e2b45576b30fb65",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_diagnostico_demanda.py": {
+    "mtime": 1788203208.136293,
+    "ast_hash": "85f0198b6ac920b40f82a382b5e5f0c7",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_ensemble.py": {
+    "mtime": 1788364384.2344456,
+    "ast_hash": "2f2a67e1b0593ef93c4902b9033fade7",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_ensemble_backtest.py": {
+    "mtime": 1788372667.4985785,
+    "ast_hash": "7b72b5c0ee12fbbc2957cdfb03e2221b",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_features_lightgbm.py": {
+    "mtime": 1788204438.8115785,
+    "ast_hash": "0fc2f5f56eeaff4aa4a8c1ddd5a67d37",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_metricas.py": {
+    "mtime": 1788204182.9293528,
+    "ast_hash": "afb18f16df9f116f77452f3f8e9ed4af",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_modelo_arboles.py": {
+    "mtime": 1787943940.8879242,
+    "ast_hash": "74b0774c33b2babadc908af67ab56d7c",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_modelo_ets.py": {
+    "mtime": 1787929958.605454,
+    "ast_hash": "450fb2990fa9b3d3720e06a1af97ac9a",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_modelo_intermitente.py": {
+    "mtime": 1788203181.9046578,
+    "ast_hash": "6eb12bfa25a27a9afedfb94cc841a20c",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_modelo_lightgbm_global.py": {
+    "mtime": 1788204455.0937314,
+    "ast_hash": "b5b223f9443fb80a1f3d1d4e30ad28f6",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_modelo_prophet.py": {
+    "mtime": 1787934757.2455056,
+    "ast_hash": "906435a44ab88b17d9a148e61e64ea2a",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_modelo_random_forest.py": {
+    "mtime": 1787934774.8640966,
+    "ast_hash": "d13c745b3427f645cf66533db7cbf097",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_modelo_xgboost.py": {
+    "mtime": 1787934766.5684116,
+    "ast_hash": "a68dc9fa8ddf67e483411b385d2be833",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_pronosticar_futuro.py": {
+    "mtime": 1788372680.9027824,
+    "ast_hash": "576190d982d9b39d05afa6e650e3eb34",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_seleccionar_modelo.py": {
+    "mtime": 1788204152.741919,
+    "ast_hash": "06ac34a54b369c5a4174ac0332ee55a4",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/01-criterio-seleccion-mejor-modelo.md": {
+    "mtime": 1787926769.9557865,
+    "ast_hash": "f85bc9ced60fa4c848bd5c28bad8101c",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/02-esquema-persistencia.md": {
+    "mtime": 1787927067.5792327,
+    "ast_hash": "1a65257c9131bc266c1e1044249f29ec",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/03-pipeline-ejecucion-comparacion.md": {
+    "mtime": 1787926893.8914137,
+    "ast_hash": "17a04842d8838aec1442418373bd40a5",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/04-seleccion-mejor-modelo.md": {
+    "mtime": 1787926980.4160829,
+    "ast_hash": "ade335ab815876f517d8751894f05a1b",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/05-pronostico-futuro.md": {
+    "mtime": 1787927135.1348596,
+    "ast_hash": "0107f3d9dcf7795b524dc57ff5a65e9a",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/06-persistencia.md": {
+    "mtime": 1787927242.4369297,
+    "ast_hash": "91f823ae87fbcfc5107a190ef1e60d9d",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/07-integracion-end-to-end.md": {
+    "mtime": 1787927399.9071188,
+    "ast_hash": "fc171e867d08e2aa96252c2412e6df8b",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/issues/08-agregar-modelos-sarima-xgboost-prophet-rf.md": {
+    "mtime": 1787932794.3437915,
+    "ast_hash": "711bb1f27e7942012b53d3512987639f",
+    "semantic_hash": ""
+  },
+  ".scratch/motor-forecast-pipeline/map.md": {
+    "mtime": 1788376805.801845,
+    "ast_hash": "7c5fe68bdf4f641e8924df09d3c77f48",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1787333185.9225314,
+    "ast_hash": "75d0cb8fdaaf206c92e2126f9b4f5899",
+    "semantic_hash": ""
+  },
+  "CONTEXT.md": {
+    "mtime": 1788376799.6822748,
+    "ast_hash": "cc1b796d4f791f44b82d5d0d6ec9268f",
+    "semantic_hash": ""
+  },
+  "analisis/ensemble_validacion_online_retail_ii.md": {
+    "mtime": 1788376629.7867794,
+    "ast_hash": "7e32b9f1607df7e7ee91258d76aff441",
+    "semantic_hash": ""
+  },
+  "analisis/online_retail_ii_prueba_de_concepto.md": {
+    "mtime": 1788190716.1477244,
+    "ast_hash": "598074713ba59eed91ee37f2a37f178d",
+    "semantic_hash": ""
+  },
+  "data/synthetic/README.md": {
+    "mtime": 1787925194.7331245,
+    "ast_hash": "3c0f376bcca96001dfd30b8e21a09aa7",
+    "semantic_hash": ""
+  },
+  "docs/adr/0001-no-sarima.md": {
+    "mtime": 1788202448.8605468,
+    "ast_hash": "c21ad536eb029cb1b99fef0654acf806",
+    "semantic_hash": ""
+  },
+  "docs/adr/0002-ets-tsb-por-backtest.md": {
+    "mtime": 1788203128.6544833,
+    "ast_hash": "0b4587dd72ac9a0c9b513c284f7400ab",
+    "semantic_hash": ""
+  },
+  "docs/adr/0003-ensemble-con-pesos-por-walk-forward-anidado.md": {
+    "mtime": 1788376779.5368092,
+    "ast_hash": "c220f77c193272f5bf389384191bcd9b",
+    "semantic_hash": ""
+  },
+  "docs/agents/domain.md": {
+    "mtime": 1787333203.4979873,
+    "ast_hash": "35089ed6a70a657c91fd100ade31b642",
+    "semantic_hash": ""
+  },
+  "docs/agents/issue-tracker.md": {
+    "mtime": 1787333194.3192961,
+    "ast_hash": "8eef3dfb0cab4bf7e9e122ccad837f63",
+    "semantic_hash": ""
+  },
+  "handoff/2026-08-21-metricas-benchmark-spec.md": {
+    "mtime": 1787340676.795622,
+    "ast_hash": "87d726d4510934fcc9727ffa2b2fe7e1",
+    "semantic_hash": ""
+  },
+  "handoff/2026-08-31-poc-datos-reales-y-hardening.md": {
+    "mtime": 1788190911.9406776,
+    "ast_hash": "a63c154379c784098f2f8e8f185cad08",
+    "semantic_hash": ""
+  },
+  "handoff/2026-09-02-ensemble-competitivo-y-validacion.md": {
+    "mtime": 1788376845.9121182,
+    "ast_hash": "ab723ada14ea474dbdb039fa7010d2f6",
+    "semantic_hash": ""
+  },
+  "requirements.txt": {
+    "mtime": 1788204230.4808939,
+    "ast_hash": "1bb7805494de8d41df77e0eb2d62fab0",
+    "semantic_hash": ""
+  },
+  "specs/001-motor-forecast-sku/spec.md": {
+    "mtime": 1788190744.7879417,
+    "ast_hash": "781ac975a01ed6fd555ad5abda2b650b",
+    "semantic_hash": ""
+  },
+  "analisis/airpassengers_forecast_comparativo.png": {
+    "mtime": 1787941306.0097864,
+    "ast_hash": "e35465a7963d7ab53277945201269948",
+    "semantic_hash": ""
+  }
+}

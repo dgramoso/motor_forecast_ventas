@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 data/runs/
+graphify-out/cache/
+graphify-out/.graphify_labels.json
+graphify-out/.graphify_labels.json.sig
+graphify-out/.graphify_root
