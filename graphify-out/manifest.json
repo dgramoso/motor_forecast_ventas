@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "src/forecast/ensemble_backtest.py": {
-    "mtime": 1788377471.3763351,
-    "ast_hash": "1fe79e11ec34e3d2991c66d5d112a308",
+    "mtime": 1788527373.8575823,
+    "ast_hash": "ea6b368825d4f235a32034914512bea8",
     "semantic_hash": ""
   },
   "src/forecast/features_lightgbm.py": {
@@ -125,13 +125,13 @@
     "semantic_hash": ""
   },
   "src/forecast/pronosticar_futuro.py": {
-    "mtime": 1788377489.1533246,
-    "ast_hash": "74accc64f5d493053ce706e25d1f4587",
+    "mtime": 1788527576.230255,
+    "ast_hash": "d98861d44007379968957b992e5cd2a1",
     "semantic_hash": ""
   },
   "src/forecast/seleccionar_modelo.py": {
-    "mtime": 1788204122.5904522,
-    "ast_hash": "e319e85dd15ed65892a720e6f907260f",
+    "mtime": 1788527559.438332,
+    "ast_hash": "47319f41809004dabc0b0bfbc52adea9",
     "semantic_hash": ""
   },
   "tests/__init__.py": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "tests/forecast/test_ensemble_backtest.py": {
-    "mtime": 1788377484.260676,
-    "ast_hash": "fb9b2134ce176bb431deff594d4aeb69",
+    "mtime": 1788527458.012687,
+    "ast_hash": "62650c94099fde4fb358c16ff90760ba",
     "semantic_hash": ""
   },
   "tests/forecast/test_features_lightgbm.py": {
@@ -220,13 +220,13 @@
     "semantic_hash": ""
   },
   "tests/forecast/test_pronosticar_futuro.py": {
-    "mtime": 1788372680.9027824,
-    "ast_hash": "576190d982d9b39d05afa6e650e3eb34",
+    "mtime": 1788527639.666546,
+    "ast_hash": "465b55e68167a28c17825ee5c994dcf8",
     "semantic_hash": ""
   },
   "tests/forecast/test_seleccionar_modelo.py": {
-    "mtime": 1788204152.741919,
-    "ast_hash": "06ac34a54b369c5a4174ac0332ee55a4",
+    "mtime": 1788527632.8819542,
+    "ast_hash": "eb6a250f0a5ce5c68f37468e27c87229",
     "semantic_hash": ""
   },
   ".scratch/motor-forecast-pipeline/issues/01-criterio-seleccion-mejor-modelo.md": {
@@ -275,8 +275,8 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1787333185.9225314,
-    "ast_hash": "75d0cb8fdaaf206c92e2126f9b4f5899",
+    "mtime": 1788378075.9761446,
+    "ast_hash": "4dce877d39948f78decbf66c3f05afd7",
     "semantic_hash": ""
   },
   "CONTEXT.md": {
@@ -352,6 +352,16 @@
   "analisis/airpassengers_forecast_comparativo.png": {
     "mtime": 1787941306.0097864,
     "ast_hash": "e35465a7963d7ab53277945201269948",
+    "semantic_hash": ""
+  },
+  "tests/forecast/_helpers.py": {
+    "mtime": 1788527414.5684595,
+    "ast_hash": "7aa0ae3c394d60377cc52d7c994801c2",
+    "semantic_hash": ""
+  },
+  "docs/agents/triage-labels.md": {
+    "mtime": 1788378070.7090323,
+    "ast_hash": "c943b4f17194520383283e513198e816",
     "semantic_hash": ""
   }
 }

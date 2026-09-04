@@ -32,8 +32,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_datos_cargar_datos",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "cargar_datos.py"
     },
     {
@@ -44,8 +44,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_datos_cargar_datos_cargar_ventas",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "cargar_ventas()"
     },
     {
@@ -55,8 +55,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_datos_cargar_datos_py_dataframe",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "dataframe"
     },
     {
@@ -67,8 +67,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_datos_cargar_datos_serie_por_sku",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "serie_por_sku()"
     },
     {
@@ -78,8 +78,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_datos_cargar_datos_py_series",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "series"
     },
     {
@@ -89,8 +89,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_datos_cargar_datos_rationale_1",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "carga el historico de ventas por sku. hoy lee el csv sintetico..."
     },
     {
@@ -274,8 +274,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ajuste_con_fallback",
-      "community": 3,
-      "community_name": "pronosticar_seasonal_naive",
+      "community": 36,
+      "community_name": "benchmark.py",
       "norm_label": "_ajuste_con_fallback.py"
     },
     {
@@ -330,8 +330,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ajuste_con_fallback_rationale_1",
-      "community": 3,
-      "community_name": "pronosticar_seasonal_naive",
+      "community": 36,
+      "community_name": "benchmark.py",
       "norm_label": "wrapper compartido de fallback \u2014 usado por modelo_ets.py y modelo_prophet.py:..."
     },
     {
@@ -489,7 +489,7 @@
       "_origin": "ast",
       "id": "src_forecast_backtest",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "backtest.py"
     },
     {
@@ -501,7 +501,7 @@
       "_origin": "ast",
       "id": "src_forecast_backtest_backtest_walk_forward",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "backtest_walk_forward()"
     },
     {
@@ -512,7 +512,7 @@
       "_origin": "ast",
       "id": "src_forecast_backtest_py_series",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "series"
     },
     {
@@ -523,7 +523,7 @@
       "_origin": "ast",
       "id": "funcionpronostico",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "funcionpronostico"
     },
     {
@@ -534,7 +534,7 @@
       "_origin": "ast",
       "id": "src_forecast_backtest_py_dataframe",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "dataframe"
     },
     {
@@ -545,7 +545,7 @@
       "_origin": "ast",
       "id": "src_forecast_backtest_rationale_1",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "backtest walk-forward (rolling), sin split unico ni k-fold \u2014 ver spec.md:19..."
     },
     {
@@ -555,8 +555,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_benchmark",
-      "community": 3,
-      "community_name": "pronosticar_seasonal_naive",
+      "community": 36,
+      "community_name": "benchmark.py",
       "norm_label": "benchmark.py"
     },
     {
@@ -648,8 +648,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_benchmark_rationale_1",
-      "community": 3,
-      "community_name": "pronosticar_seasonal_naive",
+      "community": 36,
+      "community_name": "benchmark.py",
       "norm_label": "benchmark seasonal naive + drift condicional \u2014 piso de comparacion del mvp..."
     },
     {
@@ -703,7 +703,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos",
-      "community": 13,
+      "community": 11,
       "community_name": "comparar_modelos.py",
       "norm_label": "comparar_modelos.py"
     },
@@ -739,8 +739,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_ajustar_benchmark",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "_ajustar_benchmark()"
     },
     {
@@ -750,8 +750,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_py_series",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "series"
     },
     {
@@ -761,8 +761,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_py_ndarray",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "ndarray"
     },
     {
@@ -796,8 +796,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_comparar_modelos",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 8,
+      "community_name": "comparar_modelos_sku",
       "norm_label": "comparar_modelos()"
     },
     {
@@ -807,7 +807,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_rationale_1",
-      "community": 13,
+      "community": 11,
       "community_name": "comparar_modelos.py",
       "norm_label": "corre el backtest walk-forward de benchmark vs. modelo por sku y devuelve la..."
     },
@@ -829,8 +829,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_rationale_67",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "el benchmark es el destino del fallback de los demas \u2014 nunca cae en fallback el..."
     },
     {
@@ -851,8 +851,8 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_rationale_133",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 8,
+      "community_name": "comparar_modelos_sku",
       "norm_label": "igual que `comparar_modelos_sku`, para todos los skus de `ventas`."
     },
     {
@@ -863,7 +863,7 @@
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "comparar_modelos_global.py"
     },
     {
@@ -874,8 +874,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_pronosticar_origen",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 4,
+      "community_name": "construir_dataset_supervisado",
       "norm_label": "_pronosticar_origen()"
     },
     {
@@ -885,8 +885,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_py_dataframe",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 4,
+      "community_name": "construir_dataset_supervisado",
       "norm_label": "dataframe"
     },
     {
@@ -897,8 +897,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_iterar_predicciones_por_sku",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 4,
+      "community_name": "construir_dataset_supervisado",
       "norm_label": "_iterar_predicciones_por_sku()"
     },
     {
@@ -909,8 +909,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_backtest_y_predicciones_lightgbm_global",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "backtest_y_predicciones_lightgbm_global()"
     },
     {
@@ -920,8 +920,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_py_ndarray",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 33,
+      "community_name": "test_ensemble.py",
       "norm_label": "ndarray"
     },
     {
@@ -932,8 +932,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_recolectar_predicciones_lightgbm_global",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 33,
+      "community_name": "test_ensemble.py",
       "norm_label": "recolectar_predicciones_lightgbm_global()"
     },
     {
@@ -944,7 +944,7 @@
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_1",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "backtest walk-forward del candidato lightgbm global \u2014 `comparar_modelos_sku`..."
     },
     {
@@ -954,8 +954,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_42",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 4,
+      "community_name": "construir_dataset_supervisado",
       "norm_label": "entrena y predice para un origen. devuelve una tabla indexada por `sku_id` con..."
     },
     {
@@ -965,8 +965,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_73",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 4,
+      "community_name": "construir_dataset_supervisado",
       "norm_label": "un origen del walk-forward por vez: reentrena el modelo global una sola vez (no..."
     },
     {
@@ -976,8 +976,8 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_110",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "corre `_iterar_predicciones_por_sku` una sola vez y devuelve tanto la tabla..."
     },
     {
@@ -987,8 +987,8 @@
       "source_location": "L172",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_172",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 33,
+      "community_name": "test_ensemble.py",
       "norm_label": "predicciones out-of-sample crudas del walk-forward, por sku: `{sku_id: (reales,..."
     },
     {
@@ -999,7 +999,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "diagnostico_demanda.py"
     },
     {
@@ -1011,7 +1011,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_tasa_de_ceros",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "tasa_de_ceros()"
     },
     {
@@ -1022,7 +1022,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_py_series",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "series"
     },
     {
@@ -1034,7 +1034,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_adi",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "adi()"
     },
     {
@@ -1046,7 +1046,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_cv2",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "cv2()"
     },
     {
@@ -1058,7 +1058,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_clasificar_demanda",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "clasificar_demanda()"
     },
     {
@@ -1069,7 +1069,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_rationale_1",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "diagnostico del patron de demanda \u2014 adi, cv2 y clasificacion sbc (syntetos,..."
     },
     {
@@ -1080,7 +1080,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_rationale_20",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "% de periodos con demanda cero. `nan` si la serie esta vacia."
     },
     {
@@ -1091,7 +1091,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_rationale_27",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "average demand interval: cantidad de periodos por cada periodo con demanda..."
     },
     {
@@ -1102,7 +1102,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_rationale_37",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "coeficiente de variacion al cuadrado de la demanda, sobre los periodos con..."
     },
     {
@@ -1113,7 +1113,7 @@
       "_origin": "ast",
       "id": "src_forecast_diagnostico_demanda_rationale_53",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "clasificacion sbc sobre adi y cv2 \u2014 diagnostico y priorizacion de candidatos,..."
     },
     {
@@ -1123,8 +1123,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ejecutar_backtest_benchmark",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "ejecutar_backtest_benchmark.py"
     },
     {
@@ -1135,8 +1135,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_ejecutar_backtest_benchmark_main",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "main()"
     },
     {
@@ -1146,8 +1146,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ejecutar_backtest_benchmark_rationale_1",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "cli: imprime la tabla comparativa de benchmark vs. modelo, por sku, sobre el..."
     },
     {
@@ -1169,8 +1169,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_ensemble_combinar_pronosticos",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": "combinar_pronosticos()"
     },
     {
@@ -1214,8 +1214,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_forecast_ensemble_rationale_27",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": "y = \u03c3 w_i \u00b7 y_i. exige que `pesos` cubra exactamente los mismos modelos que..."
     },
     {
@@ -1236,20 +1236,20 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ensemble_backtest",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "ensemble_backtest.py"
     },
     {
       "label": "evaluar_ensemble_por_sku()",
       "file_type": "code",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L48",
+      "source_location": "L64",
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "evaluar_ensemble_por_sku()"
     },
     {
@@ -1260,20 +1260,20 @@
       "_origin": "ast",
       "id": "src_forecast_ensemble_backtest_py_ndarray",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "ndarray"
     },
     {
-      "label": "evaluar_ensemble()",
+      "label": "_backtest_y_predicciones_por_candidato()",
       "file_type": "code",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L100",
+      "source_location": "L127",
       "_callable": true,
       "_origin": "ast",
-      "id": "src_forecast_ensemble_backtest_evaluar_ensemble",
+      "id": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
       "community": 13,
-      "community_name": "comparar_modelos.py",
-      "norm_label": "evaluar_ensemble()"
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": "_backtest_y_predicciones_por_candidato()"
     },
     {
       "label": "DataFrame",
@@ -1283,19 +1283,31 @@
       "_origin": "ast",
       "id": "src_forecast_ensemble_backtest_py_dataframe",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "dataframe"
+    },
+    {
+      "label": "evaluar_ensemble()",
+      "file_type": "code",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L168",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_forecast_ensemble_backtest_evaluar_ensemble",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": "evaluar_ensemble()"
     },
     {
       "label": "comparar_modelos_con_ensemble()",
       "file_type": "code",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L141",
+      "source_location": "L230",
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "comparar_modelos_con_ensemble()"
     },
     {
@@ -1305,41 +1317,52 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ensemble_backtest_rationale_1",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "evaluacion walk-forward del candidato \"ensemble\" (ets + tsb + lightgbm global)..."
     },
     {
       "label": "M\u00e9tricas del ensemble evaluadas por walk-forward anidado (ver docstring del\u2026",
       "file_type": "rationale",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L53",
+      "source_location": "L71",
       "_origin": "ast",
-      "id": "src_forecast_ensemble_backtest_rationale_53",
+      "id": "src_forecast_ensemble_backtest_rationale_71",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "metricas del ensemble evaluadas por walk-forward anidado (ver docstring del..."
+    },
+    {
+      "label": "Corre `backtest_walk_forward` de un candidato con metadata de fallback (`ets` o\u2026",
+      "file_type": "rationale",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "src_forecast_ensemble_backtest_rationale_130",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": "corre `backtest_walk_forward` de un candidato con metadata de fallback (`ets` o..."
     },
     {
       "label": "Una fila por SKU con el candidato \"ensemble\", mismo esquema que\u2026",
       "file_type": "rationale",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L106",
+      "source_location": "L175",
       "_origin": "ast",
-      "id": "src_forecast_ensemble_backtest_rationale_106",
+      "id": "src_forecast_ensemble_backtest_rationale_175",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "una fila por sku con el candidato \"ensemble\", mismo esquema que..."
     },
     {
       "label": "La tabla comparativa completa: los candidatos por SKU (`comparar_modelos`), el\u2026",
       "file_type": "rationale",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L147",
+      "source_location": "L236",
       "_origin": "ast",
-      "id": "src_forecast_ensemble_backtest_rationale_147",
+      "id": "src_forecast_ensemble_backtest_rationale_236",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "la tabla comparativa completa: los candidatos por sku (`comparar_modelos`), el..."
     },
     {
@@ -1429,7 +1452,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "metricas.py"
     },
     {
@@ -1441,7 +1464,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_wape",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "wape()"
     },
     {
@@ -1452,7 +1475,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_py_ndarray",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "ndarray"
     },
     {
@@ -1464,7 +1487,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_bias",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "bias()"
     },
     {
@@ -1476,7 +1499,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_mae",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "mae()"
     },
     {
@@ -1488,7 +1511,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_mase",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "mase()"
     },
     {
@@ -1499,7 +1522,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_rationale_1",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "wape, bias y mae \u2014 ver spec.md:31-36 para la justificacion de por que estas..."
     },
     {
@@ -1510,7 +1533,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_rationale_12",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "np.nan si la ventana tiene demanda real total cero (indefinido, no error del..."
     },
     {
@@ -1521,7 +1544,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_rationale_21",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "np.nan si la ventana tiene demanda real total cero (indefinido, no error del..."
     },
     {
@@ -1532,7 +1555,7 @@
       "_origin": "ast",
       "id": "src_forecast_metricas_rationale_40",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "mean absolute scaled error (hyndman-koehler): mae del pronostico escalado por..."
     },
     {
@@ -1542,8 +1565,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_modelo_ets",
-      "community": 10,
-      "community_name": "_ajustar_ets",
+      "community": 36,
+      "community_name": "benchmark.py",
       "norm_label": "modelo_ets.py"
     },
     {
@@ -1611,8 +1634,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_modelo_ets_rationale_1",
-      "community": 10,
-      "community_name": "_ajustar_ets",
+      "community": 36,
+      "community_name": "benchmark.py",
       "norm_label": "modelo estadistico clasico por sku: holt-winters (ets), aditivo. trend y..."
     },
     {
@@ -1634,7 +1657,7 @@
       "_origin": "ast",
       "id": "src_forecast_modelo_intermitente",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "modelo_intermitente.py"
     },
     {
@@ -1646,7 +1669,7 @@
       "_origin": "ast",
       "id": "src_forecast_modelo_intermitente_pronosticar_tsb",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "pronosticar_tsb()"
     },
     {
@@ -1657,7 +1680,7 @@
       "_origin": "ast",
       "id": "src_forecast_modelo_intermitente_py_series",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "series"
     },
     {
@@ -1668,7 +1691,7 @@
       "_origin": "ast",
       "id": "src_forecast_modelo_intermitente_py_ndarray",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "ndarray"
     },
     {
@@ -1680,7 +1703,7 @@
       "_origin": "ast",
       "id": "src_forecast_modelo_intermitente_ajustar_tsb",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "_ajustar_tsb()"
     },
     {
@@ -1691,7 +1714,7 @@
       "_origin": "ast",
       "id": "src_forecast_modelo_intermitente_rationale_1",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "tsb (teunter-syntetos-babai) para demanda intermitente \u2014 sku-003 mostro que..."
     },
     {
@@ -1702,7 +1725,7 @@
       "_origin": "ast",
       "id": "src_forecast_modelo_intermitente_rationale_45",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "mismo contrato que `_ajustar_ets` (forecast, fallback, motivo) para que..."
     },
     {
@@ -2098,8 +2121,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_persistencia",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "persistencia.py"
     },
     {
@@ -2110,8 +2133,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_persistencia_nuevo_run_id",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "nuevo_run_id()"
     },
     {
@@ -2122,8 +2145,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_persistencia_agregar",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "_agregar()"
     },
     {
@@ -2133,8 +2156,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "path",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "path"
     },
     {
@@ -2144,8 +2167,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_persistencia_py_dataframe",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "dataframe"
     },
     {
@@ -2156,8 +2179,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_persistencia_guardar_corrida",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "guardar_corrida()"
     },
     {
@@ -2168,8 +2191,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_persistencia_guardar_pronosticos",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "guardar_pronosticos()"
     },
     {
@@ -2180,8 +2203,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_persistencia_obtener_pronostico_vigente",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "obtener_pronostico_vigente()"
     },
     {
@@ -2191,8 +2214,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_persistencia_rationale_1",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "persistencia de corridas y pronosticos \u2014 esquema decidido en .scratch/motor-..."
     },
     {
@@ -2202,8 +2225,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_forecast_persistencia_rationale_31",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "`selecciones` es la salida de `seleccionar_mejor_modelo` (sku_id, candidato,..."
     },
     {
@@ -2213,8 +2236,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "src_forecast_persistencia_rationale_41",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "`pronostico` es la salida de `pronosticar_futuro` (sku_id, fecha, candidato,..."
     },
     {
@@ -2224,8 +2247,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "src_forecast_persistencia_rationale_51",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "el pronostico de la corrida mas reciente, por sku (o de un sku puntual)."
     },
     {
@@ -2235,8 +2258,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_pipeline",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pipeline.py"
     },
     {
@@ -2247,8 +2270,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_pipeline_ejecutar_pipeline",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "ejecutar_pipeline()"
     },
     {
@@ -2259,8 +2282,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_pipeline_main",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "main()"
     },
     {
@@ -2270,8 +2293,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_pipeline_rationale_1",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pipeline end-to-end del motor de forecast: ingesta \u2192 ejecucion y comparacion de..."
     },
     {
@@ -2281,8 +2304,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pronosticar_futuro.py"
     },
     {
@@ -2294,7 +2317,7 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_pronosticar_futuro_sku",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pronosticar_futuro_sku()"
     },
     {
@@ -2305,7 +2328,7 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_py_series",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "series"
     },
     {
@@ -2316,7 +2339,7 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_py_dataframe",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "dataframe"
     },
     {
@@ -2328,7 +2351,7 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_pronosticar_futuro_lightgbm_global",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pronosticar_futuro_lightgbm_global()"
     },
     {
@@ -2340,19 +2363,19 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_pronosticar_futuro_ensemble",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pronosticar_futuro_ensemble()"
     },
     {
       "label": "pronosticar_futuro()",
       "file_type": "code",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L165",
+      "source_location": "L169",
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_pronosticar_futuro",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pronosticar_futuro()"
     },
     {
@@ -2362,8 +2385,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_rationale_1",
-      "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community": 0,
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "pronostico futuro real: a diferencia del backtest, aca no hay \"real\" contra que..."
     },
     {
@@ -2374,7 +2397,7 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_rationale_24",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "el pronostico servido, mas si el candidato elegido cayo en fallback al ajustar..."
     },
     {
@@ -2385,7 +2408,7 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_rationale_59",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "sirve el pronostico de lightgbm global para las skus de `skus` que lo ganaron..."
     },
     {
@@ -2396,18 +2419,18 @@
       "_origin": "ast",
       "id": "src_forecast_pronosticar_futuro_rationale_117",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "sirve el pronostico del candidato \"ensemble\" para las skus que lo ganaron:..."
     },
     {
       "label": "Selecciona el mejor candidato por SKU (ver seleccionar_modelo.py) y genera su\u2026",
       "file_type": "rationale",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L168",
+      "source_location": "L172",
       "_origin": "ast",
-      "id": "src_forecast_pronosticar_futuro_rationale_168",
+      "id": "src_forecast_pronosticar_futuro_rationale_172",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "selecciona el mejor candidato por sku (ver seleccionar_modelo.py) y genera su..."
     },
     {
@@ -2448,7 +2471,7 @@
       "label": "seleccionar_mejor_modelo()",
       "file_type": "code",
       "source_file": "src/forecast/seleccionar_modelo.py",
-      "source_location": "L41",
+      "source_location": "L50",
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo",
@@ -2482,9 +2505,9 @@
       "label": "`tabla_comparativa` es la salida de `comparar_modelos` (todos los SKUs).",
       "file_type": "rationale",
       "source_file": "src/forecast/seleccionar_modelo.py",
-      "source_location": "L42",
+      "source_location": "L51",
       "_origin": "ast",
-      "id": "src_forecast_seleccionar_modelo_rationale_42",
+      "id": "src_forecast_seleccionar_modelo_rationale_51",
       "community": 6,
       "community_name": "seleccionar_mejor_modelo_sku",
       "norm_label": "`tabla_comparativa` es la salida de `comparar_modelos` (todos los skus)."
@@ -2510,6 +2533,28 @@
       "community": 31,
       "community_name": "tests/forecast/__init__.py",
       "norm_label": "tests/forecast/__init__.py"
+    },
+    {
+      "label": "_helpers.py",
+      "file_type": "code",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_forecast_helpers",
+      "community": 11,
+      "community_name": "comparar_modelos.py",
+      "norm_label": "_helpers.py"
+    },
+    {
+      "label": "Fixtures compartidas entre tests de forecast \u2014 no es un m\u00f3dulo de producci\u00f3n,\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_forecast_helpers_rationale_1",
+      "community": 11,
+      "community_name": "comparar_modelos.py",
+      "norm_label": "fixtures compartidas entre tests de forecast \u2014 no es un modulo de produccion,..."
     },
     {
       "label": "test_benchmark.py",
@@ -3112,8 +3157,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "test_comparar_modelos_global.py"
     },
     {
@@ -3124,8 +3169,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_ventas_multi_sku",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "_ventas_multi_sku()"
     },
     {
@@ -3135,8 +3180,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_py_dataframe",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "dataframe"
     },
     {
@@ -3148,8 +3193,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "testbacktestlightgbmglobal"
     },
     {
@@ -3160,8 +3205,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_una_fila_por_sku_con_candidato_lightgbm_global",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": ".test_una_fila_por_sku_con_candidato_lightgbm_global()"
     },
     {
@@ -3172,8 +3217,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_produce_metricas_definidas_con_datos_normales",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": ".test_produce_metricas_definidas_con_datos_normales()"
     },
     {
@@ -3184,8 +3229,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_cae_a_fallback_si_no_alcanza_la_historia_para_los_lags",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": ".test_cae_a_fallback_si_no_alcanza_la_historia_para_los_lags()"
     },
     {
@@ -3196,8 +3241,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_incluir_sku_id_no_rompe_el_backtest",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": ".test_incluir_sku_id_no_rompe_el_backtest()"
     },
     {
@@ -3209,8 +3254,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testcomparacioncombinada",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "testcomparacioncombinada"
     },
     {
@@ -3221,8 +3266,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testcomparacioncombinada_test_se_puede_seleccionar_el_mejor_candidato_con_lightgbm_incluido",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": ".test_se_puede_seleccionar_el_mejor_candidato_con_lightgbm_incluido()"
     },
     {
@@ -3232,8 +3277,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_rationale_1",
-      "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community": 34,
+      "community_name": "backtest_y_predicciones_lightgbm_global",
       "norm_label": "tests de comparar_modelos_global.py: el backtest de lightgbm global entrena un..."
     },
     {
@@ -3244,7 +3289,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "test_diagnostico_demanda.py"
     },
     {
@@ -3256,7 +3301,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_serie",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "_serie()"
     },
     {
@@ -3267,7 +3312,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_py_series",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "series"
     },
     {
@@ -3280,7 +3325,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testtasadeceros",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "testtasadeceros"
     },
     {
@@ -3292,7 +3337,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testtasadeceros_test_serie_completamente_cero",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_serie_completamente_cero()"
     },
     {
@@ -3304,7 +3349,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testtasadeceros_test_sin_ceros",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_sin_ceros()"
     },
     {
@@ -3317,7 +3362,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testadi",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "testadi"
     },
     {
@@ -3329,7 +3374,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testadi_test_serie_completamente_cero_da_infinito",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_serie_completamente_cero_da_infinito()"
     },
     {
@@ -3341,7 +3386,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testadi_test_demanda_todos_los_periodos_da_uno",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_demanda_todos_los_periodos_da_uno()"
     },
     {
@@ -3353,7 +3398,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testadi_test_un_solo_valor_positivo",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_un_solo_valor_positivo()"
     },
     {
@@ -3366,7 +3411,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testcv2",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "testcv2"
     },
     {
@@ -3378,7 +3423,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testcv2_test_serie_completamente_cero_da_cero_no_nan",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_serie_completamente_cero_da_cero_no_nan()"
     },
     {
@@ -3390,7 +3435,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testcv2_test_un_solo_valor_positivo_da_cero_no_nan",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_un_solo_valor_positivo_da_cero_no_nan()"
     },
     {
@@ -3402,7 +3447,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testcv2_test_serie_constante_da_cero",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_serie_constante_da_cero()"
     },
     {
@@ -3414,7 +3459,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testcv2_test_demanda_positiva_variable_da_valor_mayor_a_cero",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_demanda_positiva_variable_da_valor_mayor_a_cero()"
     },
     {
@@ -3427,7 +3472,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testclasificardemanda",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "testclasificardemanda"
     },
     {
@@ -3439,7 +3484,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testclasificardemanda_test_serie_completamente_cero_es_sin_demanda",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_serie_completamente_cero_es_sin_demanda()"
     },
     {
@@ -3451,7 +3496,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testclasificardemanda_test_serie_constante_es_regular",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_serie_constante_es_regular()"
     },
     {
@@ -3463,7 +3508,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testclasificardemanda_test_pocos_ceros_y_baja_variabilidad_es_regular",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_pocos_ceros_y_baja_variabilidad_es_regular()"
     },
     {
@@ -3475,7 +3520,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testclasificardemanda_test_muchos_ceros_y_magnitud_estable_es_intermitente",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_muchos_ceros_y_magnitud_estable_es_intermitente()"
     },
     {
@@ -3487,7 +3532,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_testclasificardemanda_test_muchos_ceros_y_magnitud_variable_es_lumpy",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_muchos_ceros_y_magnitud_variable_es_lumpy()"
     },
     {
@@ -3498,7 +3543,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_diagnostico_demanda_rationale_1",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "tests de adi, cv2 y clasificacion sbc (src/forecast/diagnostico_demanda.py)."
     },
     {
@@ -3521,8 +3566,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_testcombinarpronosticos",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": "testcombinarpronosticos"
     },
     {
@@ -3533,8 +3578,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_testcombinarpronosticos_test_combinacion_lineal_simple",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": ".test_combinacion_lineal_simple()"
     },
     {
@@ -3545,8 +3590,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_testcombinarpronosticos_test_pesos_a_b_c_son_validos",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": ".test_pesos_a_b_c_son_validos()"
     },
     {
@@ -3557,8 +3602,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_testcombinarpronosticos_test_falla_si_los_modelos_no_coinciden",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": ".test_falla_si_los_modelos_no_coinciden()"
     },
     {
@@ -3569,8 +3614,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_testcombinarpronosticos_test_falla_si_los_pesos_no_suman_uno",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": ".test_falla_si_los_pesos_no_suman_uno()"
     },
     {
@@ -3581,8 +3626,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_testcombinarpronosticos_test_falla_si_algun_peso_es_negativo",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": ".test_falla_si_algun_peso_es_negativo()"
     },
     {
@@ -3593,8 +3638,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_testcombinarpronosticos_test_nunca_negativo",
-      "community": 33,
-      "community_name": "test_ensemble.py",
+      "community": 35,
+      "community_name": "combinar_pronosticos",
       "norm_label": ".test_nunca_negativo()"
     },
     {
@@ -3736,19 +3781,19 @@
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "test_ensemble_backtest.py"
     },
     {
       "label": "_ventas_multi_sku()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L30",
+      "source_location": "L25",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "_ventas_multi_sku()"
     },
     {
@@ -3759,131 +3804,264 @@
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_py_dataframe",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "dataframe"
     },
     {
       "label": "TestEvaluarEnsemblePorSku",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L42",
+      "source_location": "L37",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "testevaluarensembleporsku"
     },
     {
       "label": ".test_pesos_de_produccion_suman_uno()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L43",
+      "source_location": "L38",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_pesos_de_produccion_suman_uno",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": ".test_pesos_de_produccion_suman_uno()"
     },
     {
       "label": ".test_n_ventanas_evaluadas_es_menor_al_total_por_el_piso()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L59",
+      "source_location": "L54",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_n_ventanas_evaluadas_es_menor_al_total_por_el_piso",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": ".test_n_ventanas_evaluadas_es_menor_al_total_por_el_piso()"
     },
     {
       "label": ".test_sin_ventanas_previas_suficientes_wape_queda_nan()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L69",
+      "source_location": "L64",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_sin_ventanas_previas_suficientes_wape_queda_nan",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": ".test_sin_ventanas_previas_suficientes_wape_queda_nan()"
     },
     {
       "label": ".test_wape_no_se_beneficia_de_ver_su_propia_ventana()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L83",
+      "source_location": "L78",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_wape_no_se_beneficia_de_ver_su_propia_ventana",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": ".test_wape_no_se_beneficia_de_ver_su_propia_ventana()"
+    },
+    {
+      "label": ".test_mase_medio_nan_sin_historicos()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L102",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_mase_medio_nan_sin_historicos",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_mase_medio_nan_sin_historicos()"
+    },
+    {
+      "label": ".test_mase_medio_definido_con_historicos()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L112",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_mase_medio_definido_con_historicos",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_mase_medio_definido_con_historicos()"
+    },
+    {
+      "label": ".test_tasa_fallback_es_el_maximo_de_los_componentes()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L123",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_tasa_fallback_es_el_maximo_de_los_componentes",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_tasa_fallback_es_el_maximo_de_los_componentes()"
+    },
+    {
+      "label": ".test_tasa_fallback_default_cero_sin_componentes()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L134",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_tasa_fallback_default_cero_sin_componentes",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_tasa_fallback_default_cero_sin_componentes()"
+    },
+    {
+      "label": "TestBacktestYPrediccionesPorCandidato",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L145",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testbacktestyprediccionesporcandidato",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": "testbacktestyprediccionesporcandidato"
+    },
+    {
+      "label": ".test_una_fila_por_sku_y_predicciones_alineadas()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L146",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testbacktestyprediccionesporcandidato_test_una_fila_por_sku_y_predicciones_alineadas",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_una_fila_por_sku_y_predicciones_alineadas()"
     },
     {
       "label": "TestEvaluarEnsemble",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L108",
+      "source_location": "L158",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testevaluarensemble",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "testevaluarensemble"
+    },
+    {
+      "label": "._predicciones_y_tasas()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L159",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testevaluarensemble_predicciones_y_tasas",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": "._predicciones_y_tasas()"
     },
     {
       "label": ".test_una_fila_por_sku_mismo_esquema_que_comparar_modelos()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L109",
+      "source_location": "L172",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_una_fila_por_sku_mismo_esquema_que_comparar_modelos",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": ".test_una_fila_por_sku_mismo_esquema_que_comparar_modelos()"
+    },
+    {
+      "label": ".test_wape_medio_no_es_nan_con_ventanas_alineadas()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L185",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_wape_medio_no_es_nan_con_ventanas_alineadas",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_wape_medio_no_es_nan_con_ventanas_alineadas()"
+    },
+    {
+      "label": ".test_sin_datos_suficientes_si_las_ventanas_no_coinciden()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L198",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_sin_datos_suficientes_si_las_ventanas_no_coinciden",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_sin_datos_suficientes_si_las_ventanas_no_coinciden()"
     },
     {
       "label": "TestCompararModelosConEnsemble",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L122",
+      "source_location": "L212",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "testcompararmodelosconensemble"
     },
     {
       "label": ".test_agrega_el_candidato_ensemble_a_la_tabla_base()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L123",
+      "source_location": "L213",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_agrega_el_candidato_ensemble_a_la_tabla_base",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": ".test_agrega_el_candidato_ensemble_a_la_tabla_base()"
     },
     {
       "label": ".test_filas_de_otros_candidatos_no_tienen_pesos()",
       "file_type": "code",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L133",
+      "source_location": "L225",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_filas_de_otros_candidatos_no_tienen_pesos",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": ".test_filas_de_otros_candidatos_no_tienen_pesos()"
+    },
+    {
+      "label": ".test_ets_y_tsb_no_aparecen_duplicados()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L232",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_ets_y_tsb_no_aparecen_duplicados",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_ets_y_tsb_no_aparecen_duplicados()"
+    },
+    {
+      "label": ".test_sin_ets_o_tsb_en_candidatos_no_hay_ensemble()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L244",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_sin_ets_o_tsb_en_candidatos_no_hay_ensemble",
+      "community": 13,
+      "community_name": "evaluar_ensemble_por_sku",
+      "norm_label": ".test_sin_ets_o_tsb_en_candidatos_no_hay_ensemble()"
     },
     {
       "label": "Tests de ensemble_backtest.py: el candidato \"ensemble\" compite en\u2026",
@@ -3893,7 +4071,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_ensemble_backtest_rationale_1",
       "community": 13,
-      "community_name": "comparar_modelos.py",
+      "community_name": "evaluar_ensemble_por_sku",
       "norm_label": "tests de ensemble_backtest.py: el candidato \"ensemble\" compite en..."
     },
     {
@@ -4059,7 +4237,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "test_metricas.py"
     },
     {
@@ -4072,7 +4250,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas_testmase",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "testmase"
     },
     {
@@ -4084,7 +4262,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas_testmase_test_historico_insuficiente_da_nan",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_historico_insuficiente_da_nan()"
     },
     {
@@ -4096,7 +4274,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas_testmase_test_historico_constante_da_nan_no_division_por_cero",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_historico_constante_da_nan_no_division_por_cero()"
     },
     {
@@ -4108,7 +4286,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas_testmase_test_pronostico_perfecto_da_cero",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_pronostico_perfecto_da_cero()"
     },
     {
@@ -4120,7 +4298,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas_testmase_test_pronostico_peor_que_naive_da_mayor_a_uno",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_pronostico_peor_que_naive_da_mayor_a_uno()"
     },
     {
@@ -4132,7 +4310,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas_testmase_test_cae_a_naive_de_un_paso_si_no_alcanza_para_estacional",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_cae_a_naive_de_un_paso_si_no_alcanza_para_estacional()"
     },
     {
@@ -4143,7 +4321,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_metricas_rationale_1",
       "community": 1,
-      "community_name": "comparar_modelos_global.py",
+      "community_name": "ensemble_backtest.py",
       "norm_label": "tests de mase (src/forecast/metricas.py) \u2014 wape/bias/mae ya se ejercitan..."
     },
     {
@@ -4557,7 +4735,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "test_modelo_intermitente.py"
     },
     {
@@ -4569,7 +4747,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_serie",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "_serie()"
     },
     {
@@ -4580,7 +4758,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_py_series",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "series"
     },
     {
@@ -4593,7 +4771,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcasosextremos",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "testcasosextremos"
     },
     {
@@ -4605,7 +4783,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcasosextremos_test_serie_completamente_cero_da_forecast_cero",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_serie_completamente_cero_da_forecast_cero()"
     },
     {
@@ -4617,7 +4795,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcasosextremos_test_un_solo_valor_positivo_no_rompe",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_un_solo_valor_positivo_no_rompe()"
     },
     {
@@ -4629,7 +4807,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcasosextremos_test_serie_intermitente_da_forecast_positivo_menor_al_pico",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_serie_intermitente_da_forecast_positivo_menor_al_pico()"
     },
     {
@@ -4641,7 +4819,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcasosextremos_test_demanda_frecuente_da_nivel_cercano_al_valor_tipico",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_demanda_frecuente_da_nivel_cercano_al_valor_tipico()"
     },
     {
@@ -4653,7 +4831,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcasosextremos_test_serie_constante_no_rompe",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_serie_constante_no_rompe()"
     },
     {
@@ -4666,7 +4844,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testhorizonte",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "testhorizonte"
     },
     {
@@ -4678,7 +4856,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testhorizonte_test_horizonte_mayor_a_uno_devuelve_vector_de_esa_longitud",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_horizonte_mayor_a_uno_devuelve_vector_de_esa_longitud()"
     },
     {
@@ -4690,7 +4868,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testhorizonte_test_nivel_constante_en_todo_el_horizonte",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_nivel_constante_en_todo_el_horizonte()"
     },
     {
@@ -4703,7 +4881,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testsinnegativosninan",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "testsinnegativosninan"
     },
     {
@@ -4715,7 +4893,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testsinnegativosninan_test_sin_negativos",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_sin_negativos()"
     },
     {
@@ -4727,7 +4905,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testsinnegativosninan_test_sin_nan_ni_inf",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_sin_nan_ni_inf()"
     },
     {
@@ -4740,7 +4918,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testparametrosconfigurables",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "testparametrosconfigurables"
     },
     {
@@ -4752,7 +4930,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testparametrosconfigurables_test_alpha_beta_distintos_dan_forecast_distinto",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_alpha_beta_distintos_dan_forecast_distinto()"
     },
     {
@@ -4765,7 +4943,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcontratoconmetadata",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "testcontratoconmetadata"
     },
     {
@@ -4777,7 +4955,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_testcontratoconmetadata_test_ajustar_tsb_nunca_hace_fallback",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": ".test_ajustar_tsb_nunca_hace_fallback()"
     },
     {
@@ -4788,7 +4966,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_modelo_intermitente_rationale_1",
       "community": 11,
-      "community_name": "pronosticar_tsb",
+      "community_name": "comparar_modelos.py",
       "norm_label": "tests de tsb (src/forecast/modelo_intermitente.py): p_t*z_t con suavizado..."
     },
     {
@@ -5444,19 +5622,19 @@
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "test_pronosticar_futuro.py"
     },
     {
       "label": "_ventas_multi_sku()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L23",
+      "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_ventas_multi_sku",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "_ventas_multi_sku()"
     },
     {
@@ -5467,142 +5645,142 @@
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_py_dataframe",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "dataframe"
     },
     {
       "label": "TestPronosticarFuturoLightgbmGlobal",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L35",
+      "source_location": "L30",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "testpronosticarfuturolightgbmglobal"
     },
     {
       "label": ".test_una_fila_por_sku_y_paso_de_horizonte()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L36",
+      "source_location": "L31",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_una_fila_por_sku_y_paso_de_horizonte",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_una_fila_por_sku_y_paso_de_horizonte()"
     },
     {
       "label": ".test_no_reentrena_una_vez_por_sku_sino_una_vez_en_total()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L44",
+      "source_location": "L39",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_no_reentrena_una_vez_por_sku_sino_una_vez_en_total",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_no_reentrena_una_vez_por_sku_sino_una_vez_en_total()"
     },
     {
       "label": ".test_incluye_diagnostico_de_demanda()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L57",
+      "source_location": "L52",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_incluye_diagnostico_de_demanda",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_incluye_diagnostico_de_demanda()"
     },
     {
       "label": ".test_sin_negativos()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L64",
+      "source_location": "L59",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_sin_negativos",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_sin_negativos()"
     },
     {
       "label": ".test_cae_a_fallback_si_el_ajuste_global_falla()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L70",
+      "source_location": "L65",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_cae_a_fallback_si_el_ajuste_global_falla",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_cae_a_fallback_si_el_ajuste_global_falla()"
     },
     {
       "label": "TestPronosticarFuturoIntegrado",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L83",
+      "source_location": "L78",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturointegrado",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "testpronosticarfuturointegrado"
     },
     {
       "label": ".test_mezcla_candidatos_por_sku_y_lightgbm_global()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L84",
+      "source_location": "L79",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturointegrado_test_mezcla_candidatos_por_sku_y_lightgbm_global",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_mezcla_candidatos_por_sku_y_lightgbm_global()"
     },
     {
       "label": "TestPronosticarFuturoEnsemble",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L118",
+      "source_location": "L113",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "testpronosticarfuturoensemble"
     },
     {
       "label": ".test_sirve_ensemble_cuando_gana_la_seleccion()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L119",
+      "source_location": "L114",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_sirve_ensemble_cuando_gana_la_seleccion",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_sirve_ensemble_cuando_gana_la_seleccion()"
     },
     {
       "label": ".test_combina_los_tres_modelos_con_los_pesos_de_produccion()",
       "file_type": "code",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L141",
+      "source_location": "L136",
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_combina_los_tres_modelos_con_los_pesos_de_produccion",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": ".test_combina_los_tres_modelos_con_los_pesos_de_produccion()"
     },
     {
@@ -5613,7 +5791,7 @@
       "_origin": "ast",
       "id": "tests_forecast_test_pronosticar_futuro_rationale_1",
       "community": 0,
-      "community_name": "pronosticar_futuro_lightgbm_global",
+      "community_name": "pronosticar_futuro.py",
       "norm_label": "tests de pronosticar_futuro.py: servir el pronostico final, incluido el..."
     },
     {
@@ -5725,6 +5903,55 @@
       "norm_label": ".test_un_solo_candidato_definido_no_marca_sin_datos_suficientes()"
     },
     {
+      "label": "TestParametrosPropiosDelGanador",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L76",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador",
+      "community": 6,
+      "community_name": "seleccionar_mejor_modelo_sku",
+      "norm_label": "testparametrospropiosdelganador"
+    },
+    {
+      "label": ".test_propaga_los_pesos_del_ganador_ensemble()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L83",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_propaga_los_pesos_del_ganador_ensemble",
+      "community": 6,
+      "community_name": "seleccionar_mejor_modelo_sku",
+      "norm_label": ".test_propaga_los_pesos_del_ganador_ensemble()"
+    },
+    {
+      "label": ".test_no_agrega_pesos_si_el_ganador_no_es_ensemble()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L106",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_no_agrega_pesos_si_el_ganador_no_es_ensemble",
+      "community": 6,
+      "community_name": "seleccionar_mejor_modelo_sku",
+      "norm_label": ".test_no_agrega_pesos_si_el_ganador_no_es_ensemble()"
+    },
+    {
+      "label": ".test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final()",
+      "file_type": "code",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L127",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final",
+      "community": 6,
+      "community_name": "seleccionar_mejor_modelo_sku",
+      "norm_label": ".test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final()"
+    },
+    {
       "label": "Tests de seleccionar_modelo.py: criterio de selecci\u00f3n (menor WAPE medio,\u2026",
       "file_type": "rationale",
       "source_file": "tests/forecast/test_seleccionar_modelo.py",
@@ -5734,6 +5961,17 @@
       "community": 6,
       "community_name": "seleccionar_mejor_modelo_sku",
       "norm_label": "tests de seleccionar_modelo.py: criterio de seleccion (menor wape medio,..."
+    },
+    {
+      "label": "Cuando el ganador trae columnas `peso_*` (el candidato \"ensemble\", ver\u2026",
+      "file_type": "rationale",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "tests_forecast_test_seleccionar_modelo_rationale_77",
+      "community": 6,
+      "community_name": "seleccionar_mejor_modelo_sku",
+      "norm_label": "cuando el ganador trae columnas `peso_*` (el candidato \"ensemble\", ver..."
     },
     {
       "label": "01-criterio-seleccion-mejor-modelo.md",
@@ -6187,10 +6425,21 @@
       "norm_label": "issue tracker"
     },
     {
-      "label": "Domain docs",
+      "label": "Triage labels",
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L11",
+      "_origin": "ast",
+      "id": "claude_triage_labels",
+      "community": 22,
+      "community_name": "Agent skills",
+      "norm_label": "triage labels"
+    },
+    {
+      "label": "Domain docs",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "claude_domain_docs",
       "community": 22,
@@ -6702,6 +6951,39 @@
       "community": 21,
       "community_name": "Issue tracker: Local Markdown",
       "norm_label": "wayfinding operations"
+    },
+    {
+      "label": "triage-labels.md",
+      "file_type": "document",
+      "source_file": "docs/agents/triage-labels.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_agents_triage_labels",
+      "community": 37,
+      "community_name": "Triage Labels",
+      "norm_label": "triage-labels.md"
+    },
+    {
+      "label": "Triage Labels",
+      "file_type": "document",
+      "source_file": "docs/agents/triage-labels.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_agents_triage_labels_triage_labels",
+      "community": 37,
+      "community_name": "Triage Labels",
+      "norm_label": "triage labels"
+    },
+    {
+      "label": "How labels are applied in this repo",
+      "file_type": "document",
+      "source_file": "docs/agents/triage-labels.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "docs_agents_triage_labels_how_labels_are_applied_in_this_repo",
+      "community": 37,
+      "community_name": "Triage Labels",
+      "norm_label": "how labels are applied in this repo"
     },
     {
       "label": "2026-08-21-metricas-benchmark-spec.md",
@@ -7383,7 +7665,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L31",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -7551,7 +7833,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L31",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -7563,7 +7845,19 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L121",
+      "source_location": "L141",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
+      "target": "src_datos_cargar_datos_serie_por_sku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble",
@@ -7587,7 +7881,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L188",
+      "source_location": "L193",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_pronosticar_futuro_pronosticar_futuro",
@@ -8564,7 +8858,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L33",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -8696,7 +8990,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L33",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -8708,10 +9002,10 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L122",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_forecast_ensemble_backtest_evaluar_ensemble",
+      "source": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
       "target": "src_forecast_backtest_backtest_walk_forward",
       "confidence_score": 1.0
     },
@@ -8839,6 +9133,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_comparar_modelos_global",
+      "target": "src_forecast_benchmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest",
       "target": "src_forecast_benchmark",
       "confidence_score": 1.0
     },
@@ -9737,7 +10043,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L34",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -9772,6 +10078,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_helpers",
+      "target": "src_forecast_comparar_modelos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_comparar_modelos.py",
       "source_location": "L11",
       "weight": 1.0,
@@ -9789,30 +10107,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_comparar_modelos_global",
-      "target": "src_forecast_comparar_modelos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_ensemble_backtest",
-      "target": "src_forecast_comparar_modelos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_pronosticar_futuro",
       "target": "src_forecast_comparar_modelos",
       "confidence_score": 1.0
     },
@@ -9911,6 +10205,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 0.8,
+      "source": "tests_forecast_helpers",
+      "target": "src_forecast_comparar_modelos_ajustar_benchmark"
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -9932,30 +10238,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_comparar_modelos_global_testcomparacioncombinada_test_se_puede_seleccionar_el_mejor_candidato_con_lightgbm_incluido",
-      "target": "src_forecast_comparar_modelos_ajustar_benchmark"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "collection",
-      "confidence": "INFERRED",
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 0.8,
-      "source": "tests_forecast_test_ensemble_backtest",
-      "target": "src_forecast_comparar_modelos_ajustar_benchmark"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "collection",
-      "confidence": "INFERRED",
-      "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 0.8,
-      "source": "tests_forecast_test_pronosticar_futuro",
       "target": "src_forecast_comparar_modelos_ajustar_benchmark"
     },
     {
@@ -10141,7 +10423,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L34",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -10153,7 +10435,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L159",
+      "source_location": "L254",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
@@ -10340,7 +10622,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L35",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -10388,7 +10670,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -10400,7 +10682,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -10625,7 +10907,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L35",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -10637,7 +10919,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L160",
+      "source_location": "L255",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
@@ -10717,6 +10999,30 @@
       "target": "src_forecast_comparar_modelos_global_backtest_y_predicciones_lightgbm_global"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest",
+      "target": "src_forecast_comparar_modelos_global_backtest_y_predicciones_lightgbm_global",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_predicciones_y_tasas",
+      "target": "src_forecast_comparar_modelos_global_backtest_y_predicciones_lightgbm_global"
+    },
+    {
       "relation": "references",
       "context": "generic_arg",
       "confidence": "EXTRACTED",
@@ -10750,30 +11056,6 @@
       "source": "tests_forecast_test_ensemble",
       "target": "src_forecast_comparar_modelos_global_recolectar_predicciones_lightgbm_global",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_ensemble_backtest",
-      "target": "src_forecast_comparar_modelos_global_recolectar_predicciones_lightgbm_global",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L111",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_una_fila_por_sku_mismo_esquema_que_comparar_modelos",
-      "target": "src_forecast_comparar_modelos_global_recolectar_predicciones_lightgbm_global"
     },
     {
       "relation": "calls",
@@ -11463,7 +11745,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L36",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11510,7 +11792,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L36",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11522,7 +11804,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L67",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
@@ -11689,7 +11971,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L36",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11701,7 +11983,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L64",
+      "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
@@ -11807,7 +12089,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L141",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest",
+      "target": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L230",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11818,7 +12111,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L100",
+      "source_location": "L168",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11829,7 +12122,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L48",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11841,7 +12134,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L37",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11853,7 +12146,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L37",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11865,7 +12158,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L37",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11877,7 +12170,19 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L37",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest",
+      "target": "src_forecast_metricas_mase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest",
@@ -11924,7 +12229,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -11936,7 +12241,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -11948,7 +12253,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L127",
+      "source_location": "L209",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble",
@@ -11960,7 +12265,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L74",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
@@ -11972,7 +12277,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L48",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
@@ -11984,7 +12289,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L71",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
@@ -11996,7 +12301,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L71",
+      "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
@@ -12008,7 +12313,19 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L71",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
+      "target": "src_forecast_metricas_mase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
@@ -12019,10 +12336,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L53",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_forecast_ensemble_backtest_rationale_53",
+      "source": "src_forecast_ensemble_backtest_rationale_71",
       "target": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku",
       "confidence_score": 1.0
     },
@@ -12031,7 +12348,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -12044,7 +12361,31 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L65",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_mase_medio_definido_con_historicos",
+      "target": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_mase_medio_nan_sin_historicos",
+      "target": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_n_ventanas_evaluadas_es_menor_al_total_por_el_piso",
@@ -12056,7 +12397,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L53",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_pesos_de_produccion_suman_uno",
@@ -12068,7 +12409,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L75",
+      "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_sin_ventanas_previas_suficientes_wape_queda_nan",
@@ -12080,22 +12421,141 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L103",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_wape_no_se_beneficia_de_ver_su_propia_ventana",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_tasa_fallback_default_cero_sin_componentes",
       "target": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_tasa_fallback_es_el_maximo_de_los_componentes",
+      "target": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_wape_no_se_beneficia_de_ver_su_propia_ventana",
+      "target": "src_forecast_ensemble_backtest_evaluar_ensemble_por_sku"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L161",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
+      "target": "src_forecast_ensemble_backtest_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_evaluar_ensemble",
+      "target": "src_forecast_ensemble_backtest_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
+      "target": "src_forecast_ensemble_backtest_py_dataframe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L260",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
-      "target": "src_forecast_ensemble_backtest_evaluar_ensemble",
+      "target": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_rationale_130",
+      "target": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest",
+      "target": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testbacktestyprediccionesporcandidato_test_una_fila_por_sku_y_predicciones_alineadas",
+      "target": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_predicciones_y_tasas",
+      "target": "src_forecast_ensemble_backtest_backtest_y_predicciones_por_candidato"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L230",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
+      "target": "src_forecast_ensemble_backtest_py_dataframe",
       "confidence_score": 1.0
     },
     {
@@ -12103,7 +12563,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L100",
+      "source_location": "L168",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_ensemble_backtest_evaluar_ensemble",
@@ -12111,13 +12571,25 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/forecast/ensemble_backtest.py",
+      "source_location": "L269",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
+      "target": "src_forecast_ensemble_backtest_evaluar_ensemble",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L106",
+      "source_location": "L175",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_forecast_ensemble_backtest_rationale_106",
+      "source": "src_forecast_ensemble_backtest_rationale_175",
       "target": "src_forecast_ensemble_backtest_evaluar_ensemble",
       "confidence_score": 1.0
     },
@@ -12126,7 +12598,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -12139,32 +12611,44 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L112",
+      "source_location": "L205",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_sin_datos_suficientes_si_las_ventanas_no_coinciden",
+      "target": "src_forecast_ensemble_backtest_evaluar_ensemble"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L176",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_una_fila_por_sku_mismo_esquema_que_comparar_modelos",
       "target": "src_forecast_ensemble_backtest_evaluar_ensemble"
     },
     {
-      "relation": "references",
-      "context": "return_type",
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L141",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
-      "target": "src_forecast_ensemble_backtest_py_dataframe",
-      "confidence_score": 1.0
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_wape_medio_no_es_nan_con_ventanas_alineadas",
+      "target": "src_forecast_ensemble_backtest_evaluar_ensemble"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/ensemble_backtest.py",
-      "source_location": "L147",
+      "source_location": "L236",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_forecast_ensemble_backtest_rationale_147",
+      "source": "src_forecast_ensemble_backtest_rationale_236",
       "target": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble",
       "confidence_score": 1.0
     },
@@ -12197,7 +12681,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -12210,7 +12694,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L125",
+      "source_location": "L215",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_agrega_el_candidato_ensemble_a_la_tabla_base",
@@ -12222,10 +12706,34 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L135",
+      "source_location": "L239",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_ets_y_tsb_no_aparecen_duplicados",
+      "target": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L227",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_filas_de_otros_candidatos_no_tienen_pesos",
+      "target": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_sin_ets_o_tsb_en_candidatos_no_hay_ensemble",
       "target": "src_forecast_ensemble_backtest_comparar_modelos_con_ensemble"
     },
     {
@@ -12233,7 +12741,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -12246,7 +12754,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L143",
+      "source_location": "L138",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_combina_los_tres_modelos_con_los_pesos_de_produccion",
@@ -12258,7 +12766,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L121",
+      "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_sirve_ensemble_cuando_gana_la_seleccion",
@@ -12875,6 +13383,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_helpers",
+      "target": "src_forecast_modelo_ets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_comparar_modelos_global.py",
       "source_location": "L13",
       "weight": 1.0,
@@ -12899,35 +13419,11 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_ensemble_backtest",
-      "target": "src_forecast_modelo_ets",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_modelo_ets.py",
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_modelo_ets",
-      "target": "src_forecast_modelo_ets",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_pronosticar_futuro",
       "target": "src_forecast_modelo_ets",
       "confidence_score": 1.0
     },
@@ -13039,6 +13535,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 0.8,
+      "source": "tests_forecast_helpers",
+      "target": "src_forecast_modelo_ets_ajustar_ets"
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -13060,18 +13568,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_comparar_modelos_global_testcomparacioncombinada_test_se_puede_seleccionar_el_mejor_candidato_con_lightgbm_incluido",
-      "target": "src_forecast_modelo_ets_ajustar_ets"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "collection",
-      "confidence": "INFERRED",
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 0.8,
-      "source": "tests_forecast_test_ensemble_backtest",
       "target": "src_forecast_modelo_ets_ajustar_ets"
     },
     {
@@ -13120,18 +13616,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_modelo_ets_testnoocultaerroresdeprogramacion_test_attributeerror_se_propaga",
-      "target": "src_forecast_modelo_ets_ajustar_ets"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "collection",
-      "confidence": "INFERRED",
-      "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 0.8,
-      "source": "tests_forecast_test_pronosticar_futuro",
       "target": "src_forecast_modelo_ets_ajustar_ets"
     },
     {
@@ -13255,6 +13739,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_helpers",
+      "target": "src_forecast_modelo_intermitente",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_comparar_modelos_global.py",
       "source_location": "L14",
       "weight": 1.0,
@@ -13279,35 +13775,11 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_ensemble_backtest",
-      "target": "src_forecast_modelo_intermitente",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_modelo_intermitente.py",
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_modelo_intermitente",
-      "target": "src_forecast_modelo_intermitente",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "tests_forecast_test_pronosticar_futuro",
       "target": "src_forecast_modelo_intermitente",
       "confidence_score": 1.0
     },
@@ -13539,6 +14011,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 0.8,
+      "source": "tests_forecast_helpers",
+      "target": "src_forecast_modelo_intermitente_ajustar_tsb"
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -13563,18 +14047,6 @@
       "target": "src_forecast_modelo_intermitente_ajustar_tsb"
     },
     {
-      "relation": "indirect_call",
-      "context": "collection",
-      "confidence": "INFERRED",
-      "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 0.8,
-      "source": "tests_forecast_test_ensemble_backtest",
-      "target": "src_forecast_modelo_intermitente_ajustar_tsb"
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -13596,18 +14068,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_modelo_intermitente_testcontratoconmetadata_test_ajustar_tsb_nunca_hace_fallback",
-      "target": "src_forecast_modelo_intermitente_ajustar_tsb"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "collection",
-      "confidence": "INFERRED",
-      "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 0.8,
-      "source": "tests_forecast_test_pronosticar_futuro",
       "target": "src_forecast_modelo_intermitente_ajustar_tsb"
     },
     {
@@ -15068,7 +15528,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L165",
+      "source_location": "L169",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_pronosticar_futuro",
@@ -15148,7 +15608,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L16",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -15160,7 +15620,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L189",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_pronosticar_futuro_pronosticar_futuro",
@@ -15207,7 +15667,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L165",
+      "source_location": "L169",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_pronosticar_futuro_pronosticar_futuro",
@@ -15243,7 +15703,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L195",
+      "source_location": "L180",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_pronosticar_futuro_pronosticar_futuro",
@@ -15278,7 +15738,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L16",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -15291,7 +15751,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L76",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_cae_a_fallback_si_el_ajuste_global_falla",
@@ -15303,7 +15763,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L59",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_incluye_diagnostico_de_demanda",
@@ -15315,7 +15775,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L52",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_no_reentrena_una_vez_por_sku_sino_una_vez_en_total",
@@ -15327,7 +15787,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L66",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_sin_negativos",
@@ -15339,7 +15799,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L38",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_una_fila_por_sku_y_paso_de_horizonte",
@@ -15350,7 +15810,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L197",
+      "source_location": "L181",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_pronosticar_futuro_pronosticar_futuro",
@@ -15373,7 +15833,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L16",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -15386,7 +15846,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L147",
+      "source_location": "L142",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_combina_los_tres_modelos_con_los_pesos_de_produccion",
@@ -15397,7 +15857,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L180",
+      "source_location": "L187",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_pronosticar_futuro_pronosticar_futuro",
@@ -15408,10 +15868,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/pronosticar_futuro.py",
-      "source_location": "L168",
+      "source_location": "L172",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_forecast_pronosticar_futuro_rationale_168",
+      "source": "src_forecast_pronosticar_futuro_rationale_172",
       "target": "src_forecast_pronosticar_futuro_pronosticar_futuro",
       "confidence_score": 1.0
     },
@@ -15420,7 +15880,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L16",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -15433,7 +15893,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L135",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_sirve_ensemble_cuando_gana_la_seleccion",
@@ -15445,7 +15905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L109",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturointegrado_test_mezcla_candidatos_por_sku_y_lightgbm_global",
@@ -15455,7 +15915,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/seleccionar_modelo.py",
-      "source_location": "L41",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_seleccionar_modelo",
@@ -15524,7 +15984,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/seleccionar_modelo.py",
-      "source_location": "L45",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo",
@@ -15609,6 +16069,30 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_no_agrega_pesos_si_el_ganador_no_es_ensemble",
+      "target": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo_sku"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_propaga_los_pesos_del_ganador_ensemble",
+      "target": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo_sku"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
       "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
@@ -15632,7 +16116,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/seleccionar_modelo.py",
-      "source_location": "L41",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo",
@@ -15643,11 +16127,70 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/forecast/seleccionar_modelo.py",
-      "source_location": "L42",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_forecast_seleccionar_modelo_rationale_42",
+      "source": "src_forecast_seleccionar_modelo_rationale_51",
       "target": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo",
+      "target": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final",
+      "target": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/_helpers.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_helpers_rationale_1",
+      "target": "tests_forecast_helpers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest",
+      "target": "tests_forecast_helpers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_pronosticar_futuro.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_pronosticar_futuro",
+      "target": "tests_forecast_helpers",
       "confidence_score": 1.0
     },
     {
@@ -17364,7 +17907,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L122",
+      "source_location": "L145",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest",
+      "target": "tests_forecast_test_ensemble_backtest_testbacktestyprediccionesporcandidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L212",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -17375,7 +17929,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L108",
+      "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -17386,7 +17940,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L42",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -17397,7 +17951,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L30",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest",
@@ -17420,7 +17974,19 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L124",
+      "source_location": "L147",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testbacktestyprediccionesporcandidato_test_una_fila_por_sku_y_predicciones_alineadas",
+      "target": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L214",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_agrega_el_candidato_ensemble_a_la_tabla_base",
@@ -17432,7 +17998,19 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L134",
+      "source_location": "L238",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_ets_y_tsb_no_aparecen_duplicados",
+      "target": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L226",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_filas_de_otros_candidatos_no_tienen_pesos",
@@ -17444,10 +18022,46 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L110",
+      "source_location": "L247",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_sin_ets_o_tsb_en_candidatos_no_hay_ensemble",
+      "target": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_sin_datos_suficientes_si_las_ventanas_no_coinciden",
+      "target": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L173",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_una_fila_por_sku_mismo_esquema_que_comparar_modelos",
+      "target": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_wape_medio_no_es_nan_con_ventanas_alineadas",
       "target": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
       "confidence_score": 1.0
     },
@@ -17456,7 +18070,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L30",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_ventas_multi_sku",
@@ -17467,7 +18081,29 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L59",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_mase_medio_definido_con_historicos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_mase_medio_nan_sin_historicos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
@@ -17478,7 +18114,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L43",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
@@ -17489,7 +18125,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L69",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
@@ -17500,7 +18136,29 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L83",
+      "source_location": "L134",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_tasa_fallback_default_cero_sin_componentes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku_test_tasa_fallback_es_el_maximo_de_los_componentes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensembleporsku",
@@ -17511,7 +18169,40 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L109",
+      "source_location": "L146",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testbacktestyprediccionesporcandidato",
+      "target": "tests_forecast_test_ensemble_backtest_testbacktestyprediccionesporcandidato_test_una_fila_por_sku_y_predicciones_alineadas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensemble_predicciones_y_tasas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L198",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_sin_datos_suficientes_si_las_ventanas_no_coinciden",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L172",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble",
@@ -17522,7 +18213,54 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L123",
+      "source_location": "L185",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_wape_medio_no_es_nan_con_ventanas_alineadas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L200",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_sin_datos_suficientes_si_las_ventanas_no_coinciden",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensemble_predicciones_y_tasas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_una_fila_por_sku_mismo_esquema_que_comparar_modelos",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensemble_predicciones_y_tasas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testevaluarensemble_test_wape_medio_no_es_nan_con_ventanas_alineadas",
+      "target": "tests_forecast_test_ensemble_backtest_testevaluarensemble_predicciones_y_tasas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble",
@@ -17533,11 +18271,33 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_ensemble_backtest.py",
-      "source_location": "L133",
+      "source_location": "L232",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble",
+      "target": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_ets_y_tsb_no_aparecen_duplicados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble",
       "target": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_filas_de_otros_candidatos_no_tienen_pesos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_ensemble_backtest.py",
+      "source_location": "L244",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble",
+      "target": "tests_forecast_test_ensemble_backtest_testcompararmodelosconensemble_test_sin_ets_o_tsb_en_candidatos_no_hay_ensemble",
       "confidence_score": 1.0
     },
     {
@@ -19571,7 +20331,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L118",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -19582,7 +20342,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L83",
+      "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -19593,7 +20353,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L35",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -19604,7 +20364,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L23",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro",
@@ -19627,7 +20387,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L142",
+      "source_location": "L137",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_combina_los_tres_modelos_con_los_pesos_de_produccion",
@@ -19639,7 +20399,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L120",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble_test_sirve_ensemble_cuando_gana_la_seleccion",
@@ -19651,7 +20411,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L85",
+      "source_location": "L80",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturointegrado_test_mezcla_candidatos_por_sku_y_lightgbm_global",
@@ -19663,7 +20423,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L75",
+      "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_cae_a_fallback_si_el_ajuste_global_falla",
@@ -19675,7 +20435,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L58",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_incluye_diagnostico_de_demanda",
@@ -19687,7 +20447,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L51",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_no_reentrena_una_vez_por_sku_sino_una_vez_en_total",
@@ -19699,7 +20459,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L65",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_sin_negativos",
@@ -19711,7 +20471,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L37",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal_test_una_fila_por_sku_y_paso_de_horizonte",
@@ -19723,7 +20483,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L23",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_ventas_multi_sku",
@@ -19735,7 +20495,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L86",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturointegrado_test_mezcla_candidatos_por_sku_y_lightgbm_global",
@@ -19746,7 +20506,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L70",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal",
@@ -19757,7 +20517,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L57",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal",
@@ -19768,7 +20528,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L44",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal",
@@ -19779,7 +20539,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L64",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal",
@@ -19790,7 +20550,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L36",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturolightgbmglobal",
@@ -19801,7 +20561,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L84",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturointegrado",
@@ -19812,7 +20572,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L141",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble",
@@ -19823,7 +20583,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/forecast/test_pronosticar_futuro.py",
-      "source_location": "L119",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_pronosticar_futuro_testpronosticarfuturoensemble",
@@ -19850,6 +20610,17 @@
       "_origin": "ast",
       "source": "tests_forecast_test_seleccionar_modelo",
       "target": "tests_forecast_test_seleccionar_modelo_testcriteriodeseleccion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo",
+      "target": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador",
       "confidence_score": 1.0
     },
     {
@@ -19907,6 +20678,42 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_forecast_test_seleccionar_modelo_testcriteriodeseleccion_test_gana_el_candidato_con_menor_wape_medio",
+      "target": "tests_forecast_test_seleccionar_modelo_tabla",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_no_agrega_pesos_si_el_ganador_no_es_ensemble",
+      "target": "tests_forecast_test_seleccionar_modelo_tabla",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_propaga_los_pesos_del_ganador_ensemble",
+      "target": "tests_forecast_test_seleccionar_modelo_tabla",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final",
       "target": "tests_forecast_test_seleccionar_modelo_tabla",
       "confidence_score": 1.0
     },
@@ -19976,6 +20783,50 @@
       "_origin": "ast",
       "source": "tests_forecast_test_seleccionar_modelo_testsindatossuficientes",
       "target": "tests_forecast_test_seleccionar_modelo_testsindatossuficientes_test_un_solo_candidato_definido_no_marca_sin_datos_suficientes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_rationale_77",
+      "target": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador",
+      "target": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_no_agrega_pesos_si_el_ganador_no_es_ensemble",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador",
+      "target": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_propaga_los_pesos_del_ganador_ensemble",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/forecast/test_seleccionar_modelo.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador",
+      "target": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final",
       "confidence_score": 1.0
     },
     {
@@ -20400,7 +21251,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
-      "source_location": "L11",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_agent_skills",
@@ -20416,6 +21267,17 @@
       "_origin": "ast",
       "source": "claude_agent_skills",
       "target": "claude_issue_tracker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_agent_skills",
+      "target": "claude_triage_labels",
       "confidence_score": 1.0
     },
     {
@@ -20823,6 +21685,28 @@
       "_origin": "ast",
       "source": "docs_agents_issue_tracker_issue_tracker_local_markdown",
       "target": "docs_agents_issue_tracker_when_a_skill_says_publish_to_the_issue_tracker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/agents/triage-labels.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_agents_triage_labels",
+      "target": "docs_agents_triage_labels_triage_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/agents/triage-labels.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_agents_triage_labels_triage_labels",
+      "target": "docs_agents_triage_labels_how_labels_are_applied_in_this_repo",
       "confidence_score": 1.0
     },
     {
@@ -21399,5 +22283,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "abd25db9227719dfecd2f14a66f0d44c126bc520"
+  "built_at_commit": "91db24a31d63f4b460827d36490c0c41620c7193"
 }
