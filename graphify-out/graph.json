@@ -4,6 +4,17 @@
   "graph": {},
   "nodes": [
     {
+      "label": "registrar_tarea_programada.ps1",
+      "file_type": "code",
+      "source_file": "scripts/registrar_tarea_programada.ps1",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_registrar_tarea_programada",
+      "community": 38,
+      "community_name": "registrar_tarea_programada.ps1",
+      "norm_label": "registrar_tarea_programada.ps1"
+    },
+    {
       "label": "src/__init__.py",
       "file_type": "code",
       "source_file": "src/__init__.py",
@@ -32,8 +43,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_datos_cargar_datos",
-      "community": 0,
-      "community_name": "pronosticar_futuro.py",
+      "community": 8,
+      "community_name": "test_comparar_modelos.py",
       "norm_label": "cargar_datos.py"
     },
     {
@@ -44,8 +55,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_datos_cargar_datos_cargar_ventas",
-      "community": 0,
-      "community_name": "pronosticar_futuro.py",
+      "community": 8,
+      "community_name": "test_comparar_modelos.py",
       "norm_label": "cargar_ventas()"
     },
     {
@@ -55,8 +66,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_datos_cargar_datos_py_dataframe",
-      "community": 0,
-      "community_name": "pronosticar_futuro.py",
+      "community": 8,
+      "community_name": "test_comparar_modelos.py",
       "norm_label": "dataframe"
     },
     {
@@ -89,8 +100,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_datos_cargar_datos_rationale_1",
-      "community": 0,
-      "community_name": "pronosticar_futuro.py",
+      "community": 8,
+      "community_name": "test_comparar_modelos.py",
       "norm_label": "carga el historico de ventas por sku. hoy lee el csv sintetico..."
     },
     {
@@ -874,8 +885,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_pronosticar_origen",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "_pronosticar_origen()"
     },
     {
@@ -885,8 +896,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_py_dataframe",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "dataframe"
     },
     {
@@ -897,8 +908,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_iterar_predicciones_por_sku",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "_iterar_predicciones_por_sku()"
     },
     {
@@ -909,8 +920,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_backtest_y_predicciones_lightgbm_global",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "backtest_y_predicciones_lightgbm_global()"
     },
     {
@@ -920,8 +931,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_py_ndarray",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "ndarray"
     },
     {
@@ -932,8 +943,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_recolectar_predicciones_lightgbm_global",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "recolectar_predicciones_lightgbm_global()"
     },
     {
@@ -954,8 +965,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_42",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "entrena y predice para un origen. devuelve una tabla indexada por `sku_id` con..."
     },
     {
@@ -965,8 +976,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_73",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "un origen del walk-forward por vez: reentrena el modelo global una sola vez (no..."
     },
     {
@@ -976,8 +987,8 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_110",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "corre `_iterar_predicciones_por_sku` una sola vez y devuelve tanto la tabla..."
     },
     {
@@ -987,8 +998,8 @@
       "source_location": "L172",
       "_origin": "ast",
       "id": "src_forecast_comparar_modelos_global_rationale_172",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "predicciones out-of-sample crudas del walk-forward, por sku: `{sku_id: (reales,..."
     },
     {
@@ -1123,8 +1134,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ejecutar_backtest_benchmark",
-      "community": 0,
-      "community_name": "pronosticar_futuro.py",
+      "community": 8,
+      "community_name": "test_comparar_modelos.py",
       "norm_label": "ejecutar_backtest_benchmark.py"
     },
     {
@@ -1135,8 +1146,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_ejecutar_backtest_benchmark_main",
-      "community": 0,
-      "community_name": "pronosticar_futuro.py",
+      "community": 8,
+      "community_name": "test_comparar_modelos.py",
       "norm_label": "main()"
     },
     {
@@ -1146,8 +1157,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_ejecutar_backtest_benchmark_rationale_1",
-      "community": 0,
-      "community_name": "pronosticar_futuro.py",
+      "community": 8,
+      "community_name": "test_comparar_modelos.py",
       "norm_label": "cli: imprime la tabla comparativa de benchmark vs. modelo, por sku, sobre el..."
     },
     {
@@ -2474,8 +2485,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "seleccionar_modelo.py"
     },
     {
@@ -2486,8 +2497,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo_sku",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "seleccionar_mejor_modelo_sku()"
     },
     {
@@ -2497,8 +2508,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo_py_dataframe",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "dataframe"
     },
     {
@@ -2509,8 +2520,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo_seleccionar_mejor_modelo",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "seleccionar_mejor_modelo()"
     },
     {
@@ -2520,8 +2531,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo_rationale_1",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "seleccion del mejor modelo por sku \u2014 criterio decidido en .scratch/motor-..."
     },
     {
@@ -2531,8 +2542,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo_rationale_14",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "`tabla_comparativa_sku` es la salida de `comparar_modelos_sku` para un sku. si..."
     },
     {
@@ -2542,8 +2553,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "src_forecast_seleccionar_modelo_rationale_51",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "`tabla_comparativa` es la salida de `comparar_modelos` (todos los skus)."
     },
     {
@@ -3308,8 +3319,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "test_comparar_modelos_global.py"
     },
     {
@@ -3320,8 +3331,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_ventas_multi_sku",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "_ventas_multi_sku()"
     },
     {
@@ -3331,8 +3342,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_py_dataframe",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "dataframe"
     },
     {
@@ -3344,8 +3355,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "testbacktestlightgbmglobal"
     },
     {
@@ -3356,8 +3367,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_una_fila_por_sku_con_candidato_lightgbm_global",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_una_fila_por_sku_con_candidato_lightgbm_global()"
     },
     {
@@ -3368,8 +3379,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_produce_metricas_definidas_con_datos_normales",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_produce_metricas_definidas_con_datos_normales()"
     },
     {
@@ -3380,8 +3391,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_cae_a_fallback_si_no_alcanza_la_historia_para_los_lags",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_cae_a_fallback_si_no_alcanza_la_historia_para_los_lags()"
     },
     {
@@ -3392,8 +3403,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testbacktestlightgbmglobal_test_incluir_sku_id_no_rompe_el_backtest",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_incluir_sku_id_no_rompe_el_backtest()"
     },
     {
@@ -3405,8 +3416,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testcomparacioncombinada",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "testcomparacioncombinada"
     },
     {
@@ -3417,8 +3428,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_testcomparacioncombinada_test_se_puede_seleccionar_el_mejor_candidato_con_lightgbm_incluido",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": ".test_se_puede_seleccionar_el_mejor_candidato_con_lightgbm_incluido()"
     },
     {
@@ -3428,8 +3439,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_forecast_test_comparar_modelos_global_rationale_1",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 1,
+      "community_name": "ensemble_backtest.py",
       "norm_label": "tests de comparar_modelos_global.py: el backtest de lightgbm global entrena un..."
     },
     {
@@ -6141,8 +6152,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "test_seleccionar_modelo.py"
     },
     {
@@ -6153,8 +6164,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_tabla",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "_tabla()"
     },
     {
@@ -6164,8 +6175,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_py_dataframe",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "dataframe"
     },
     {
@@ -6177,8 +6188,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testcriteriodeseleccion",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "testcriteriodeseleccion"
     },
     {
@@ -6189,8 +6200,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testcriteriodeseleccion_test_gana_el_candidato_con_menor_wape_medio",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": ".test_gana_el_candidato_con_menor_wape_medio()"
     },
     {
@@ -6201,8 +6212,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testcriteriodeseleccion_test_desempata_por_menor_bias_absoluto",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": ".test_desempata_por_menor_bias_absoluto()"
     },
     {
@@ -6214,8 +6225,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testsindatossuficientes",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "testsindatossuficientes"
     },
     {
@@ -6226,8 +6237,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testsindatossuficientes_test_todos_nan_marca_sin_datos_suficientes",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": ".test_todos_nan_marca_sin_datos_suficientes()"
     },
     {
@@ -6238,8 +6249,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testsindatossuficientes_test_un_solo_candidato_definido_no_marca_sin_datos_suficientes",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": ".test_un_solo_candidato_definido_no_marca_sin_datos_suficientes()"
     },
     {
@@ -6251,8 +6262,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "testparametrospropiosdelganador"
     },
     {
@@ -6263,8 +6274,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_propaga_los_pesos_del_ganador_ensemble",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": ".test_propaga_los_pesos_del_ganador_ensemble()"
     },
     {
@@ -6275,8 +6286,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_no_agrega_pesos_si_el_ganador_no_es_ensemble",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": ".test_no_agrega_pesos_si_el_ganador_no_es_ensemble()"
     },
     {
@@ -6287,8 +6298,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_testparametrospropiosdelganador_test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": ".test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final()"
     },
     {
@@ -6298,8 +6309,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_rationale_1",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "tests de seleccionar_modelo.py: criterio de seleccion (menor wape medio,..."
     },
     {
@@ -6309,8 +6320,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "tests_forecast_test_seleccionar_modelo_rationale_77",
-      "community": 6,
-      "community_name": "backtest_y_predicciones_lightgbm_global",
+      "community": 12,
+      "community_name": "pipeline.py",
       "norm_label": "cuando el ganador trae columnas `peso_*` (el candidato \"ensemble\", ver..."
     },
     {
@@ -7590,6 +7601,94 @@
       "norm_label": "notas de entorno"
     },
     {
+      "label": "2026-09-04-reentrenamiento-programado.md",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "2026-09-04-reentrenamiento-programado.md"
+    },
+    {
+      "label": "Handoff \u2014 motor_forecast_ventas",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "handoff \u2014 motor_forecast_ventas"
+    },
+    {
+      "label": "D\u00f3nde est\u00e1 el trabajo",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado_d\u00f3nde_est\u00e1_el_trabajo",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "donde esta el trabajo"
+    },
+    {
+      "label": "Qu\u00e9 se hizo en esta sesi\u00f3n (orden cronol\u00f3gico)",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado_qu\u00e9_se_hizo_en_esta_sesi\u00f3n_orden_cronol\u00f3gico",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "que se hizo en esta sesion (orden cronologico)"
+    },
+    {
+      "label": "Qu\u00e9 queda pendiente / sin resolver",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado_qu\u00e9_queda_pendiente_sin_resolver",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "que queda pendiente / sin resolver"
+    },
+    {
+      "label": "Pr\u00f3xima sesi\u00f3n \u2014 foco sugerido",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado_pr\u00f3xima_sesi\u00f3n_foco_sugerido",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "proxima sesion \u2014 foco sugerido"
+    },
+    {
+      "label": "Skills sugeridas para continuar",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado_skills_sugeridas_para_continuar",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "skills sugeridas para continuar"
+    },
+    {
+      "label": "Notas de entorno",
+      "file_type": "document",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "handoff_2026_09_04_reentrenamiento_programado_notas_de_entorno",
+      "community": 6,
+      "community_name": "Handoff \u2014 motor_forecast_ventas",
+      "norm_label": "notas de entorno"
+    },
+    {
       "label": "001-motor-forecast-sku/spec.md",
       "file_type": "document",
       "source_file": "specs/001-motor-forecast-sku/spec.md",
@@ -7940,6 +8039,83 @@
       "community": 7,
       "community_name": "Especificaci\u00f3n de Feature: Motor de Forecast de Ventas por SKU",
       "norm_label": "historial de cambios"
+    },
+    {
+      "label": "operacion.md",
+      "file_type": "document",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "specs_002_reentrenamiento_programado_operacion",
+      "community": 36,
+      "community_name": "Operaci\u00f3n: Reentrenamiento Programado",
+      "norm_label": "operacion.md"
+    },
+    {
+      "label": "Operaci\u00f3n: Reentrenamiento Programado",
+      "file_type": "document",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "specs_002_reentrenamiento_programado_operacion_operaci\u00f3n_reentrenamiento_programado",
+      "community": 36,
+      "community_name": "Operaci\u00f3n: Reentrenamiento Programado",
+      "norm_label": "operacion: reentrenamiento programado"
+    },
+    {
+      "label": "Crear la tarea programada",
+      "file_type": "document",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "specs_002_reentrenamiento_programado_operacion_crear_la_tarea_programada",
+      "community": 36,
+      "community_name": "Operaci\u00f3n: Reentrenamiento Programado",
+      "norm_label": "crear la tarea programada"
+    },
+    {
+      "label": "Forzar una corrida manual (para validar)",
+      "file_type": "document",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "specs_002_reentrenamiento_programado_operacion_forzar_una_corrida_manual_para_validar",
+      "community": 36,
+      "community_name": "Operaci\u00f3n: Reentrenamiento Programado",
+      "norm_label": "forzar una corrida manual (para validar)"
+    },
+    {
+      "label": "D\u00f3nde queda el resultado",
+      "file_type": "document",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "specs_002_reentrenamiento_programado_operacion_d\u00f3nde_queda_el_resultado",
+      "community": 36,
+      "community_name": "Operaci\u00f3n: Reentrenamiento Programado",
+      "norm_label": "donde queda el resultado"
+    },
+    {
+      "label": "C\u00f3mo distinguir \u00e9xito de falla",
+      "file_type": "document",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "specs_002_reentrenamiento_programado_operacion_c\u00f3mo_distinguir_\u00e9xito_de_falla",
+      "community": 36,
+      "community_name": "Operaci\u00f3n: Reentrenamiento Programado",
+      "norm_label": "como distinguir exito de falla"
+    },
+    {
+      "label": "Rollback",
+      "file_type": "document",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "specs_002_reentrenamiento_programado_operacion_rollback",
+      "community": 36,
+      "community_name": "Operaci\u00f3n: Reentrenamiento Programado",
+      "norm_label": "rollback"
     },
     {
       "label": "plan.md",
@@ -8715,7 +8891,7 @@
       "label": "Resumen de Paralelizaci\u00f3n",
       "file_type": "document",
       "source_file": "specs/002-reentrenamiento-programado/tasks.md",
-      "source_location": "L212",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "specs_002_reentrenamiento_programado_tasks_resumen_de_paralelizaci\u00f3n",
       "community": 35,
@@ -8726,7 +8902,7 @@
       "label": "M\u00e9tricas de Progreso",
       "file_type": "document",
       "source_file": "specs/002-reentrenamiento-programado/tasks.md",
-      "source_location": "L226",
+      "source_location": "L232",
       "_origin": "ast",
       "id": "specs_002_reentrenamiento_programado_tasks_m\u00e9tricas_de_progreso",
       "community": 35,
@@ -23772,6 +23948,83 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "handoff_2026_09_04_reentrenamiento_programado",
+      "target": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "target": "handoff_2026_09_04_reentrenamiento_programado_d\u00f3nde_est\u00e1_el_trabajo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "target": "handoff_2026_09_04_reentrenamiento_programado_notas_de_entorno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "target": "handoff_2026_09_04_reentrenamiento_programado_pr\u00f3xima_sesi\u00f3n_foco_sugerido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "target": "handoff_2026_09_04_reentrenamiento_programado_qu\u00e9_queda_pendiente_sin_resolver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "target": "handoff_2026_09_04_reentrenamiento_programado_qu\u00e9_se_hizo_en_esta_sesi\u00f3n_orden_cronol\u00f3gico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "handoff/2026-09-04-reentrenamiento-programado.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "handoff_2026_09_04_reentrenamiento_programado_handoff_motor_forecast_ventas",
+      "target": "handoff_2026_09_04_reentrenamiento_programado_skills_sugeridas_para_continuar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "specs/001-motor-forecast-sku/spec.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -24108,6 +24361,72 @@
       "_origin": "ast",
       "source": "specs_001_motor_forecast_sku_spec_10_checklist_de_completitud",
       "target": "specs_001_motor_forecast_sku_spec_antes_de_marcar_como_aprobado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "specs_002_reentrenamiento_programado_operacion",
+      "target": "specs_002_reentrenamiento_programado_operacion_operaci\u00f3n_reentrenamiento_programado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "specs_002_reentrenamiento_programado_operacion_operaci\u00f3n_reentrenamiento_programado",
+      "target": "specs_002_reentrenamiento_programado_operacion_crear_la_tarea_programada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "specs_002_reentrenamiento_programado_operacion_operaci\u00f3n_reentrenamiento_programado",
+      "target": "specs_002_reentrenamiento_programado_operacion_c\u00f3mo_distinguir_\u00e9xito_de_falla",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "specs_002_reentrenamiento_programado_operacion_operaci\u00f3n_reentrenamiento_programado",
+      "target": "specs_002_reentrenamiento_programado_operacion_d\u00f3nde_queda_el_resultado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "specs_002_reentrenamiento_programado_operacion_operaci\u00f3n_reentrenamiento_programado",
+      "target": "specs_002_reentrenamiento_programado_operacion_forzar_una_corrida_manual_para_validar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "specs/002-reentrenamiento-programado/operacion.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "specs_002_reentrenamiento_programado_operacion_operaci\u00f3n_reentrenamiento_programado",
+      "target": "specs_002_reentrenamiento_programado_operacion_rollback",
       "confidence_score": 1.0
     },
     {
@@ -24851,7 +25170,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "specs/002-reentrenamiento-programado/tasks.md",
-      "source_location": "L226",
+      "source_location": "L232",
       "weight": 1.0,
       "_origin": "ast",
       "source": "specs_002_reentrenamiento_programado_tasks_lista_de_tareas_reentrenamiento_programado",
@@ -24862,7 +25181,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "specs/002-reentrenamiento-programado/tasks.md",
-      "source_location": "L212",
+      "source_location": "L218",
       "weight": 1.0,
       "_origin": "ast",
       "source": "specs_002_reentrenamiento_programado_tasks_lista_de_tareas_reentrenamiento_programado",
@@ -24871,5 +25190,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "34ef03e51fe7a421674ed5788123a115d8bb3749"
+  "built_at_commit": "16e204310dda9d88e829f5ebc25c4a9f358fd986"
 }

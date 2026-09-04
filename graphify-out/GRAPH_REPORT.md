@@ -1,16 +1,16 @@
 # Graph Report - motor_forecast_ventas  (2026-09-04)
 
 ## Corpus Check
-- 75 files · ~39,199 words
+- 78 files · ~40,911 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 760 nodes · 1396 edges · 37 communities (32 shown, 5 thin omitted)
+- 776 nodes · 1409 edges · 39 communities (34 shown, 5 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 41 edges (avg confidence: 0.7)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `34ef03e5`
+- Built from commit: `16e20431`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,7 +21,7 @@
 - pronosticar_seasonal_naive
 - construir_dataset_supervisado
 - map.md
-- backtest_y_predicciones_lightgbm_global
+- Handoff — motor_forecast_ventas
 - Especificación de Feature: Motor de Forecast de Ventas por SKU
 - test_comparar_modelos.py
 - _ajustar_prophet
@@ -46,6 +46,7 @@
 - Especificación de Feature: Reentrenamiento Programado
 - Plan de Implementación: Reentrenamiento Programado
 - Lista de Tareas: Reentrenamiento Programado
+- Operación: Reentrenamiento Programado
 - Triage Labels
 
 ## God Nodes (most connected - your core abstractions)
@@ -75,15 +76,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (37 total, 5 thin omitted)
+## Communities (39 total, 5 thin omitted)
 
 ### Community 0 - "pronosticar_futuro.py"
-Cohesion: 0.07
-Nodes (41): cargar_ventas(), DataFrame, Series, Carga el histórico de ventas por SKU. Hoy lee el CSV sintético…, serie_por_sku(), adi(), clasificar_demanda(), cv2() (+33 more)
+Cohesion: 0.08
+Nodes (36): Series, serie_por_sku(), adi(), clasificar_demanda(), cv2(), Series, Diagnóstico del patrón de demanda — ADI, CV² y clasificación SBC (Syntetos,…, % de períodos con demanda cero. `nan` si la serie está vacía. (+28 more)
 
 ### Community 1 - "ensemble_backtest.py"
-Cohesion: 0.07
-Nodes (31): FuncionPronostico, backtest_walk_forward(), DataFrame, Series, Backtest walk-forward (rolling), sin split único ni k-fold — ver spec.md:19…, Backtest walk-forward del candidato LightGBM global — `comparar_modelos_sku`…, Evaluación walk-forward del candidato "ensemble" (ETS + TSB + LightGBM global)…, combinar_pronosticos() (+23 more)
+Cohesion: 0.05
+Nodes (46): FuncionPronostico, backtest_walk_forward(), DataFrame, Series, Backtest walk-forward (rolling), sin split único ni k-fold — ver spec.md:19…, backtest_y_predicciones_lightgbm_global(), _iterar_predicciones_por_sku(), _pronosticar_origen() (+38 more)
 
 ### Community 2 - "pronosticar_directo"
 Cohesion: 0.07
@@ -101,17 +102,17 @@ Nodes (27): LGBMRegressor, construir_dataset_supervisado(), construir_features_l
 Cohesion: 0.05
 Nodes (28): Answer, Question, Answer, Question, Answer, Question, Answer, Question (+20 more)
 
-### Community 6 - "backtest_y_predicciones_lightgbm_global"
-Cohesion: 0.08
-Nodes (28): backtest_y_predicciones_lightgbm_global(), _iterar_predicciones_por_sku(), _pronosticar_origen(), DataFrame, ndarray, Corre `_iterar_predicciones_por_sku` UNA sola vez y devuelve tanto la tabla…, Predicciones out-of-sample crudas del walk-forward, por SKU: `{sku_id: (reales,…, Entrena y predice para un origen. Devuelve una tabla indexada por `sku_id` con… (+20 more)
+### Community 6 - "Handoff — motor_forecast_ventas"
+Cohesion: 0.25
+Nodes (7): Dónde está el trabajo, Handoff — motor_forecast_ventas, Notas de entorno, Próxima sesión — foco sugerido, Qué queda pendiente / sin resolver, Qué se hizo en esta sesión (orden cronológico), Skills sugeridas para continuar
 
 ### Community 7 - "Especificación de Feature: Motor de Forecast de Ventas por SKU"
 Cohesion: 0.06
 Nodes (31): 10. Checklist de Completitud, 1. Resumen Ejecutivo, 2. Contexto y Motivación, 3. Alcance, 4. Historias de Usuario, 5. Requisitos No Funcionales, 6. Casos Borde y Escenarios de Error, 7. Experiencia de Usuario (sin diseño técnico) (+23 more)
 
 ### Community 8 - "test_comparar_modelos.py"
-Cohesion: 0.11
-Nodes (25): comparar_modelos(), comparar_modelos_sku(), DataFrame, Una fila por candidato, con sus métricas agregadas del backtest y su tasa de…, Igual que `comparar_modelos_sku`, para todos los SKUs de `ventas`. Un SKU cuya…, Las unidades vendidas/pronosticadas nunca son negativas — un modelo puede…, _sin_negativos(), _sin_negativos_con_metadata() (+17 more)
+Cohesion: 0.09
+Nodes (30): cargar_ventas(), DataFrame, Carga el histórico de ventas por SKU. Hoy lee el CSV sintético…, comparar_modelos(), comparar_modelos_sku(), DataFrame, Una fila por candidato, con sus métricas agregadas del backtest y su tasa de…, Igual que `comparar_modelos_sku`, para todos los SKUs de `ventas`. Un SKU cuya… (+22 more)
 
 ### Community 9 - "_ajustar_prophet"
 Cohesion: 0.16
@@ -126,8 +127,8 @@ Cohesion: 0.15
 Nodes (14): _ajustar_tsb(), pronosticar_tsb(), ndarray, Series, TSB (Teunter-Syntetos-Babai) para demanda intermitente — SKU-003 mostró que…, Mismo contrato que `_ajustar_ets` (forecast, fallback, motivo) para que…, Series, Tests de TSB (src/forecast/modelo_intermitente.py): p_t*z_t con suavizado… (+6 more)
 
 ### Community 12 - "pipeline.py"
-Cohesion: 0.11
-Nodes (25): Path, _agregar(), guardar_corrida(), guardar_pronosticos(), nuevo_run_id(), obtener_pronostico_vigente(), DataFrame, Persistencia de corridas y pronósticos — esquema decidido en .scratch/motor-… (+17 more)
+Cohesion: 0.07
+Nodes (38): Path, _agregar(), guardar_corrida(), guardar_pronosticos(), nuevo_run_id(), obtener_pronostico_vigente(), DataFrame, Persistencia de corridas y pronósticos — esquema decidido en .scratch/motor-… (+30 more)
 
 ### Community 13 - "evaluar_ensemble_por_sku"
 Cohesion: 0.11
@@ -185,25 +186,29 @@ Nodes (30): 10. Guía de Validación Rápida (Quickstart), 11. Registro de Decis
 Cohesion: 0.22
 Nodes (8): Grupo 0: Fundación 🏗️, Grupo 1: Aislamiento por SKU (Historia 3) 🔨, Grupo 2: Logging y resumen agregado (Historia 2) ⚙️, Grupo Final: Producción 🚀, Leyenda, Lista de Tareas: Reentrenamiento Programado, Métricas de Progreso, Resumen de Paralelización
 
+### Community 36 - "Operación: Reentrenamiento Programado"
+Cohesion: 0.29
+Nodes (6): Crear la tarea programada, Cómo distinguir éxito de falla, Dónde queda el resultado, Forzar una corrida manual (para validar), Operación: Reentrenamiento Programado, Rollback
+
 ## Knowledge Gaps
-- **153 isolated node(s):** `Question`, `Answer`, `Question`, `Answer`, `Question` (+148 more)
+- **164 isolated node(s):** `Question`, `Answer`, `Question`, `Answer`, `Question` (+159 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `pronosticar_seasonal_naive()` connect `pronosticar_seasonal_naive` to `pronosticar_futuro.py`, `ensemble_backtest.py`, `pronosticar_directo`, `backtest_y_predicciones_lightgbm_global`, `_ajustar_prophet`, `comparar_modelos.py`?**
-  _High betweenness centrality (0.060) - this node is a cross-community bridge._
-- **Why does `construir_dataset_supervisado()` connect `construir_dataset_supervisado` to `pronosticar_futuro.py`, `ensemble_backtest.py`, `backtest_y_predicciones_lightgbm_global`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **Why does `pronosticar_seasonal_naive()` connect `pronosticar_seasonal_naive` to `pronosticar_futuro.py`, `ensemble_backtest.py`, `pronosticar_directo`, `_ajustar_prophet`, `comparar_modelos.py`?**
+  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+- **Why does `construir_dataset_supervisado()` connect `construir_dataset_supervisado` to `pronosticar_futuro.py`, `ensemble_backtest.py`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Why does `pronosticar_tsb()` connect `pronosticar_tsb` to `ensemble_backtest.py`, `comparar_modelos.py`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `pronosticar_seasonal_naive()` (e.g. with `comparar_modelos.py` and `.test_divergencia_futura_no_afecta_origenes_con_prefijo_comun()`) actually correct?**
   _`pronosticar_seasonal_naive()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Question`, `Answer`, `Question` to the rest of the system?**
-  _153 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _164 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `pronosticar_futuro.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.06649616368286446 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07615018508725542 - nodes in this community are weakly interconnected._
 - **Should `ensemble_backtest.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05477477477477478 - nodes in this community are weakly interconnected._

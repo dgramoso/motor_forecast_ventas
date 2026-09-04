@@ -380,8 +380,23 @@
     "semantic_hash": ""
   },
   "specs/002-reentrenamiento-programado/tasks.md": {
-    "mtime": 1788534046.3048866,
-    "ast_hash": "184afcd786a587791a0197ab6ebdec6c",
+    "mtime": 1788534478.553061,
+    "ast_hash": "9f24c2276caa23b81195c281b3b637e3",
+    "semantic_hash": ""
+  },
+  "scripts/registrar_tarea_programada.ps1": {
+    "mtime": 1788534433.521055,
+    "ast_hash": "0719ebbc71942c1544ce33c9ee8f644a",
+    "semantic_hash": ""
+  },
+  "handoff/2026-09-04-reentrenamiento-programado.md": {
+    "mtime": 1788534735.159372,
+    "ast_hash": "a347c551447fa4b11adbbaa6821a9893",
+    "semantic_hash": ""
+  },
+  "specs/002-reentrenamiento-programado/operacion.md": {
+    "mtime": 1788534451.1571665,
+    "ast_hash": "0ecb2020b1400a71a0e0dc1c47cd658f",
     "semantic_hash": ""
   }
 }
