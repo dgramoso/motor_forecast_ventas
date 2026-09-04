@@ -8,16 +8,11 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from src.forecast.comparar_modelos import _ajustar_benchmark
 from src.forecast.comparar_modelos_global import NOMBRE_CANDIDATO
 from src.forecast.ensemble_backtest import NOMBRE_ENSEMBLE, comparar_modelos_con_ensemble
-from src.forecast.modelo_ets import _ajustar_ets
-from src.forecast.modelo_intermitente import _ajustar_tsb
 from src.forecast.pronosticar_futuro import pronosticar_futuro, pronosticar_futuro_ensemble, pronosticar_futuro_lightgbm_global
 
-# Candidatos livianos (sin Prophet/XGBoost/Random Forest) para que los
-# tests de comparar_modelos_con_ensemble sean rápidos.
-_CANDIDATOS_LIVIANOS = {"benchmark": _ajustar_benchmark, "ets": _ajustar_ets, "tsb": _ajustar_tsb}
+from ._helpers import CANDIDATOS_LIVIANOS as _CANDIDATOS_LIVIANOS
 
 
 def _ventas_multi_sku(n_skus: int, n_meses: int, semilla: int = 0) -> pd.DataFrame:
@@ -149,6 +144,11 @@ class TestPronosticarFuturoEnsemble(unittest.TestCase):
         self.assertEqual(len(pronostico), 2)
         self.assertTrue((pronostico["candidato"] == NOMBRE_ENSEMBLE).all())
         self.assertFalse(pronostico["fallback"].any())
+        # Los pesos quedan junto al pronóstico servido, no sólo en la
+        # corrida (ver seleccionar_modelo.py, trazabilidad).
+        for columna in ("peso_ets", "peso_tsb", "peso_lightgbm_global"):
+            self.assertIn(columna, pronostico.columns)
+            self.assertFalse(pronostico[columna].isna().any())
 
 
 if __name__ == "__main__":

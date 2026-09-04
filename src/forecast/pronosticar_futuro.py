@@ -14,7 +14,7 @@ from src.forecast.comparar_modelos import CANDIDATOS_CON_METADATA, HORIZONTE
 from src.forecast.comparar_modelos_global import NOMBRE_CANDIDATO as NOMBRE_CANDIDATO_LIGHTGBM_GLOBAL
 from src.forecast.diagnostico_demanda import adi, clasificar_demanda, cv2, tasa_de_ceros
 from src.forecast.ensemble import combinar_pronosticos
-from src.forecast.ensemble_backtest import MODELOS_ENSEMBLE, NOMBRE_ENSEMBLE
+from src.forecast.ensemble_backtest import CANDIDATOS_ENSEMBLE, NOMBRE_ENSEMBLE
 from src.forecast.features_lightgbm import LAGS, VENTANAS_ROLLING, construir_dataset_supervisado
 from src.forecast.modelo_lightgbm_global import entrenar_lightgbm_global, pronosticar_lightgbm_global
 from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo_sku
@@ -128,7 +128,7 @@ def pronosticar_futuro_ensemble(
 
     filas = []
     for sku_id in skus:
-        pesos = {nombre: pesos_por_sku.loc[sku_id, f"peso_{nombre}"] for nombre in MODELOS_ENSEMBLE}
+        pesos = {nombre: pesos_por_sku.loc[sku_id, f"peso_{nombre}"] for nombre in CANDIDATOS_ENSEMBLE}
         serie = serie_por_sku(ventas, sku_id)
 
         pron_ets, _fallback, _motivo = CANDIDATOS_CON_METADATA["ets"](serie, horizonte)
@@ -155,6 +155,10 @@ def pronosticar_futuro_ensemble(
                     "clase_demanda": clasificar_demanda(serie),
                     "observaciones_entrenamiento": len(serie),
                     "observaciones_demanda_positiva": int((serie > 0).sum()),
+                    # Parámetros propios del candidato (ver
+                    # seleccionar_modelo.py) — quedan también junto al
+                    # pronóstico servido, no sólo en la corrida.
+                    **{f"peso_{nombre}": pesos[nombre] for nombre in CANDIDATOS_ENSEMBLE},
                 }
             )
         )
@@ -168,32 +172,32 @@ def pronosticar_futuro(
     """Selecciona el mejor candidato por SKU (ver seleccionar_modelo.py) y
     genera su pronóstico futuro. `tabla_comparativa` es la salida de
     `comparar_modelos` (o `comparar_modelos_con_ensemble`) sobre el
-    mismo `ventas`. Los
-    candidatos "lightgbm_global" y "ensemble" se sirven aparte (un solo
-    entrenamiento global para todas las SKUs que los ganaron, no uno por
-    SKU)."""
-    tablas = []
-    skus_lightgbm_global = []
-    skus_ensemble = []
+    mismo `ventas`. Los candidatos "globales" (`servidores_globales`) se
+    sirven aparte de `pronosticar_futuro_sku`: un solo entrenamiento para
+    todas las SKUs que los ganaron, no uno por SKU. Agregar un nuevo
+    candidato global es un solo punto de cambio: sumar su entrada acá."""
+    servidores_globales = {
+        NOMBRE_CANDIDATO_LIGHTGBM_GLOBAL: lambda skus: pronosticar_futuro_lightgbm_global(ventas, skus, horizonte),
+        NOMBRE_ENSEMBLE: lambda skus: pronosticar_futuro_ensemble(ventas, skus, tabla_comparativa, horizonte),
+    }
+    skus_por_candidato_global: dict[str, list] = {nombre: [] for nombre in servidores_globales}
 
+    tablas = []
     for sku_id, tabla_sku in tabla_comparativa.groupby("sku_id"):
         seleccion = seleccionar_mejor_modelo_sku(tabla_sku)
-        if seleccion["candidato"] == NOMBRE_CANDIDATO_LIGHTGBM_GLOBAL:
-            skus_lightgbm_global.append(sku_id)
-            continue
-        if seleccion["candidato"] == NOMBRE_ENSEMBLE:
-            skus_ensemble.append(sku_id)
+        candidato = seleccion["candidato"]
+        if candidato in servidores_globales:
+            skus_por_candidato_global[candidato].append(sku_id)
             continue
 
         serie = serie_por_sku(ventas, sku_id)
-        pronostico = pronosticar_futuro_sku(serie, seleccion["candidato"], horizonte)
+        pronostico = pronosticar_futuro_sku(serie, candidato, horizonte)
         pronostico.insert(0, "sku_id", sku_id)
-        pronostico.insert(2, "candidato", seleccion["candidato"])
+        pronostico.insert(2, "candidato", candidato)
         tablas.append(pronostico)
 
-    if skus_lightgbm_global:
-        tablas.append(pronosticar_futuro_lightgbm_global(ventas, skus_lightgbm_global, horizonte))
-    if skus_ensemble:
-        tablas.append(pronosticar_futuro_ensemble(ventas, skus_ensemble, tabla_comparativa, horizonte))
+    for candidato, skus in skus_por_candidato_global.items():
+        if skus:
+            tablas.append(servidores_globales[candidato](skus))
 
     return pd.concat(tablas, ignore_index=True)

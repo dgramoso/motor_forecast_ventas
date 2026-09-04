@@ -27,7 +27,7 @@ def seleccionar_mejor_modelo_sku(tabla_comparativa_sku: pd.DataFrame) -> dict:
 
     ganador = tabla.sort_values(["wape_redondeado", "bias_abs"]).iloc[0]
 
-    return {
+    resultado = {
         "candidato": ganador["candidato"],
         "wape_medio": ganador["wape_medio"],
         "bias_medio": ganador["bias_medio"],
@@ -36,6 +36,15 @@ def seleccionar_mejor_modelo_sku(tabla_comparativa_sku: pd.DataFrame) -> dict:
         "tasa_fallback_backtest": ganador["tasa_fallback_backtest"],
         "sin_datos_suficientes": bool(pd.isna(ganador["wape_medio"])),
     }
+    # Si el ganador trae sus propios parámetros (p.ej. los pesos del
+    # candidato "ensemble", columnas `peso_*` de comparar_modelos_con_ensemble),
+    # se propagan acá — quedan en la corrida persistida (guardar_corrida)
+    # en vez de perderse en la selección. Ausentes para el resto de los
+    # candidatos, que no tienen parámetros propios que registrar.
+    resultado.update(
+        {columna: ganador[columna] for columna in tabla.columns if columna.startswith("peso_") and pd.notna(ganador[columna])}
+    )
+    return resultado
 
 
 def seleccionar_mejor_modelo(tabla_comparativa: pd.DataFrame) -> pd.DataFrame:
@@ -46,7 +55,7 @@ def seleccionar_mejor_modelo(tabla_comparativa: pd.DataFrame) -> pd.DataFrame:
         seleccion["sku_id"] = sku_id
         filas.append(seleccion)
 
-    columnas = [
+    columnas_base = [
         "sku_id",
         "candidato",
         "wape_medio",
@@ -56,4 +65,8 @@ def seleccionar_mejor_modelo(tabla_comparativa: pd.DataFrame) -> pd.DataFrame:
         "tasa_fallback_backtest",
         "sin_datos_suficientes",
     ]
-    return pd.DataFrame(filas)[columnas]
+    # Columnas `peso_*` sólo si algún SKU ganó con un candidato que las
+    # trae (ver seleccionar_mejor_modelo_sku) — no todas las corridas
+    # tienen un ganador "ensemble".
+    columnas_peso = sorted({columna for fila in filas for columna in fila if columna.startswith("peso_")})
+    return pd.DataFrame(filas)[columnas_base + columnas_peso]

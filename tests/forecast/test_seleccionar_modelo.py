@@ -9,7 +9,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo_sku
+from src.forecast.seleccionar_modelo import seleccionar_mejor_modelo, seleccionar_mejor_modelo_sku
 
 
 def _tabla(filas: list[dict]) -> pd.DataFrame:
@@ -71,6 +71,90 @@ class TestSinDatosSuficientes(unittest.TestCase):
 
         self.assertFalse(seleccion["sin_datos_suficientes"])
         self.assertEqual(seleccion["candidato"], "ets_tsb")
+
+
+class TestParametrosPropiosDelGanador(unittest.TestCase):
+    """Cuando el ganador trae columnas `peso_*` (el candidato "ensemble",
+    ver ensemble_backtest.py), seleccionar_mejor_modelo_sku las propaga
+    en vez de perderlas — son los parámetros del modelo que se sirvió,
+    necesarios para reproducir el pronóstico desde lo persistido (ver
+    CONTEXT.md / guardar_corrida)."""
+
+    def test_propaga_los_pesos_del_ganador_ensemble(self):
+        tabla = _tabla(
+            [
+                {
+                    "candidato": "benchmark", "wape_medio": 0.5, "bias_medio": 0.1, "mae_medio": 10.0,
+                    "mase_medio": 1.2, "tasa_fallback_backtest": 0.0,
+                    "peso_ets": np.nan, "peso_tsb": np.nan, "peso_lightgbm_global": np.nan,
+                },
+                {
+                    "candidato": "ensemble", "wape_medio": 0.1, "bias_medio": 0.0, "mae_medio": 2.0,
+                    "mase_medio": 0.5, "tasa_fallback_backtest": 0.0,
+                    "peso_ets": 0.3, "peso_tsb": 0.5, "peso_lightgbm_global": 0.2,
+                },
+            ]
+        )
+
+        seleccion = seleccionar_mejor_modelo_sku(tabla)
+
+        self.assertEqual(seleccion["candidato"], "ensemble")
+        self.assertEqual(seleccion["peso_ets"], 0.3)
+        self.assertEqual(seleccion["peso_tsb"], 0.5)
+        self.assertEqual(seleccion["peso_lightgbm_global"], 0.2)
+
+    def test_no_agrega_pesos_si_el_ganador_no_es_ensemble(self):
+        tabla = _tabla(
+            [
+                {
+                    "candidato": "benchmark", "wape_medio": 0.1, "bias_medio": 0.0, "mae_medio": 2.0,
+                    "mase_medio": 0.5, "tasa_fallback_backtest": 0.0,
+                    "peso_ets": np.nan, "peso_tsb": np.nan, "peso_lightgbm_global": np.nan,
+                },
+                {
+                    "candidato": "ensemble", "wape_medio": 0.5, "bias_medio": 0.1, "mae_medio": 10.0,
+                    "mase_medio": 1.2, "tasa_fallback_backtest": 0.0,
+                    "peso_ets": 0.3, "peso_tsb": 0.5, "peso_lightgbm_global": 0.2,
+                },
+            ]
+        )
+
+        seleccion = seleccionar_mejor_modelo_sku(tabla)
+
+        self.assertEqual(seleccion["candidato"], "benchmark")
+        self.assertNotIn("peso_ets", seleccion)
+
+    def test_seleccionar_mejor_modelo_no_pierde_los_pesos_en_la_tabla_final(self):
+        tabla = pd.concat(
+            [
+                _tabla(
+                    [
+                        {
+                            "sku_id": "SKU-0", "candidato": "ensemble", "wape_medio": 0.1, "bias_medio": 0.0,
+                            "mae_medio": 2.0, "mase_medio": 0.5, "tasa_fallback_backtest": 0.0,
+                            "peso_ets": 0.3, "peso_tsb": 0.5, "peso_lightgbm_global": 0.2,
+                        }
+                    ]
+                ),
+                _tabla(
+                    [
+                        {
+                            "sku_id": "SKU-1", "candidato": "benchmark", "wape_medio": 0.2, "bias_medio": 0.0,
+                            "mae_medio": 3.0, "mase_medio": 0.6, "tasa_fallback_backtest": 0.0,
+                        }
+                    ]
+                ),
+            ],
+            ignore_index=True,
+        )
+
+        selecciones = seleccionar_mejor_modelo(tabla)
+
+        self.assertIn("peso_ets", selecciones.columns)
+        fila_sku0 = selecciones[selecciones["sku_id"] == "SKU-0"].iloc[0]
+        fila_sku1 = selecciones[selecciones["sku_id"] == "SKU-1"].iloc[0]
+        self.assertEqual(fila_sku0["peso_ets"], 0.3)
+        self.assertTrue(pd.isna(fila_sku1["peso_ets"]))
 
 
 if __name__ == "__main__":
