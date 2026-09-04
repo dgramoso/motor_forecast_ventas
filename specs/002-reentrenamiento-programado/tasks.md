@@ -177,23 +177,28 @@
   - Entradas: plan.md (sección 10)
   - Salidas: tarea programada activa en el entorno de despliegue
   - Dependencias: T029
+  - **Estado**: [x] Script listo (`scripts/registrar_tarea_programada.ps1`,
+    cadencia semanal). [ ] Falta correrlo — decisión del usuario: no se
+    registró la tarea real en este Windows todavía, para no disparar
+    corridas de ~74 min sin que el usuario elija el momento.
 
 [T901] [P] Documentación de operación
   - Descripción: cómo crear/editar la tarea, dónde queda el log
     (`logs/corridas_programadas.log`), cómo distinguir un resumen exitoso de
     una falla (INFO vs. ERROR), y cómo forzar una corrida manual de validación.
   - Entradas: plan.md (secciones 7 y 10)
-  - Salidas: documento de operación (ubicación a decidir — ej. junto a
-    `docs/agents/` o en un README propio de la feature)
+  - Salidas: `specs/002-reentrenamiento-programado/operacion.md`
   - Dependencias: T029
+  - **Estado**: [x] Completo
 
 [T902] [P] Documentar el criterio de rollback
   - Descripción: deshabilitar la tarea en Task Scheduler vuelve al estado
     100% manual, sin tocar código ni datos persistidos — dejarlo explícito en
     la misma documentación de T901.
   - Entradas: plan.md (sección 7, Fase Final)
-  - Salidas: sección de rollback en el documento de T901
+  - Salidas: sección de rollback en `operacion.md`
   - Dependencias: T901
+  - **Estado**: [x] Completo
 
 [T999] [S] Validación final con criterios de aceptación del spec
   - Descripción: ejecutar manualmente los criterios de aceptación de las
@@ -203,9 +208,10 @@
   - Entradas: spec.md (todos los Criterios de Aceptación)
   - Salidas: checklist de aceptación completado
   - Dependencias: T900, T901, T902
+  - **Estado**: [ ] Pendiente — requiere T900 (tarea activa) primero
 ```
 
-**Estado del grupo**: [ ] Completo
+**Estado del grupo**: [ ] Completo (falta T900 activar la tarea y T999 validar contra una corrida real)
 
 ---
 
@@ -230,5 +236,5 @@ Final:   T900,T901 (paralelo) → T902 → T999
 | Grupo 0 | 5 | 5 | 100% |
 | Grupo 1 | 4 | 4 | 100% |
 | Grupo 2 | 5 | 5 | 100% |
-| Final | 4 | 0 | 0% |
-| **Total** | **18** | **14** | **78%** |
+| Final | 4 | 2 | 50% |
+| **Total** | **18** | **16** | **89%** |
