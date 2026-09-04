@@ -3,7 +3,7 @@
 **ID de Feature**: 002
 **Plan de referencia**: `specs/002-reentrenamiento-programado/plan.md`
 **Fecha de generación**: 2026-09-04
-**Estado**: PENDIENTE
+**Estado**: EN PROGRESO (Grupos 0-2 completos, Grupo Final pendiente)
 
 ---
 
@@ -64,7 +64,7 @@
   - Dependencias: ninguna
 ```
 
-**Estado del grupo**: [ ] Completo (continuar solo cuando T000-T003 estén confirmados en FAIL)
+**Estado del grupo**: [x] Completo (continuar solo cuando T000-T003 estén confirmados en FAIL)
 
 ---
 
@@ -110,7 +110,7 @@
   - Dependencias: T010, T011, T012
 ```
 
-**Estado del grupo**: [ ] Completo
+**Estado del grupo**: [x] Completo
 
 ---
 
@@ -161,7 +161,7 @@
   - Dependencias: T020, T021, T022, T023
 ```
 
-**Estado del grupo**: [ ] Completo
+**Estado del grupo**: [x] Completo
 
 ---
 
@@ -227,8 +227,8 @@ Final:   T900,T901 (paralelo) → T902 → T999
 
 | Grupo | Total tareas | Completadas | % |
 |-------|-------------|-------------|---|
-| Grupo 0 | 5 | 0 | 0% |
-| Grupo 1 | 4 | 0 | 0% |
-| Grupo 2 | 5 | 0 | 0% |
+| Grupo 0 | 5 | 5 | 100% |
+| Grupo 1 | 4 | 4 | 100% |
+| Grupo 2 | 5 | 5 | 100% |
 | Final | 4 | 0 | 0% |
-| **Total** | **18** | **0** | **0%** |
+| **Total** | **18** | **14** | **78%** |

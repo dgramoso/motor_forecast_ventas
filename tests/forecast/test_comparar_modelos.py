@@ -8,7 +8,16 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from src.forecast.comparar_modelos import CANDIDATOS, CANDIDATOS_CON_METADATA, _sin_negativos, _sin_negativos_con_metadata, comparar_modelos_sku
+from src.forecast.comparar_modelos import (
+    CANDIDATOS,
+    CANDIDATOS_CON_METADATA,
+    _sin_negativos,
+    _sin_negativos_con_metadata,
+    comparar_modelos,
+    comparar_modelos_sku,
+)
+
+from ._helpers import VALOR_CENTINELA_DE_FALLA, ajustar_con_falla_para_valor_centinela
 
 
 def _serie(n: int = 30) -> pd.Series:
@@ -93,6 +102,56 @@ class TestSinNegativos(unittest.TestCase):
 
         forecast_meta, _fallback, _motivo = CANDIDATOS_CON_METADATA["benchmark"](serie_decreciente, horizonte=3)
         self.assertTrue((forecast_meta >= 0).all())
+
+
+def _ventas_multi_sku(n_skus: int, n_meses: int, semilla: int = 0) -> pd.DataFrame:
+    rng = np.random.default_rng(semilla)
+    fechas = pd.date_range("2020-01-01", periods=n_meses, freq="MS")
+    filas = []
+    for i in range(n_skus):
+        nivel = 50 + i * 10
+        valores = np.maximum(nivel + rng.normal(0, 5, n_meses), 0)
+        for fecha, valor in zip(fechas, valores):
+            filas.append({"sku_id": f"SKU-{i}", "fecha": fecha, "unidades_vendidas": valor})
+    return pd.DataFrame(filas)
+
+
+class TestAislamientoPorSku(unittest.TestCase):
+    """Un SKU que rompe con una excepción no contemplada por el fallback
+    (ver _ajuste_con_fallback.py) no debe tumbar la corrida completa —
+    specs/002-reentrenamiento-programado, Historia 3."""
+
+    def test_un_sku_que_rompe_no_tumba_el_resto(self):
+        ventas = _ventas_multi_sku(n_skus=3, n_meses=30)
+        ventas.loc[ventas["sku_id"] == "SKU-1", "unidades_vendidas"] = VALOR_CENTINELA_DE_FALLA
+
+        tabla = comparar_modelos(
+            ventas, horizonte=3, ventana_minima=24, candidatos={"rompe": ajustar_con_falla_para_valor_centinela}
+        )
+
+        self.assertEqual(set(tabla["sku_id"]), {"SKU-0", "SKU-2"})
+
+    def test_sku_que_rompe_queda_logueado_como_warning(self):
+        ventas = _ventas_multi_sku(n_skus=2, n_meses=30)
+        ventas.loc[ventas["sku_id"] == "SKU-0", "unidades_vendidas"] = VALOR_CENTINELA_DE_FALLA
+
+        with self.assertLogs("src.forecast.comparar_modelos", level="WARNING") as registro:
+            comparar_modelos(
+                ventas, horizonte=3, ventana_minima=24, candidatos={"rompe": ajustar_con_falla_para_valor_centinela}
+            )
+
+        self.assertTrue(any("SKU-0" in mensaje for mensaje in registro.output))
+
+    def test_todos_los_skus_rotos_devuelve_tabla_vacia_sin_explotar(self):
+        ventas = _ventas_multi_sku(n_skus=2, n_meses=30)
+        ventas["unidades_vendidas"] = VALOR_CENTINELA_DE_FALLA
+
+        tabla = comparar_modelos(
+            ventas, horizonte=3, ventana_minima=24, candidatos={"rompe": ajustar_con_falla_para_valor_centinela}
+        )
+
+        self.assertTrue(tabla.empty)
+        self.assertIn("sku_id", tabla.columns)
 
 
 if __name__ == "__main__":

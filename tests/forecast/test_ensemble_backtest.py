@@ -4,10 +4,12 @@ el docstring del módulo sobre por qué anidado y no un solo ajuste
 global)."""
 
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
 
+from src.forecast.comparar_modelos import CANDIDATOS_CON_METADATA
 from src.forecast.comparar_modelos_global import backtest_y_predicciones_lightgbm_global
 from src.forecast.ensemble_backtest import (
     CANDIDATOS_ENSEMBLE,
@@ -19,7 +21,7 @@ from src.forecast.ensemble_backtest import (
     evaluar_ensemble_por_sku,
 )
 
-from ._helpers import CANDIDATOS_LIVIANOS
+from ._helpers import CANDIDATOS_LIVIANOS, VALOR_CENTINELA_DE_FALLA, ajustar_con_falla_para_valor_centinela
 
 
 def _ventas_multi_sku(n_skus: int, n_meses: int, semilla: int = 0) -> pd.DataFrame:
@@ -153,6 +155,28 @@ class TestBacktestYPrediccionesPorCandidato(unittest.TestCase):
             reales, pronosticos = predicciones[sku_id]
             self.assertEqual(len(reales), len(pronosticos))
             self.assertEqual(len(reales), int(tabla.loc[tabla["sku_id"] == sku_id, "n_ventanas"].iloc[0]))
+
+    def test_un_sku_que_rompe_no_tumba_el_resto(self):
+        """Excepción no contemplada por el fallback (specs/002-reentrenamiento-programado,
+        Historia 3) — mismo aislamiento que comparar_modelos()."""
+        ventas = _ventas_multi_sku(3, 30, semilla=8)
+        ventas.loc[ventas["sku_id"] == "SKU-1", "unidades_vendidas"] = VALOR_CENTINELA_DE_FALLA
+
+        with patch.dict(CANDIDATOS_CON_METADATA, {"ets": ajustar_con_falla_para_valor_centinela}):
+            tabla, predicciones = _backtest_y_predicciones_por_candidato(ventas, "ets", horizonte=3, ventana_minima=24)
+
+        self.assertEqual(set(tabla["sku_id"]), {"SKU-0", "SKU-2"})
+        self.assertNotIn("SKU-1", predicciones)
+
+    def test_sku_que_rompe_queda_logueado_como_warning(self):
+        ventas = _ventas_multi_sku(2, 30, semilla=8)
+        ventas.loc[ventas["sku_id"] == "SKU-0", "unidades_vendidas"] = VALOR_CENTINELA_DE_FALLA
+
+        with patch.dict(CANDIDATOS_CON_METADATA, {"ets": ajustar_con_falla_para_valor_centinela}):
+            with self.assertLogs("src.forecast.ensemble_backtest", level="WARNING") as registro:
+                _backtest_y_predicciones_por_candidato(ventas, "ets", horizonte=3, ventana_minima=24)
+
+        self.assertTrue(any("SKU-0" in mensaje for mensaje in registro.output))
 
 
 class TestEvaluarEnsemble(unittest.TestCase):

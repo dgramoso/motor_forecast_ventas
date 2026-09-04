@@ -45,8 +45,8 @@
     "semantic_hash": ""
   },
   "src/forecast/comparar_modelos.py": {
-    "mtime": 1788204106.0482059,
-    "ast_hash": "ec50485ff0c17af4a46d822ea22a3e19",
+    "mtime": 1788533940.9148617,
+    "ast_hash": "67d6490d3e7c242bc023d97565b26fe1",
     "semantic_hash": ""
   },
   "src/forecast/comparar_modelos_global.py": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "src/forecast/ensemble_backtest.py": {
-    "mtime": 1788527373.8575823,
-    "ast_hash": "ea6b368825d4f235a32034914512bea8",
+    "mtime": 1788533600.4184456,
+    "ast_hash": "d964480ca81c8bedc12383fd5ed624d5",
     "semantic_hash": ""
   },
   "src/forecast/features_lightgbm.py": {
@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "src/forecast/pipeline.py": {
-    "mtime": 1788372068.9865685,
-    "ast_hash": "69a40ff57f9dea69b4ced4ffbc2f6048",
+    "mtime": 1788533678.7115676,
+    "ast_hash": "3c20857e953c64ab4b4b17a161c2086b",
     "semantic_hash": ""
   },
   "src/forecast/pronosticar_futuro.py": {
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "tests/forecast/test_comparar_modelos.py": {
-    "mtime": 1788202367.5262587,
-    "ast_hash": "8dd76c263370fc50166db2a37c12b3bc",
+    "mtime": 1788533972.932019,
+    "ast_hash": "b427d31e48576b2902a410134550fc95",
     "semantic_hash": ""
   },
   "tests/forecast/test_comparar_modelos_global.py": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "tests/forecast/test_ensemble_backtest.py": {
-    "mtime": 1788527458.012687,
-    "ast_hash": "62650c94099fde4fb358c16ff90760ba",
+    "mtime": 1788533442.1942723,
+    "ast_hash": "0a8ec37543304fa1bcdb3dc6353e4b06",
     "semantic_hash": ""
   },
   "tests/forecast/test_features_lightgbm.py": {
@@ -355,13 +355,33 @@
     "semantic_hash": ""
   },
   "tests/forecast/_helpers.py": {
-    "mtime": 1788527414.5684595,
-    "ast_hash": "7aa0ae3c394d60377cc52d7c994801c2",
+    "mtime": 1788533382.2933729,
+    "ast_hash": "52cbe0516e4c75fd117af745e6ffd6af",
     "semantic_hash": ""
   },
   "docs/agents/triage-labels.md": {
     "mtime": 1788378070.7090323,
     "ast_hash": "c943b4f17194520383283e513198e816",
+    "semantic_hash": ""
+  },
+  "tests/forecast/test_pipeline.py": {
+    "mtime": 1788533960.8301697,
+    "ast_hash": "430fbcd1657722f1aeaab313dd08312b",
+    "semantic_hash": ""
+  },
+  "specs/002-reentrenamiento-programado/plan.md": {
+    "mtime": 1788533061.2464788,
+    "ast_hash": "3a2815a455b176822b4dc9dd900daa6f",
+    "semantic_hash": ""
+  },
+  "specs/002-reentrenamiento-programado/spec.md": {
+    "mtime": 1788532524.5970917,
+    "ast_hash": "a37b99bb10c917498eb0f5a914214477",
+    "semantic_hash": ""
+  },
+  "specs/002-reentrenamiento-programado/tasks.md": {
+    "mtime": 1788534046.3048866,
+    "ast_hash": "184afcd786a587791a0197ab6ebdec6c",
     "semantic_hash": ""
   }
 }

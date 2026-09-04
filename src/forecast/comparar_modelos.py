@@ -4,6 +4,7 @@ modelo (ver .scratch/motor-forecast-pipeline/issues/04-*) y por la
 integración end-to-end.
 """
 
+import logging
 from typing import Optional
 
 import numpy as np
@@ -20,6 +21,8 @@ from src.forecast.modelo_xgboost import _ajustar_xgboost, pronosticar_xgboost
 
 HORIZONTE = 3
 VENTANA_MINIMA = 24
+
+logger = logging.getLogger(__name__)
 
 
 def _sin_negativos(funcion):
@@ -130,11 +133,39 @@ def comparar_modelos(
     ventana_minima: int = VENTANA_MINIMA,
     candidatos: dict = CANDIDATOS_CON_METADATA,
 ) -> pd.DataFrame:
-    """Igual que `comparar_modelos_sku`, para todos los SKUs de `ventas`."""
+    """Igual que `comparar_modelos_sku`, para todos los SKUs de `ventas`.
+    Un SKU cuya comparación lance una excepción no contemplada por el
+    fallback de ningún candidato (ver `_ajuste_con_fallback.py`) se
+    loguea como WARNING y se excluye del resultado — no tumba la corrida
+    completa (specs/002-reentrenamiento-programado, Historia 3). La
+    exclusión es del SKU entero, no sólo del candidato que rompió: si un
+    candidato rompe a mitad del loop de `comparar_modelos_sku`, se
+    pierden también los candidatos de ese mismo SKU que ya habían
+    corrido bien — comportamiento intencional (T010), más simple que
+    rastrear resultados parciales por candidato para un caso ya
+    excepcional."""
     tablas = []
     for sku_id in ventas["sku_id"].unique():
         serie = serie_por_sku(ventas, sku_id)
-        tabla_sku = comparar_modelos_sku(serie, horizonte, ventana_minima, candidatos)
+        try:
+            tabla_sku = comparar_modelos_sku(serie, horizonte, ventana_minima, candidatos)
+        except Exception as error:
+            logger.warning("SKU %s excluido de la corrida: %s: %s", sku_id, type(error).__name__, error)
+            continue
         tabla_sku.insert(0, "sku_id", sku_id)
         tablas.append(tabla_sku)
+    if not tablas:
+        return pd.DataFrame(
+            columns=[
+                "sku_id",
+                "candidato",
+                "n_ventanas",
+                "wape_indefinido",
+                "wape_medio",
+                "bias_medio",
+                "mae_medio",
+                "mase_medio",
+                "tasa_fallback_backtest",
+            ]
+        )
     return pd.concat(tablas, ignore_index=True)

@@ -40,6 +40,8 @@ se trata como "sin datos suficientes" para ese SKU en vez de mezclar
 ventanas de orígenes distintos.
 """
 
+import logging
+
 import numpy as np
 import pandas as pd
 
@@ -59,6 +61,8 @@ CANDIDATOS_ENSEMBLE = ("ets", "tsb", "lightgbm_global")
 # sumen 1) necesita algo de historia previa para no sobreajustar a un
 # puñado de ventanas — piso conservador, sin derivación formal.
 MIN_VENTANAS_AJUSTE_PESOS = 5
+
+logger = logging.getLogger(__name__)
 
 
 def evaluar_ensemble_por_sku(
@@ -133,7 +137,12 @@ def _backtest_y_predicciones_por_candidato(
     predicciones crudas por SKU — mismo patrón que
     `backtest_y_predicciones_lightgbm_global`, para no reentrenar el
     mismo candidato dos veces cuando además hace falta para el ensemble
-    (ver `comparar_modelos_con_ensemble`)."""
+    (ver `comparar_modelos_con_ensemble`).
+
+    Un SKU cuya comparación lance una excepción no contemplada por el
+    fallback se loguea como WARNING y se excluye del resultado — mismo
+    aislamiento que `comparar_modelos()` (specs/002-reentrenamiento-programado,
+    Historia 3)."""
     ajustar_con_metadata = CANDIDATOS_CON_METADATA[nombre]
     filas = []
     predicciones = {}
@@ -146,7 +155,13 @@ def _backtest_y_predicciones_por_candidato(
             _fallbacks.append(fallback)
             return forecast
 
-        resultados = backtest_walk_forward(serie, funcion_pronostico, horizonte, ventana_minima)
+        try:
+            resultados = backtest_walk_forward(serie, funcion_pronostico, horizonte, ventana_minima)
+        except Exception as error:
+            logger.warning(
+                "SKU %s excluido de la corrida (candidato %s): %s: %s", sku_id, nombre, type(error).__name__, error
+            )
+            continue
         filas.append(
             {
                 "sku_id": sku_id,
@@ -176,8 +191,11 @@ def evaluar_ensemble(
     `comparar_modelos_sku` (para poder concatenar, ver
     `comparar_modelos_con_ensemble`) más las columnas `peso_*` de
     producción. Queda en `NaN` (wape/bias/mae/mase y pesos) si el SKU no
-    tuvo ventanas suficientes para los tres candidatos, o si sus
-    ventanas no coinciden ventana a ventana (ver docstring del módulo)
+    tuvo ventanas suficientes para los tres candidatos — mismo caso si
+    ETS o TSB lo excluyeron por una excepción no manejada (ver
+    `_backtest_y_predicciones_por_candidato`): sin sus predicciones, cae
+    al mismo "sin datos suficientes", no hace falta un caso aparte — o
+    si sus ventanas no coinciden ventana a ventana (ver docstring del módulo)
     — mismo criterio de "sin datos suficientes" que el resto de los
     candidatos.
 
